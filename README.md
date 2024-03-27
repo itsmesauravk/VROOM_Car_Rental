@@ -1,7 +1,7 @@
 # VROOM Car Rental
 
 ## Overview
-![Car Image](https://i.pinimg.com/originals/83/db/8a/83db8adb14077b609539478ca6023c80.png)
+![Car Image](ford.png)
 
 
 VROOM Car Rental is a web-based platform designed to facilitate the renting and management of vehicles. This platform provides users with a convenient way to browse available vehicles, make reservations, manage bookings, and handle administrative tasks related to car rentals.
