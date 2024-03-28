@@ -40,4 +40,4 @@ VROOM Car Rental is a web-based platform designed to facilitate the renting and 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/VROOM_Car_Rental.git
+   git clone https://github.com/itsmesauravk/VROOM_Car_Rental.git
