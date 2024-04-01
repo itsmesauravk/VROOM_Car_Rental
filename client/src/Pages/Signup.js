@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import car from "../assets/images/car.jpg"
+import env from 'react-dotenv';
 import "../css/LogSign.css"
 
 function Signup() {
@@ -10,14 +11,49 @@ function Signup() {
     const [userLocation,setUserLocation] = useState("");
     const [usePassword,setUserPassword] = useState("");
   
-    const  submitData = (e)=>{
+    // console.log(env.API_URL)
+
+    const submitData = async (e) => {
       e.preventDefault();
-      console.log("Name: ",userName);
-      console.log("Phone: ",userNumber);
-      console.log("Location: ",userLocation);
-      console.log("Email: ",userEmail);
-      console.log("Password: ",usePassword);
-    }
+  
+      const formData = {
+        fullname: userName,
+        email: userEmail,
+        phone: userNumber,
+        password: usePassword,
+        address: userLocation
+      };
+  
+      try {
+        const response = await fetch(`${env.API_URL}/register`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+  
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+  
+        const data = await response.json();
+        console.log(data);
+        if(data.success){
+          alert('User registered successfully')
+          setUserName("");
+          setUserEmail("");
+          setUserNumber("");
+          setUserLocation("");
+          setUserPassword("");
+        if(!data.success){
+          alert('Email already exists')
+        }
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
 
   return (
     <>

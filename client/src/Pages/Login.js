@@ -1,17 +1,45 @@
 import React, { useState } from 'react'
 import "../css/LogSign.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import car from "../assets/images/car.jpg"
-import ForgotPassword from '../Pages/ForgotPassword';
+// import ForgotPassword from '../Pages/ForgotPassword';
+
 
 const Login = () => {
   const [userEmail,setUserEmail] = useState("");
   const [usePassword,setUserPassword] = useState("");
+  const navigate = useNavigate();
+ 
+
   function handleSubmit(e){
     e.preventDefault();
-    console.log("Email: ",userEmail);
-    console.log("Password: ",usePassword);
+    const formData = {
+      email: userEmail,
+      password: usePassword
+    };
+    fetch('http://localhost:4000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      if(data.success){
+        alert('User logged in successfully')
+        setUserEmail("");
+        setUserPassword("");
+        navigate('/')
+        localStorage.setItem('token', data.token)
+      }
+      if(!data.success){
+        alert('Invalid email or password')
+      }
+    })
   }
+
   return (
     <>
     {/* <video  autoPlay loop muted src={carVideo} className='carVideo' /> */}
