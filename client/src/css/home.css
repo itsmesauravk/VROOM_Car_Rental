@@ -1,0 +1,5 @@
+.video{
+    height: 90vh;
+    object-fit: fill;
+    width: 100vw;
+}
