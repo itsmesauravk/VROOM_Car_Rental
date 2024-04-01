@@ -25,7 +25,7 @@ const Nav = () => {
       </ul>
       <div>
         <button className='nav--button'>
-            Sign Up
+            <Link to={'/login'}>Login</Link>
         </button>
       </div>
     </nav>
