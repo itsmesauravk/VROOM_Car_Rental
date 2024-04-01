@@ -1,0 +1,38 @@
+.EnteringCode{
+    border: 1px solid black;
+    padding: 20px 30px;
+    width: 25%;
+    position: absolute;
+    left: 38%;
+    top: 5%;
+    font-size: 20px;
+}
+.EnteringCode input{
+    padding: 5px 10px;
+    margin-top: 10px;
+    width: 70%;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 16px;
+}
+.code{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.vf{
+    width: 30%;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin-top: 8px;
+    border: 1px solid white;
+}
+.vf:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
