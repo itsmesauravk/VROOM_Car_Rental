@@ -25,7 +25,7 @@ const Nav = () => {
       </ul>
       <div>
         <button className='nav--button'>
-            <Link to={'/login'}>Login</Link>
+            <Link to={'/login'} className='nav-login'>Login</Link>
         </button>
       </div>
     </nav>

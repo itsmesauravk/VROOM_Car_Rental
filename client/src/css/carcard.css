@@ -49,17 +49,22 @@
     letter-spacing: 3px;
 }
 .car-price{
+    margin-top: 1rem;
     font-weight: 300;
     letter-spacing: 2px;
     text-align: center;
     font-size: 25px;
+}
+.car-city{
+    margin-left: .5rem;
+    font-size: 20px;
 }
 .car-second-details{
     position: relative;
     display: flex;
     justify-content: flex-end;
     right: 25px;
-    top: 22px;
+    top: 40px;
 }
 .Link-view{
     text-decoration: none;
