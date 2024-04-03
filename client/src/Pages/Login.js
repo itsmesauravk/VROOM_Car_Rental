@@ -49,7 +49,7 @@ const Login = () => {
       <h1>Login</h1>
       <div className="container">
         <p>Email</p >
-        <input type='email' value={userEmail} onChange={(e)=> setUserEmail(e.target.value)} />
+        <input type='email' value={userEmail} onChange={(e)=> setUserEmail(e.target.value)}  placeholder='example@gmail.com'/>
         <p>Password</p >
         <input type='password' value={usePassword} onChange={(e)=> setUserPassword(e.target.value)} />
         <button className='loginBtn' type="submit" onClick={(e)=>handleSubmit(e)}>Login</button>
