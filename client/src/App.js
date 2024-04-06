@@ -8,6 +8,8 @@ import Contact from "./Pages/Contact"
 import { Route,Routes } from "react-router-dom";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import ForgotPassword from "./Pages/ForgotPassword";
+import PasswordReset from "./Pages/PasswordReset";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path="/login" element={<Login />}  />
         <Route path="/signup" element={<Signup/>}  />
+        <Route path="/forgot" element={<ForgotPassword/>} />
+        <Route path="/reset-password/:token" element={<PasswordReset/>} />
         <Route path='/about' element={<About/>}/>
         <Route path='/cars' element={<Cars/>}/>
         <Route path='/contact' element={<Contact/>}/>
