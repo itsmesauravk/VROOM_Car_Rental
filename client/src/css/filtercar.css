@@ -4,17 +4,28 @@
     background-color: whitesmoke;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
     border-radius: 10px;
+    display: flex;
+    margin-top: -3rem;
+    z-index: 10000;
+    position: absolute;
+    width: 80%;
+    height: 5rem;
 }
 
 .dropdown {
     position: relative;
+    margin-left: 4rem;
 }
-
+.dropdown1{
+    position: relative;
+    margin-left: 10rem;
+}
 .dropdown-btn {
     display: flex;
     align-items: center;
     cursor: pointer;
     padding: 1rem;
+    border-radius: 5px;
 }
 
 .dropdown-btn div {
@@ -23,7 +34,7 @@
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 0.5rem);
     left: 0;
     width: 100%;
     background-color: white;
@@ -33,11 +44,63 @@
 }
 
 .dropdown--li {
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: #333;
 }
 
 .dropdown--li:hover {
     background-color: #f0f0f0;
+}
+
+.city-item,
+.vehicle-item {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #333;
+    margin: 0.5rem;
+}
+
+.city-item:hover,
+.vehicle-item:hover {
+    background-color: #e8f0fe;
+}
+
+.dropdown-btn svg {
+    margin-left: auto;
+}
+
+.dropdown-btn div {
+    margin-right: auto;
+}
+
+.selection {
+    display: flex;
+    margin-left: 1rem;
+}
+.selection .daysp{
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    margin-top: .7rem;
+}
+.selection .days{
+    font-size: 1.4rem;
+    background-color: var(--primary-color);
+    padding: .8rem 1.2rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.selection div {
+    display: inline;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 5px;
 }

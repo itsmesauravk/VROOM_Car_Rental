@@ -24,9 +24,11 @@ const Nav = () => {
         })}
       </ul>
       <div>
+            <Link to={'/login'} className='nav-login'>
         <button className='nav--button'>
-            <Link to={'/login'} className='nav-login'>Login</Link>
+          Login
         </button>
+            </Link>
       </div>
     </nav>
     </div>

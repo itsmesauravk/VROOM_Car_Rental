@@ -1,0 +1,40 @@
+.single-car-container {
+    display: flex;
+    margin:5rem 1rem;
+    height: 100vh;
+    width: 100vw;
+}
+
+.single-car-details {
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.single-car-image {
+    height: 100vh;
+    object-fit: contain;
+    width:700px;
+}
+
+.single-car-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.single-car-details h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.single-car-details p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.single-car-details p svg {
+    margin-right: 8px;
+    font-size: 20px;
+    color: var(--primary-color);
+}

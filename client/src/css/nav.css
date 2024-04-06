@@ -85,3 +85,10 @@ li.active{
     transition: .5s all;
     transform: scale(1.05);
 }
+
+.nav-login{
+    color: black;
+}
+.nav-login:hover{
+    color: white;
+}

@@ -8,3 +8,7 @@ body{
 :root{
     --primary-color:rgb(83, 174, 187);
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
