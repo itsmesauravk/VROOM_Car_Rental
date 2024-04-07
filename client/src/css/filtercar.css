@@ -1,79 +1,112 @@
+.two-dropdowns{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 1.5rem;
+    margin-top: .5rem;
+}
+.drop-img{
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.dropdown-image{
+    opacity: .8;
+    width: 30%;
+    padding: 1rem;
+}
+.dropssss{
+    display: flex;
+}
+.calendar{
+    position: absolute;
+    top:6rem;
+    left:29.3rem;
+}
+.calendar p{
+    font-size:1.2rem;
+    margin-bottom: 1rem;
+}
+.calendar .span-1{
+    background-color: var(--primary-color);
+    padding: .8rem;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    border-radius:10px;
+}
+.main-calendar{
+    margin-left: 8rem;
+    margin-top: .5rem;
+}
+
 .filter-car {
-    margin: 2rem 3rem;
-    height: 5rem;
-    background-color: whitesmoke;
+    margin: 2rem 8rem;
+    background-color: rgb(192, 187, 187);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
     border-radius: 10px;
     display: flex;
-    margin-top: -3rem;
+    margin-top: -10rem;
     z-index: 10000;
     position: absolute;
     width: 80%;
-    height: 5rem;
 }
-
-.dropdown {
-    position: relative;
-    margin-left: 4rem;
-}
-.dropdown1{
-    position: relative;
-    margin-left: 10rem;
-}
-.dropdown-btn {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.dropdown-btn div {
-    margin-left: 1rem;
+.mappinline2{
+    color: aliceblue;
+    font-size: 2rem;
+    margin-left: .3rem;
+    font-weight: 100;
+    margin-top: .3rem;
+    background-color: var(--primary-color);
+    padding: .4rem;
+    border-radius: 4px;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
-    border-radius: 0 0 10px 10px;
+    position: relative;
+    left: 14rem;
+    padding: .1rem 0rem;
+    width: 50%;
+    background-color: var(--primary-color);
+    border-radius: 20px;
     z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
 }
-
+.dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+}
 .dropdown--li {
-    padding: 0.8rem 1rem;
+    padding: 1rem;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: #333;
+    transition: all .5s;
+    color: white;
 }
 
 .dropdown--li:hover {
-    background-color: #f0f0f0;
+    background-color: rgb(141, 204, 214);
+    color: rgb(4, 4, 4);
+    transition: all .5s;
 }
 
 .city-item,
 .vehicle-item {
-    padding: 0.8rem 1rem;
+    padding:.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: #333;
-    margin: 0.5rem;
+    color: white;
+    margin-top: .5rem;
+    margin: .5rem;
+    transition: all .5s;
 }
 
 .city-item:hover,
 .vehicle-item:hover {
-    background-color: #e8f0fe;
-}
-
-.dropdown-btn svg {
-    margin-left: auto;
-}
-
-.dropdown-btn div {
-    margin-right: auto;
+    background-color: rgb(127, 209, 221);
+    transition: all .5s;
 }
 
 .selection {
@@ -81,14 +114,15 @@
     margin-left: 1rem;
 }
 .selection .daysp{
-    font-size: 1.5rem;
-    margin-right: 2rem;
+    font-size: 1.2rem;
+    margin-right: 1rem;
     margin-top: .7rem;
 }
 .selection .days{
-    font-size: 1.4rem;
+    margin-top: .3rem;
+    font-size: 1rem;
     background-color: var(--primary-color);
-    padding: .8rem 1.2rem;
+    padding: .5rem 1rem;
     border-radius: 8px;
     color: white;
 }
@@ -101,6 +135,8 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 1rem;
+    padding: .8rem;
     border-radius: 5px;
+    margin-left: 2rem;
+    
 }
