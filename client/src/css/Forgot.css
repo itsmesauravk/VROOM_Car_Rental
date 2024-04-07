@@ -1,4 +1,4 @@
-.forgotPassword{
+.forgot{
     border: 1px solid black;
     padding: 20px 30px;
     width: 25%;
@@ -6,8 +6,11 @@
     left: 38%;
     top: 5%;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-.forgotPassword input{
+.forgot input{
     padding: 5px 10px;
     margin-top: 10px;
     width: 70%;
@@ -18,7 +21,7 @@
 .sendCode{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 15px;
 }
 
 .sc{
@@ -36,3 +39,4 @@
     color: black;
     border: 1px solid black;
 }
+

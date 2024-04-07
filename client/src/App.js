@@ -1,7 +1,7 @@
 import Home from "./Pages/Home";
 import  About from "./Pages/About";
 import Cars from "./Pages/Cars"
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 import CarDetail from "./Pages/CarDetails"
 import Contact from "./Pages/Contact"
 
@@ -10,11 +10,14 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import ForgotPassword from "./Pages/ForgotPassword";
 import PasswordReset from "./Pages/PasswordReset";
+import { Dashboard } from "./Pages/Dashboard";
+import { Users } from "./components/Users";
+import Distributers from "./Pages/Distributers";
 
 function App() {
   return (
     <div>
-      <Nav/>
+      {/* <Nav/> */}
       <Routes>
         <Route path="/car/:id" element={<CarDetail/>}/>
         <Route path='/' element={<Home/>}/>
@@ -25,6 +28,9 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/cars' element={<Cars/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/users" element={<Users />} />
+        <Route  path="/distributers" element={<Distributers />}  />
       </Routes>
     </div>
   );

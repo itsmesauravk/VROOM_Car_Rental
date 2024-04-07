@@ -85,3 +85,24 @@ li.active{
     transition: .5s all;
     transform: scale(1.05);
 }
+.to_dashboard{
+    margin-right: 20px;
+    padding: 15px 10px;;
+    border: 1px solid black;
+    border-radius: 10px 10px;
+    font-size: 15px;
+    background-color: white;
+    
+    
+}
+
+.to_dashboard{
+color: black;
+}
+.to_dashboard:hover{
+    background-color: rgb(83, 174, 187);
+    color:white;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid white;
+    
+}
