@@ -10,7 +10,8 @@ function Signup() {
     const [userNumber,setUserNumber] = useState("");
     const [userLocation,setUserLocation] = useState("");
     const [usePassword,setUserPassword] = useState("");
-  
+    const [showHide, setShowHide] = useState(false)
+
     // console.log(env.API_URL)
 
     const submitData = async (e) => {
@@ -55,6 +56,11 @@ function Signup() {
       }
     };
 
+    const showHidePass = ()=>{
+      setShowHide(!showHide)
+    }
+
+
   return (
     <>
     <img src={car} alt="car" className="bgImage" />
@@ -75,8 +81,9 @@ function Signup() {
           placeholder='0123456789'
         value={userNumber} onChange={(e)=> setUserNumber(e.target.value)} required />
         <p>Password</p >
-        <input type='password' value={usePassword} onChange={(e)=> setUserPassword(e.target.value)}  required/>
-        <p>Address</p >
+        <input type='password' value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)}  required/>
+        <button className='showHideSignup'  onClick={showHidePass}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
+         <p>Address</p >
         <input type='text'
           placeholder='xyz-01, abc street'
          value={userLocation} onChange={(e)=> setUserLocation(e.target.value)}  required/>

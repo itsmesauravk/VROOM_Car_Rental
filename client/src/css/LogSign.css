@@ -118,6 +118,25 @@ input:focus {
     object-fit: cover;
     z-index: -1;
 }
+.showHide{
+    color: black;
+    position: absolute;
+    top: 53%;
+    left: 68%;
+    background: none;
+    border: none;
+    font-size: 20px;
+    
+}
+.showHideSignup{
+    color: black;
+    position: absolute;
+    top: 61%;
+    left: 68%;
+    background: none;
+    border: none;
+    font-size: 20px;
+}
 
 @media screen and (max-width: 1580px) {
     .container input {
