@@ -3,12 +3,15 @@ import "../css/LogSign.css"
 import { Link, useNavigate } from 'react-router-dom';
 import car from "../assets/images/car.jpg"
 // import ForgotPassword from '../Pages/ForgotPassword';
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 
 const Login = () => {
   const [userEmail,setUserEmail] = useState("");
   const [usePassword,setUserPassword] = useState("");
   const navigate = useNavigate();
+  const [showHide, setShowHide] = useState(false)
  
 
   function handleSubmit(e){
@@ -39,10 +42,13 @@ const Login = () => {
       }
     })
   }
+  const showHidePass = ()=>{
+    setShowHide(!showHide)
+  }
+
 
   return (
     <>
-    {/* <video  autoPlay loop muted src={carVideo} className='carVideo' /> */}
    <img src={car} alt="car" className="bgImage" />
     <form onSubmit={handleSubmit}>
     <div className="login">
@@ -51,8 +57,9 @@ const Login = () => {
         <p>Email</p >
         <input type='email' value={userEmail} onChange={(e)=> setUserEmail(e.target.value)}  placeholder='example@gmail.com'/>
         <p>Password</p >
-        <input type='password' value={usePassword} onChange={(e)=> setUserPassword(e.target.value)} />
+        <input type='password' value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)} />
         <button className='loginBtn' type="submit" onClick={(e)=>handleSubmit(e)}>Login</button>
+        <button className='showHide'  onClick={showHidePass}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
         <p className='existing'>Don't have an account? <Link to="/signup">Signup</Link></p>
         <Link to="/forgot" className='resetPass'>Forgot password? </Link>
       </div>

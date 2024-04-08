@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import env from 'react-dotenv';
 import { Link } from 'react-router-dom';
+import "../css/Forgot.css"
 
 function ForgotPassword() {
   const [loading, setLoading] = useState(false);
@@ -33,14 +34,14 @@ function ForgotPassword() {
     <div style={{ marginTop: '10rem' }}>
       {loading && <div>Loading...</div>}
       {message && <div>{message}</div>}
-      <div className="container">
+      <div className="forgotPassword">
         <div className="forgot">
           <h1>Forgot Password</h1>
-          <form onSubmit={forgotPassword}>
+          <form onSubmit={forgotPassword} className='sendCode'>
             <input type="email" placeholder="Email" required />
-            <button type="submit">Submit</button>
+            <button className='sc' type="submit">Submit</button>
           </form>
-          <Link to="/login">Login</Link>
+          <Link className='toLogin' to="/login">Login</Link>
         </div>
       </div>
     </div>

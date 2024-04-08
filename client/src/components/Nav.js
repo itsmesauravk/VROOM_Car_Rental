@@ -24,6 +24,7 @@ const Nav = () => {
         })}
       </ul>
       <div>
+      <Link to="/dashboard" className='to_dashboard' >Admin Dashboard</Link>
         <button className='nav--button'>
             <Link to={'/login'} className='nav-login'>Login</Link>
         </button>
