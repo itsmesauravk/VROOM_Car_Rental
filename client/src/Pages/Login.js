@@ -3,6 +3,8 @@ import "../css/LogSign.css"
 import { Link, useNavigate } from 'react-router-dom';
 import car from "../assets/images/car.jpg"
 // import ForgotPassword from '../Pages/ForgotPassword';
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 
 const Login = () => {

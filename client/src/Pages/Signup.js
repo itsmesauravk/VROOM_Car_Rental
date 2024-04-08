@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import car from "../assets/images/car.jpg"
 import env from 'react-dotenv';
 import "../css/LogSign.css"
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 function Signup() {
     const [userName,setUserName] = useState("");
