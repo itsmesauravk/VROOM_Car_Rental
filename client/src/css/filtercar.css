@@ -1,43 +1,209 @@
-.filter-car {
-    margin: 2rem 3rem;
-    height: 5rem;
-    background-color: whitesmoke;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
-    border-radius: 10px;
+.two-dropdowns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 1.5rem;
+    margin-top: .5rem;
 }
 
-.dropdown {
+.calendar {
+    margin-top: 1.4rem;
+    margin-left: 6rem;
+    margin-right: 3rem;
+}
+
+.calendar p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+
+}
+
+.calendar .span-1 {
+    background-color: var(--primary-color);
+    padding: .8rem;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main-calendar {
+    margin-top: 1rem;
+}
+
+.success {
+    position: absolute;
+    z-index: 9999999;
+    background-color: rgb(141, 204, 214);
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    top: 20rem;
+    left: 30rem;
+    opacity: 0;
+    transition: 1s all;
+}
+
+.success.active {
+    position: absolute;
+    z-index: 9999999;
+    background-color: rgb(141, 204, 214);
+    font-size: 1rem;
+    filter: opacity(.9);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    top: 20rem;
+    left: 30rem;
+    opacity: 1;
+    transition: 1s all;
+}
+
+.filter-car {
+    margin: 2rem 0rem 0rem 1rem;
+    background-color: rgb(192, 187, 187);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    display: flex;
+    margin-top: -4rem;
+    z-index: 10000;
+    position: absolute;
+    width: 98%;
+    height: 5rem;
+}
+
+.mappinline2 {
+    color: aliceblue;
+    font-size: 2rem;
+    margin-left: .3rem;
+    font-weight: 100;
+    margin-top: .3rem;
+    background-color: var(--primary-color);
+    padding: .4rem;
+    border-radius: 4px;
+}
+
+.dropdown-menu {
     position: relative;
+    left: 14rem;
+    padding: .1rem 0rem;
+    width: 50%;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+}
+
+.dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown--li {
+    padding: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .5s;
+    color: white;
+}
+
+.dropdown--li:hover {
+    background-color: rgb(141, 204, 214);
+    color: rgb(4, 4, 4);
+    transition: all .5s;
+}
+
+.city-item,
+.vehicle-item {
+    padding: .5rem 1rem;
+    cursor: pointer;
+    color: white;
+    margin-top: .5rem;
+    margin: .5rem;
+    transition: all .5s;
+}
+
+.city-item:hover,
+.vehicle-item:hover {
+    background-color: rgb(127, 209, 221);
+    transition: all .5s;
+}
+
+.selection {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.selection .daysp {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-top: .7rem;
+    margin-left: 1rem;
+}
+
+.selection .days {
+    margin-top: .3rem;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.selection div {
+    display: inline;
 }
 
 .dropdown-btn {
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 1rem;
+    padding: .8rem;
+    border-radius: 5px;
 }
 
-.dropdown-btn div {
-    margin-left: 1rem;
-}
-
-.dropdown-menu {
+.rent-button {
+    background-color: whitesmoke;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 14px;
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
-    border-radius: 0 0 10px 10px;
-    z-index: 1;
-}
-
-.dropdown--li {
-    padding: 0.5rem 1rem;
+    top: 35rem;
+    left: 43rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+    transition: 1s all;
 }
 
-.dropdown--li:hover {
-    background-color: #f0f0f0;
+.rent-button:hover {
+    transform: scale(1.05);
+    color: white;
+    background-color: var(--primary-color);
+    transition: .7s all;
+}
+
+.error {
+    position: absolute;
+    z-index: 9999999;
+    background-color: rgb(221, 131, 131);
+    font-size: 1rem;
+    filter: opacity(1.1);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    top: 20rem;
+    left: 30rem;
+    opacity: 0;
+}
+
+.error.active {
+    opacity: 1;
+    background-color: rgb(221, 131, 131);
 }
