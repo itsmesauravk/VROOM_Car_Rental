@@ -3,28 +3,37 @@
     padding: 0px;
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
     color: blue;
 }
 
-/* .carVideo{
-    position: fixed;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: -1;
-} */
+.loginPage {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
 .login {
     position: absolute;
-    left: 55%;
-    top: 40%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 30%;
     padding: 30px 50px;
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 3px solid var(--primary-color);
+    border-radius: 20px;
     justify-content: center;
-    background: rgba(181, 180, 180, 0.5);
+    backdrop-filter: blur(12px);
+}
+
+.login h1 {
+    margin-left: 7.5rem;
+    font-size: 38px;
+    color: var(--primary-color);
+    letter-spacing: 5px;
+    font-weight: 500;
 }
 
 .Signup {
@@ -39,6 +48,12 @@ a{
     background: rgba(185, 185, 185, 0.5);
 }
 
+.signup-link {
+    text-decoration: underline;
+    color: var(--primary-color);
+    letter-spacing: 3px;
+}
+
 .container {
     margin-top: 20px;
     display: flex;
@@ -47,16 +62,20 @@ a{
 }
 
 .container p {
-    font-size: 20px;
+    font-size: 18px;
+    color: white;
+    margin: 1rem 0rem 0rem 1rem;
 }
 
 .container input {
-    width: 80%;
-    padding: 7px 12px;
-    font-size: 15px;
-    border: 1px solid gray;
-    border-radius: 10px 10px;
-    border: 1px solid white ;
+    width: 100%;
+    padding: 0px 12px 12px 12px;
+    color: white;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 input:focus {
@@ -64,6 +83,20 @@ input:focus {
 }
 
 .loginBtn {
+    width: 60%;
+    padding: 12px 16px;
+    font-size: 22px;
+    margin-left: 70px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    color: var(--primary-color);
+    transition: .5s all;
+}
+
+.SignupBtn {
     width: 40%;
     padding: 7px 12px;
     font-size: 15px;
@@ -75,74 +108,56 @@ input:focus {
     background-color: black;
     color: white;
 }
-.SignupBtn{
-    width: 40%;
-    padding: 7px 12px;
-    font-size: 15px;
-    margin-left: 100px;
-    margin-top: 20px;
-    border-radius: 10px;
-    border: 1px solid black;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-}
-.SignupBtn:hover{
+
+.SignupBtn:hover {
     background-color: white;
     color: black;
     border: 1px solid white;
 
-}.loginBtn:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid white;
+}
+
+.loginBtn:hover {
+    color: white;
+    background-color: var(--primary-color);
+    transition: .5s all;
+    transform: scale(1.05);
 }
 
 .existing {
     margin-left: 40px;
 }
+
 .existingS {
     margin-left: 40px;
+    font-size: 2px
 }
 
 .resetPass {
-    margin-left: 130px;
+    margin-left: 100px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 .bgImage {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
+    filter: brightness(.6);
 }
-.showHide{
+
+to_dashboard{
     color: black;
-    position: absolute;
-    top: 53%;
-    left: 68%;
-    background: none;
-    border: none;
-    font-size: 20px;
-    
-}
-.showHideSignup{
-    color: black;
-    position: absolute;
-    top: 61%;
-    left: 68%;
-    background: none;
-    border: none;
-    font-size: 20px;
 }
 
 @media screen and (max-width: 1580px) {
     .container input {
         width: 80%;
-       
+
     }
+
     .login {
         left: 50%;
         top: 40%;
@@ -162,7 +177,8 @@ input:focus {
         width: 102%;
     }
 
-    .SignupBtn,.loginBtn {
+    .SignupBtn,
+    .loginBtn {
         width: 50%;
         margin-left: 80px;
     }
@@ -170,6 +186,7 @@ input:focus {
     .existing {
         margin-left: 60px;
     }
+
     .existingS {
         margin-left: 70px;
     }
@@ -183,8 +200,9 @@ input:focus {
 @media screen and (max-width: 1508px) {
     .container input {
         width: 80%;
-       
+
     }
+
     .login {
         left: 50%;
         top: 40%;
@@ -213,6 +231,7 @@ input:focus {
     .existing {
         margin-left: 55px;
     }
+
     .existingS {
         margin-left: 70px;
     }
@@ -229,14 +248,15 @@ input:focus {
 @media screen and (max-width: 1340px) {
     .container input {
         width: 90%;
-       
+
     }
+
     .SignupBtn,
     .loginBtn {
         width: 50%;
         margin-left: 80px;
     }
-    
+
     .existing {
         margin-left: 40px;
     }
@@ -249,8 +269,9 @@ input:focus {
 @media screen and (max-width: 1270px) {
     .container input {
         width: 90%;
-       
+
     }
+
     .existingS {
         margin-left: 40px;
     }
@@ -261,10 +282,12 @@ input:focus {
     .container input {
         width: 100%;
     }
+
     .Signup {
         left: 50%;
         width: 45%;
     }
+
     .existingS {
         margin-left: 40px;
     }
@@ -282,6 +305,7 @@ input:focus {
         left: 50%;
         width: 45%;
     }
+
     .existingS {
         margin-left: 40px;
     }
@@ -290,6 +314,7 @@ input:focus {
         left: -2%;
         width: 102%;
     }
+
     .SignupBtn,
     .loginBtn {
         width: 50%;
@@ -309,15 +334,17 @@ input:focus {
 @media screen and (max-width: 1160px) {
     .container input {
         width: 100%;
-       
+
     }
+
     .login {
         left: 45%;
         top: 40%;
         width: 45%;
         padding: 30px 50px;
     }
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -326,6 +353,7 @@ input:focus {
         left: 45%;
         width: 45%;
     }
+
     .existingS {
         margin-left: 30px;
     }
@@ -339,9 +367,10 @@ input:focus {
         width: 50%;
         padding: 30px 50px;
     }
+
     .container input {
         width: 100%;
-       
+
     }
 
     .Signup {
@@ -350,8 +379,8 @@ input:focus {
         width: 30%;
         padding: 30px 50px;
     }
-    
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -360,9 +389,11 @@ input:focus {
         left: 45%;
         width: 45%;
     }
+
     .existingS {
         margin-left: 30px;
     }
+
     .existing {
         margin-left: 20px;
     }
@@ -380,9 +411,10 @@ input:focus {
         width: 45%;
         padding: 30px 50px;
     }
+
     .container input {
         width: 100%;
-       
+
     }
 
     .Signup {
@@ -391,12 +423,13 @@ input:focus {
         width: 30%;
         padding: 30px 50px;
     }
-    
+
     .loginBtn {
         width: 60%;
         margin-left: 60px;
     }
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -405,9 +438,11 @@ input:focus {
         left: 35%;
         width: 50%;
     }
+
     .existingS {
         margin-left: 30px;
     }
+
     .existing {
         margin-left: 30px;
     }
@@ -425,11 +460,13 @@ input:focus {
         width: 45%;
         padding: 30px 50px;
     }
+
     .container input {
         width: 100%;
-       
+
     }
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -438,10 +475,11 @@ input:focus {
         left: 30%;
         width: 50%;
     }
+
     .existingS {
         margin-left: 25px;
     }
-    
+
     .existing {
         margin-left: 15px;
     }
@@ -459,11 +497,13 @@ input:focus {
         width: 45%;
         padding: 30px 50px;
     }
+
     .container input {
         width: 100%;
-       
+
     }
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -472,19 +512,21 @@ input:focus {
         left: 30%;
         width: 50%;
     }
+
     .existingS {
         margin-left: 25px;
     }
-    
+
     .existing {
         margin-left: 5px;
-       
+
     }
 
     .resetPass {
         margin-left: 60px;
     }
 }
+
 @media screen and (max-width: 860px) {
     .login {
         left: 45%;
@@ -492,11 +534,13 @@ input:focus {
         width: 50%;
         padding: 30px 50px;
     }
+
     .container input {
         width: 100%;
-       
+
     }
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -505,24 +549,27 @@ input:focus {
         left: 25%;
         width: 55%;
     }
+
     .existingS {
         margin-left: 25px;
     }
+
     .existing {
         margin-left: 2px;
-       
+
     }
 }
 
 
 
 @media screen and (max-width: 768px) {
-    .login{
+    .login {
         left: 20%;
         top: 30%;
         width: 70%;
         padding: 20px;
     }
+
     .Signup {
         left: 17%;
         top: 17%;
@@ -545,19 +592,22 @@ input:focus {
         margin-left: 130px;
     }
 }
+
 @media screen and (max-width: 590px) {
-    .login{
+    .login {
         left: 16%;
         top: 30%;
         width: 75%;
         padding: 20px;
     }
+
     .Signup {
         left: 17%;
         top: 17%;
         width: 70%;
         padding: 20px;
     }
+
     .loginBtn {
         width: 50%;
         height: 10%;
@@ -576,13 +626,14 @@ input:focus {
 }
 
 @media screen and (max-width: 535px) {
-    .login{
+    .login {
         left: 14%;
         top: 30%;
         width: 75%;
         padding: 20px;
     }
-    .SignupBtn{
+
+    .SignupBtn {
         width: 50%;
         margin-left: 65px;
     }
@@ -591,6 +642,7 @@ input:focus {
         left: 10%;
         width: 85%;
     }
+
     .existingS {
         margin-left: 25px;
     }
@@ -604,17 +656,20 @@ input:focus {
     }
 
 }
+
 @media screen and (max-width: 475px) {
-    .login{
+    .login {
         left: 11%;
         top: 30%;
         width: 80%;
         padding: 20px;
     }
+
     .Signup {
         left: 10%;
         width: 85%;
     }
+
     .existingS {
         margin-left: 25px;
     }
@@ -630,23 +685,24 @@ input:focus {
 }
 
 @media screen and (max-width: 430px) {
-    .login{
+    .login {
         left: 5%;
         top: 30%;
         width: 90%;
         padding: 20px;
     }
+
     .Signup {
         left: 4%;
         width: 90%;
     }
+
     .existingS {
         margin-left: 25px;
-    }   
+    }
 
     .existing {
         margin-left: 15px;
-        font-size: 10px;
     }
 
     .resetPass {
