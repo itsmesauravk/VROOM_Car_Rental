@@ -148,11 +148,32 @@ const registration = async (req, res) => {
     }
   }
 
+
+
+  //getting the loggedin user data
+  const userInfo = async(req, res) => {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const tokenDecoded =await jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(tokenDecoded.id)
+      if(!user){
+        return res.status(400).json({ success: false, message: 'User not found' });
+      }
+      res.status(200).json({ success: true, user });
+    }
+    catch (error) {
+      console.error('Error getting user data:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+
   
 
   module.exports = {
     registration,
     login,
     resetPassword,
-    newPassword
+    newPassword,
+    userInfo
   }

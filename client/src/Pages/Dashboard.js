@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../css/Dashboard.css"
 import SideNav from '../components/SideNav'
 
 
 export const Dashboard = () => {
+
+  
+
   return (
     <>
     <div className='dashboardPage'>
