@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import car from "../assets/images/car.jpg"
 import env from 'react-dotenv';
 import "../css/LogSign.css"
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -14,7 +13,6 @@ function Signup() {
     const [usePassword,setUserPassword] = useState("");
     const [showHide, setShowHide] = useState(false)
 
-    // console.log(env.API_URL)
 
     const submitData = async (e) => {
       e.preventDefault();
@@ -65,7 +63,8 @@ function Signup() {
 
   return (
     <>
-    <img src={car} alt="car" className="bgImage" />
+    <div className='signupPage'>
+    <img src="https://images.pexels.com/photos/38570/lamborghini-car-speed-prestige-38570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="car" className="signImage" />
     <form onSubmit={submitData}>
     <div className="Signup">
       <h1>Sign up</h1>
@@ -83,7 +82,7 @@ function Signup() {
           placeholder='0123456789'
         value={userNumber} onChange={(e)=> setUserNumber(e.target.value)} required />
         <p>Password</p >
-        <input type='password' value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)}  required/>
+        <input value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)}  required/>
         <button className='showHideSignup'  onClick={showHidePass}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
          <p>Address</p >
         <input type='text'
@@ -94,6 +93,7 @@ function Signup() {
       </div>
     </div>
     </form>
+    </div>
     </>
   )
 }

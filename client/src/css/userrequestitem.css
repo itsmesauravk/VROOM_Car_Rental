@@ -1,0 +1,104 @@
+.user-request-item {
+    display: flex;
+    background-color: rgb(164, 218, 226);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: .5rem 1rem;
+    width: 60vw;
+    font-family: cochin;
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.user-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 30px;
+    margin-left: 1rem;
+    object-fit: cover;
+}
+
+.user-details {
+    font-weight: bold;
+}
+
+.user-name {
+    margin-bottom: 5px;
+    font-size: 2rem;
+    color: #333;
+    width: 70%;
+    border-bottom: 2px solid rgb(40, 182, 233);
+}
+
+.vehicle-name,
+.city-name,
+.date-range {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    color: #080808;
+}
+.vehicle-name span{
+    color: black;
+    background-color: rgb(221, 127, 187);
+    padding:6px 25px;
+    border-radius: 15px;
+    margin-left: 1rem;
+}
+.city-name span{
+    color: black;
+    background-color: rgb(108, 197, 236);
+    padding:6px 25px;
+    border-radius: 15px;
+    margin-left: 1rem;
+}
+.date-range span{
+    color: black;
+    background-color: rgb(80, 227, 188);
+    padding:6px 25px;
+    border-radius: 15px;
+    margin-left: 1rem;
+}
+.action-buttons{
+    position: relative;
+    top: 9rem;
+}
+
+.approve-button,
+.deny-button {
+    padding: .7rem 1.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-family: cochin;
+}
+
+.approve-button {
+    color: white;
+    background-color: #34d75c;
+    margin-right: 1.5rem;
+}
+
+.deny-button {
+    color: white;
+    background-color: #f17a86;
+}
+
+.approve-button:hover{
+    transform:scale(1.1);
+    transition: all .5s;
+    background-color: #3fe568;
+    border: white 1px solid;
+}
+.deny-button:hover{
+    transform: scale(1.1);
+        transition: all .5s;
+        border: white 1px solid;
+        background-color: #f44658;
+}
+

@@ -1,25 +1,33 @@
-.left{
+.left {
     justify-content: center;
-    text-align: center;
     width: 20%;
     height: 100vh;
     display: flex;
     flex-direction: row;
-    border-right: 2px solid black;
-    background:rgb(71, 68, 68);
+    background: rgb(184, 184, 184);
     color: white;
+    font-family: cochin;
 }
-.leftContent{
-    margin-top: 70px;
+.left .line{
+    width: 100%;
+    border: 1.5px solid;
+}
+.leftContent {
+    margin-top: 40px;
     padding-right: 50px;
     padding-left: 40px;
-    display: flex; 
+    display: flex;
     gap: 20px;
-    flex-direction: column;  
+    flex-direction: column;
+}
+.leftContent h1{
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    padding: 1rem 1.2rem;
+    font-size: 25px;
 }
 
-
-.user_profile{
+.user_profile {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -27,79 +35,87 @@
     justify-content: center;
     align-items: center;
 }
-.welcome{
+
+.welcome {
     font-size: 20px;
 }
 
-.userProfile{
-    width: 150px;
-    height: 150px;
+.userProfile {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    
+    object-fit: cover;
+
 }
 
-.navigation_Lists a{
+.navigation_Lists a {
     text-decoration: none;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-.navigation_Lists ul{
+.navigation_Lists ul {
     display: flex;
     flex-direction: column;
     gap: 30px;
     margin-top: 20px;
     list-style: none;
 }
-.navigation_Lists li{
+
+.navigation_Lists li {
     background-color: white;
-    border: 1px solid black;
     border-radius: 10px;
-    padding: 15px 15px;
+    color: var(--primary-color);
+    padding: 15px;
     display: flex;
+    border: none;
     flex-direction: row;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 }
-.navigation_Lists li:hover{
+
+.navigation_Lists li:hover {
     background-color: rgb(83, 174, 187);
-    color:white;
+    color: white;
     transition: all 0.7s;
     border: 1px solid white;
 }
 
-li.activeSideNav{
+li.activeSideNav {
     background-color: rgb(83, 174, 187);
     color: white;
     border-radius: 10px;
     border: 1px solid white;
     transition: all 1s;
-    .navigation_Lists{
+
+    .navigation_Lists {
         color: rgb(237, 235, 235);
     }
 }
 
-.logout{
+.logout {
     background-color: white;
-    border: 1px solid black;
     border-radius: 10px;
-    padding: 10px 10px;
+    padding: 15px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     text-align: center;
-}
-a.logout{
-    color: black;
-    font-size: 20px;
-}
-.logout:hover{
-    background-color: rgb(83, 174, 187);
-    color:white;
-    transition: all 0.7s;
-    border: 1px solid white;
+    border: none;
+    margin-top: 4rem;
 }
 
-.admin_pannel{
+a.logout {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.logout:hover {
+    background-color: rgb(83, 174, 187);
+    color: white;
+    transition: all 0.7s;
+}
+
+.admin_pannel {
     font-size: 20px;
 }

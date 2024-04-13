@@ -61,6 +61,7 @@ const Nav = () => {
         </ul>
         {token ? (
           <>
+          <Link to="/user_requests" className='to_dashboard'>Distributor Panel</Link>
             <Link to="/dashboard" className='to_dashboard' >Admin Dashboard</Link>
             <div>
               <button className='nav--button' onClick={handleLogout}>
@@ -70,9 +71,11 @@ const Nav = () => {
           </>
         ) : (
           <div>
+              <Link to={'/login'} className='nav-login'>
             <button className='nav--button'>
-              <Link to={'/login'} className='nav-login'>Login</Link>
+              Login
             </button>
+              </Link>
           </div>
         )}
       </nav>

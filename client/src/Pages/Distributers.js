@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SideNav from "../components/SideNav";
 import "../css/Distributer.css";
-import user from "../assets/images/userProfile.jpg";
 import DistributerForm from "../components/DistributerForm";
 
 const Distributers = () => {
@@ -21,7 +20,7 @@ const Distributers = () => {
             <div className="distributerProfile">
               <h1>Distributers</h1>
               <div className="distributerCount">
-                <img className="userProfile" src={user} alt="user profile" />
+                <img className="userProfile" src="https://images3.alphacoders.com/134/thumb-440-1343297.webp" alt="user profile" />
                 <div>
                 <p className="user_name">Ram Thapa</p>
                 <p>Age: 21</p>

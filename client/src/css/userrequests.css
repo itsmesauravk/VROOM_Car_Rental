@@ -1,0 +1,27 @@
+.userrequests{
+    display: flex;
+    gap: 1rem;
+    font-family: cochin;
+}
+
+.userh1{
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-size: 3rem;
+}
+.line1{
+    border: 1.5px solid var(--primary-color);
+    margin-left: 2rem;
+    width: 120%;
+    margin-top: 1rem;
+}
+.userReqlist{
+    display: flex;
+    flex-direction: column;
+}
+
+.userreqdiv{
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
