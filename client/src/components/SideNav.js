@@ -1,5 +1,4 @@
 import React from "react";
-import user from "../assets/images/userProfile.jpg";
 import { Link, useLocation } from "react-router-dom";
 import "../css/sideNav.css";
 import { sideNavPath } from "../Datas";
@@ -26,7 +25,7 @@ const SideNav = () => {
             <p className="admin_pannel">Admin Pannel</p>
           </div>
           <div className="user_profile">
-            <img className="userProfile" src={user} alt="user profile" />
+            <img className="userProfile" src="https://images3.alphacoders.com/134/thumb-440-1343297.webp" alt="user profile" />
             <p className="welcome"> 
               Welcome Back,
               <br></br>

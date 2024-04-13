@@ -1,7 +1,6 @@
 import React from 'react'
 import SideNav from './SideNav'
 import "../css/Users.css"
-import user from "../assets/images/userProfile.jpg"
 
 
 export const Users = () => {
@@ -13,7 +12,7 @@ export const Users = () => {
       <h1>Users Details</h1>
       <div className='user'>
       <div className='userDetails'>
-      <img  src={user} className='User--Profile' alt='user profile' />
+      <img  src="https://images3.alphacoders.com/134/thumb-440-1343297.webp" className='User--Profile' alt='user profile' />
       <div className='userInformations'>
         <p>Name: Ram Thapa</p>
         <p>Age: 21</p>

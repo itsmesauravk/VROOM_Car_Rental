@@ -1,8 +1,5 @@
 import { IoMdHome } from "react-icons/io";
 import { IoCarSport } from "react-icons/io5";
-import { IoIosInformationCircle } from "react-icons/io";
-import { FaPhone } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaTruckFront } from "react-icons/fa6";
@@ -15,22 +12,10 @@ export const Menu=[
         url:'/'
     },
     {
-        title:'Cars',
+        title:'Requests',
         icon:<IoCarSport className="nav-icon"/>,
         cName:'nav-link',
-        url:'/cars'
-    },
-    {
-        title:'About',
-        icon:< IoIosInformationCircle className="nav-icon"/>,
-        cName:'nav-link',
-        url:'/about'
-    },
-    {
-        title:'Contact',
-        icon:<FaPhone className="nav-icon"/>,
-        cName:'nav-link',
-        url:'/contact'
+        url:'/Requests'
     }
 ]
 
@@ -61,6 +46,26 @@ export const sideNavPath = [
         path:'/distributers'
     }
     
+]
+export const distNavPath = [
+    {
+        title:'Home',
+        className:'navigation_Lists',
+        icon:<IoMdHome className="nav-icon"/>,
+        path:'/'
+    },
+    {
+        title:'User Request',
+        className:'navigation_Lists',
+        icon:<FaUserAlt className="nav-icon" />,
+        path:'/user_requests'
+    },
+    {
+        title:'Rental Clients',
+        className:'navigation_Lists',
+        icon:<AiOutlineDashboard className="nav-icon" />,
+        path:'/rental_clients'
+    }
 ]
 
 
