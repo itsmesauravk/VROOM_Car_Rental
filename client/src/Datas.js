@@ -21,11 +21,17 @@ export const Menu=[
 
 
 export const sideNavPath = [
+    // {
+    //     title:'Home',
+    //     className:'navigation_Lists',
+    //     icon:<IoMdHome className="nav-icon"/>,
+    //     path:'/'
+    // },
     {
-        title:'Home',
+        title:'Dashboard',
         className:'navigation_Lists',
-        icon:<IoMdHome className="nav-icon"/>,
-        path:'/'
+        icon:<AiOutlineDashboard className="nav-icon" />,
+        path:'/adminDashboard'
     },
     {
         title:'Users',
@@ -33,17 +39,18 @@ export const sideNavPath = [
         icon:<FaUserAlt className="nav-icon" />,
         path:'/users'
     },
-    {
-        title:'Dashboard',
-        className:'navigation_Lists',
-        icon:<AiOutlineDashboard className="nav-icon" />,
-        path:'/dashboard'
-    },
+    
     {
         title:'Distributers',
         className:'navigation_Lists',
         icon: <FaTruckFront className="nav-icon" />,
         path:'/distributers'
+    },
+    {
+        title:'Add Distributers',
+        className:'navigation_Lists',
+        icon:"",
+        path:'/addDistributers'
     }
     
 ]

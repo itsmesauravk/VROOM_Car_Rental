@@ -56,16 +56,13 @@ function Signup() {
       }
     };
 
-    const showHidePass = ()=>{
-      setShowHide(!showHide)
-    }
 
 
   return (
     <>
     <div className='signupPage'>
     <img src="https://images.pexels.com/photos/38570/lamborghini-car-speed-prestige-38570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="car" className="signImage" />
-    <form onSubmit={submitData}>
+    <form onSubmit={(e)=>submitData(e)}>
     <div className="Signup">
       <h1>Sign up</h1>
       <div className="container">
@@ -83,7 +80,7 @@ function Signup() {
         value={userNumber} onChange={(e)=> setUserNumber(e.target.value)} required />
         <p>Password</p >
         <input value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)}  required/>
-        <button className='showHideSignup'  onClick={showHidePass}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
+        <button  type='button'className='showHideSignup'  onClick={()=>setShowHide(!showHide)}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
          <p>Address</p >
         <input type='text'
           placeholder='xyz-01, abc street'

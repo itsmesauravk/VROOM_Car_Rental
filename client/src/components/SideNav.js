@@ -6,14 +6,8 @@ import { IoMdExit } from "react-icons/io";
 
 const SideNav = () => {
   const location = useLocation();
-  console.log(location);
-
   const checkPath = (path) => {
-    if (path === "/distributerForm") {
-      return (path = "/dashboard");
-    } else {
       return path;
-    }
   };
 
   return (

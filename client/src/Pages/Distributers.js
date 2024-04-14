@@ -1,39 +1,53 @@
-import React, { useState } from "react";
+import React from "react";
 import SideNav from "../components/SideNav";
 import "../css/Distributer.css";
-import DistributerForm from "../components/DistributerForm";
+
 
 const Distributers = () => {
-  const [addDistributers, setAddDistributers] = useState(false);
-  const changeComponent = () => {
-    setAddDistributers(!addDistributers);
-  };
+
 
   return (
     <>
-      {addDistributers ? (
-        <DistributerForm />
-      ) : (
-        <div className="distributerPage">
-          <SideNav />
-          <div className="distributers">
-            <div className="distributerProfile">
-              <h1>Distributers</h1>
-              <div className="distributerCount">
-                <img className="userProfile" src="https://images3.alphacoders.com/134/thumb-440-1343297.webp" alt="user profile" />
-                <div>
-                <p className="user_name">Ram Thapa</p>
-                <p>Age: 21</p>
-                <p>Email: ram12@gmail.com</p>
-                </div>
-              </div>
-            </div>
-            <button onClick={changeComponent} className="adding_distributers">
-              Add Distributers
-            </button>
-          </div>
-        </div>
-      )}
+ <div className='distributerPage'>
+    <SideNav />
+    <div>
+      <h1>Distributers</h1>
+      <div >
+        <table className='distributers'>
+          <tr className='heading'>
+            <th>S.No.</th>
+            <th>Customer</th>
+            <th>Email</th>
+            <th>Car rented</th>
+            <th>Address</th>
+          </tr>
+          <tr className='values'>
+            <td >1</td>
+            <td className='imageAndName'>
+             <p>Ram Thapa</p>
+            </td>
+            <td>ram12@gmail.com</td>
+            <td>10</td>
+            <td>Kathmandu</td>
+          </tr>
+          <tr className='values'>
+            <td >1</td>
+            <td className='imageAndName'>
+              <p>Ram Thapa</p>
+            </td>
+            <td>ram12@gmail.com</td>
+            <td>10</td> 
+            <td>Kathmandu</td>
+          </tr>
+
+        </table>
+      </div>
+     
+      
+
+    </div>
+    </div>
+
     </>
   );
 };

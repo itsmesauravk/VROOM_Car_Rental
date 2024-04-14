@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    background: rgb(216, 215, 215);
+    background: white;
     
 }
 .dash{
