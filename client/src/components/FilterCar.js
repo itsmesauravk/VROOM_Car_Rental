@@ -10,7 +10,7 @@ import "../css/filtercar.css"
 import { format } from "date-fns";
 
 const FilterCar = () => {
-  const { selectedCity, setSelectedCity, selectedVehicle, setSelectedVehicle } = useContext(CityContext);
+  const { selectedCity, setSelectedCity, selectedVehicle, setSelectedVehicle,addrentedVehicle } = useContext(CityContext);
   const [isCityOpen, setIsCityOpen] = useState(false);
   const [isVehicleOpen, setIsVehicleOpen] = useState(false);
   const [date, setDate] = useState({
@@ -95,6 +95,13 @@ const FilterCar = () => {
       }, 4000);
       return;
     }
+
+    addrentedVehicle({
+      city:selectedCity,
+      vehicle:selectedVehicle,
+      sDate:date.startDate.toISOString().split("T")[0],
+      eDate:date.endDate.toISOString().split("T")[0]
+    })
 
     setApp(true);
     setTimeout(() => {
