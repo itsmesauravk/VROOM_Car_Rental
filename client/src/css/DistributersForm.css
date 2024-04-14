@@ -1,0 +1,76 @@
+.distributerForm{
+    color: black;
+    background-color: white;
+    display: flex;
+     gap: 20px;
+}
+.distributerDetailsForm{
+   position: relative;
+   top: 50px;
+   left: 25%;
+}
+
+ .get_details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 60%;
+    justify-content: center;
+    margin-top: 20px;
+    scroll-behavior: smooth;
+   
+}
+.get_details input{
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 400px;
+    border: 1px solid black;
+}
+.get_details div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+.cancelAndSubmit{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+}
+/* .submitForm{
+    position: relative;
+    left: 82%;
+} */
+.submitForm{
+    padding: 10px 10px;
+    background: white;
+    border: 1px solid black;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cancelForm{
+    padding: 10px 10px;
+    background: white;
+    border: 1px solid black;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.eyeButton{
+    font-size: 23px;
+    width: 30px;
+    background: none;
+    border: none;
+    position: relative;
+    left: 92%;
+    bottom: 50px;
+    cursor: pointer;
+}
+
+.submitForm:hover{
+    background-color:  rgb(83, 174, 187);
+    color: white;
+    border: 1px solid white;
+}

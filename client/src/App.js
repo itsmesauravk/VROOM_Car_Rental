@@ -13,6 +13,8 @@ import { Users } from "./components/Users";
 import Distributers from "./Pages/Distributers";
 import RentalClients from "./Pages/RentalClients"
 import UserRequest from "./Pages/UserRequest"
+import DistributerForm from "./components/DistributerForm"
+
 
 function App() {
   return (
@@ -26,11 +28,12 @@ function App() {
         <Route path='/Requests' element={<Requests/>}/>
         <Route path='/cars' element={<Cars/>}/>
         <Route path='/contact' element={<Contact/>}/>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/adminDashboard" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
         <Route  path="/distributers" element={<Distributers />}  />
         <Route  path="/rental_clients" element={<RentalClients/>}  />
         <Route  path="/user_requests" element={<UserRequest/>}  />
+        <Route  path="/addDistributers" element={<DistributerForm />}  />
       </Routes>
     </div>
   );

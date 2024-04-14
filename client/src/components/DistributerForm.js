@@ -1,66 +1,84 @@
 import React, { useState } from "react";
-import "../css/Distributer.css";
-import { Link } from "react-router-dom";
 import SideNav from "./SideNav";
-import Distributers from "../Pages/Distributers";
+import "../css/DistributersForm.css"
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 const DistributerForm = () => {
-  const [distributersPage, setDistributersPAge] = useState(false);
   const [name,setName] = useState("");
-  const [company,setCompany] = useState("");
+  const [address,setAddress] = useState("");
   const [phone,setPhone] = useState();
   const [location,setLocation] = useState("");
-  const [registrationNumber,setRegistrationNumber] = useState();
-  const [carName,setCarName] = useState("");
+  const [email,setEmail] = useState();
+  const [password,setPass] = useState("");
+  const [showHide, setShowHide] = useState(false)
 
-  const change = () => {
-    setDistributersPAge(!distributersPage);
-  };
-
+  
   const handleForm = (e) => {
     e.preventDefault();
   };
 
+  const distributersData = ()=>{
+    console.log(name)
+    console.log(address)
+    console.log(phone)
+    console.log(location)
+    console.log(email)
+    console.log(carName)
+
+  }
+  
+  const clearData = ()=>{
+    setAddress(" ")
+    setEmail(" ")
+    setName(" ")
+    setLocation(" ")
+    setPhone(" ")
+    setPass(" ")
+  }
+
   return (
-    <>
-      {distributersPage ? (
-        <Distributers />
-      ) : (
+    <> 
         <div className="distributerForm">
           <SideNav />
           <form onSubmit={(e) => handleForm(e)} className="distributerDetailsForm">
+            <h1>Distributer Form</h1>
+            <br></br>
             <div className="get_details">
               <div className="name">
                 <p>Full Name</p>
-                <input type="text" value={name}  onChange={(e)=>setName(e.target.value)}/>
+                <input type="text" value={name}  onChange={(e)=>setName(e.target.value)} required />
               </div>
               <div className="company">
-                <p>Company Name</p>
-                <input type="text" value={company}  onChange={(e)=>setCompany(e.target.value)} />
+                <p>Address</p>
+                <input type="text" value={address}  onChange={(e)=>setAddress(e.target.value)}  required />
               </div>
               <div className="phone">
                 <p>Phone Number</p>
-                <input type="number" value={phone}  onChange={(e)=>setPhone(e.target.value)} />
+                <input type="number" value={phone}  onChange={(e)=>setPhone(e.target.value)} required />
               </div>
               <div className="company_location">
-                <p>Company Location</p>
-                <input type="text" value={location}  onChange={(e)=>setLocation(e.target.value)}/>
+                <p>Distributer Location</p>
+                <input type="text" value={location}  onChange={(e)=>setLocation(e.target.value)} required />
               </div>
               <div className="registration number">
-                <p>Company Registration Number</p>
-                <input type="number" value={registrationNumber}  onChange={(e)=>setRegistrationNumber(e.target.value)}/>
+                <p>Email</p>
+                <input type="email" value={email}  onChange={(e)=>setEmail(e.target.value)} required />
               </div>
               <div className="car_details">
-                <p>Car Name</p>
-                <input type="text"value={carName}  onChange={(e)=>setCarName(e.target.value)} />
+                <p>Password</p>
+                <input type={showHide ? "text" : "password"}  value={password}  onChange={(e)=>setPass(e.target.value)} />
+                <button type='button' className='eyeButton'  onClick={()=>setShowHide(!showHide)}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
               </div>
             </div>
-            <Link className="submitForm" to="/distributers">
-              <button onClick={change}>Submit</button>
-            </Link>
-          </form>
+            <div className="cancelAndSubmit">
+            <button className="cancelForm" onClick={clearData}>Cancel</button>
+            <button className="submitForm" onClick={distributersData}>Submit</button>
+          
+            </div>
+            </form>
         </div>
-      )}
+
     </>
   );
 };

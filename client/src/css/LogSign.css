@@ -159,8 +159,19 @@ input:focus {
     filter: brightness(.6);
 }
 
-to_dashboard{
+.to_dashboard{
     color: black;
+}
+.showHideSignup{
+    font-size: 23px;
+    width: 30px;
+    background: none;
+    border: none;
+    position: relative;
+    left: 92%;
+    bottom: 50px;
+    cursor: pointer;
+    color: white;
 }
 
 @media screen and (max-width: 1580px) {
