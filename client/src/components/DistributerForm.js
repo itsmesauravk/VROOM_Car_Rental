@@ -14,8 +14,30 @@ const DistributerForm = () => {
   const [showHide, setShowHide] = useState(false)
 
   
-  const handleForm = (e) => {
+  const handleForm = async(e) => {
     e.preventDefault();
+    try {
+      const response =await fetch('http://localhost:4000/register-distributor', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ fullname: name, address, phone, distributionLocation: location, email, password}),
+      });
+      const data =await response.json();
+      console.log(data);
+      if(data.success){
+        alert("Distributor added successfully")
+        clearData()
+      }else{
+        alert("Distributor not added")
+      }
+      
+    } catch (error) {
+      console.log("Add distributor error",error)
+      
+    }
+    
   };
 
   const distributersData = ()=>{
@@ -24,7 +46,7 @@ const DistributerForm = () => {
     console.log(phone)
     console.log(location)
     console.log(email)
-    console.log(carName)
+    // console.log(carName)
 
   }
   
@@ -58,7 +80,7 @@ const DistributerForm = () => {
                 <input type="number" value={phone}  onChange={(e)=>setPhone(e.target.value)} required />
               </div>
               <div className="company_location">
-                <p>Distributer Location</p>
+                <p>Distribution Location</p>
                 <input type="text" value={location}  onChange={(e)=>setLocation(e.target.value)} required />
               </div>
               <div className="registration number">

@@ -3,6 +3,13 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 
+//for admin
+const Admin = require('../schema/Admin')
+
+
+// Distributor
+const Distributor = require('../schema/Distributor')
+
 
 
 //user register (signup)
@@ -168,6 +175,73 @@ const registration = async (req, res) => {
   }
 
 
+  //register admin
+  const registerAdmin = async (req, res) => {
+    try {
+      const { fullname, email, password } = req.body;
+
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(password, salt);
+  
+      // Check if the email already exists
+      const existingAdmin = await Admin.findOne({ email });
+      if (existingAdmin) {
+        return res.status(400).json({ success: false, message: 'Email already exists' });
+      }
+  
+      // Create a new admin instance for admin registration
+      const newAdmin = new Admin({
+        fullname,
+        email,
+        password:hashedPassword, 
+      });
+  
+      // Save the admin to the database
+      await newAdmin.save();
+  
+      res.status(201).json({ success: true, message: 'Admin registered successfully', admin: newAdmin });
+    } catch (error) {
+      console.error('Error registering admin:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+
+
+
+  //register distributor
+  const registerDistributor = async (req, res) => {
+    try {
+      const { fullname, address, phone, distributionLocation, email, password } = req.body;
+
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(password, salt);
+  
+      // Check if the email already exists
+      const existingDistributor = await Distributor.findOne({ email });
+      if (existingDistributor) {
+        return res.status(400).json({ success: false, message: 'Email already exists' });
+      }
+  
+      // Create a new distributor instance for distributor registration
+      const newDistributor = new Distributor({
+        fullname,
+        address,
+        phone,
+        distributionLocation,
+        email,
+        password:hashedPassword, 
+      });
+  
+      // Save the distributor to the database
+      await newDistributor.save();
+  
+      res.status(201).json({ success: true, message: 'Distributor registered successfully', distributor: newDistributor });
+    } catch (error) {
+      console.error('Error registering distributor:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
   
 
   module.exports = {
@@ -175,5 +249,7 @@ const registration = async (req, res) => {
     login,
     resetPassword,
     newPassword,
-    userInfo
+    userInfo,
+    registerAdmin,
+    registerDistributor
   }

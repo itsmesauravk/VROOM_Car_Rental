@@ -14,6 +14,7 @@ import Distributers from "./Pages/Distributers";
 import RentalClients from "./Pages/RentalClients"
 import UserRequest from "./Pages/UserRequest"
 import DistributerForm from "./components/DistributerForm"
+import AddAdmin from "./Pages/AddAdmin";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route  path="/rental_clients" element={<RentalClients/>}  />
         <Route  path="/user_requests" element={<UserRequest/>}  />
         <Route  path="/addDistributers" element={<DistributerForm />}  />
+        <Route path="/add-admin-dashboard" element={<AddAdmin/>} />
       </Routes>
     </div>
   );

@@ -163,7 +163,7 @@ const FilterCar = () => {
           </div>
         </div>
       </div>
-      <button type='submit' className='rent-button'>Rent Now</button>
+      <button type='submit' className='rent-button' style={{marginTop:"10rem"}}>Rent Now</button>
     </form>
   );
 };

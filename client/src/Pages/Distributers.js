@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideNav from "../components/SideNav";
 import "../css/Distributer.css";
 
 
-const Distributers = () => {
 
+
+
+const Distributers = () => {
+  const [distributors, setDistributors] = useState([]);
+
+  const showDistributors = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/show-distributors", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setDistributors(data.distributors);
+    } catch (error) {
+      console.log("Distributors error", error);
+    }
+  }
+
+  useEffect(() => {
+    showDistributors();
+  },[]);
+
+  console.log(distributors)
 
   return (
     <>

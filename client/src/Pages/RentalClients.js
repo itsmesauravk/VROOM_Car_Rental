@@ -3,7 +3,7 @@ import React from 'react'
 const RentalClients = () => {
   return (
     <div>
-      ncbcaicbsjabcjaibcabcaubcujbujqbcuqwb
+      Update coming SOOOOOOONNNNNNNNN!!!!!!
     </div>
   )
 }

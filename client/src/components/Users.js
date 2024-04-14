@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SideNav from './SideNav'
 import "../css/Users.css"
 
 
 
+
 export const Users = () => {
+  const [users, setUsers] = useState([]);
+
+
+  const showUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/show-users", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setUsers(data.users);
+    } catch (error) {
+      console.log("Users error", error);
+    }
+  }
+
+  useEffect(() => {
+    showUsers();
+  },[]);
+
+  console.log(users)
+
+
   return (
     <>
     <div className='userPage'>
