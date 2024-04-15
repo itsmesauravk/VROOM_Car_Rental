@@ -119,6 +119,20 @@ const FilterCar = () => {
       return;
     }
 
+    const alreadyBooked = rentedVehicles.find(booking=>
+      booking.city===selectedCity&&
+      booking.vehicle===selectedVehicle&&
+      booking.sDate===date.startDate.toISOString().split("T")[0]
+    )
+
+    if(alreadyBooked){
+      setApp("You have already the reservation.Please change any one field.")
+      setTimeout(()=>{
+        setApp("")
+      },4000)
+      return
+    }
+
     if(rentedVehicles.length >1){
       setApp("You can only book twice before your request is approved.")
       setTimeout(() => {
