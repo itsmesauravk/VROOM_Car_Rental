@@ -8,7 +8,7 @@ export const CityProvider = ({ children }) => {
   const [rentedVehicles,setRentedVehicles]=useState([]);
 
   const addrentedVehicle=(vehicle)=>{
-    setRentedVehicles([...rentedVehicles,vehicle])
+      setRentedVehicles([...rentedVehicles,vehicle])
   }
 
   return (
