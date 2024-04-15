@@ -46,6 +46,22 @@ const createRequest = async (req, res) => {
     }
 }
 
+//for showing the requested data to the user
+const showRequest = async(req,res)=>{
+    try {
+        // Find the request by its id
+        const {userId} = req.params;
+        const  requests = await Request.find({senderUser:userId})
+        if(!requests){
+            return res.status(404).json({success:false,message:'No requests found'})
+        }
+        res.status(200).json({success:true,data:requests})
+        
+    } catch (error) {
+        res.status(400).json({success:false,message:'Failed to get requests'})
+    }
+}
+
 
 
 module.exports = {
