@@ -20,9 +20,13 @@ const UserSchema = new mongoose.Schema({
     address: {
         type:String,
         required:true
+    },
+    isUser:{
+        type:Boolean,
+        default:true
     }
 },
-timestamp = true
+timestamps = true
 )
 
 const User = mongoose.model("User",UserSchema)

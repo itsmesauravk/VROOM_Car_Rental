@@ -21,10 +21,34 @@ const FilterCar = () => {
   const [isDateOpen, setIsDateOpen] = useState(false);
   const [app, setApp] = useState("");
   const navigate = useNavigate();
+  const [userData,setUserData] = useState({});
 
   const cityRef = useRef();
   const vehicleRef = useRef();
   const CalendarRef = useRef();
+
+
+  //get loggeding user info 
+  const getUserInfo = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+    const response = await fetch('http://localhost:4000/user-info', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const data = await response.json();
+    setUserData(data.user);
+  };
+  
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
   useEffect(() => {
     const handler = (e) => {
@@ -80,14 +104,16 @@ const FilterCar = () => {
     setIsDateOpen(!isDateOpen);
   };
 
-  const handleApp = (e) => {
+
+  //data fetching process goes here
+
+  const handleApp = async(e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     if (!token) {
       navigate('/login');
       return;
     }
-
     if (selectedCity === '-None-' || selectedVehicle === '-None-') {
       setApp('Please select any city or vehicle to make the reservation.');
       setTimeout(() => {
@@ -109,7 +135,26 @@ const FilterCar = () => {
     }, 2000);
     console.log(selectedCity);
     console.log(selectedVehicle);
-    console.log(date);
+    console.log(date.startDate.toISOString().split("T")[0])
+    console.log(date.endDate.toISOString().split("T")[0])
+
+    const response = await fetch('http://localhost:4000/create-request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        senderUser: userData._id,
+        receiverDistributor: selectedCity,  
+        bookingDetails:{
+          vehicle:selectedVehicle,
+          startDate:date.startDate.toISOString().split("T")[0],
+          endDate:date.endDate.toISOString().split("T")[0]
+        }
+       }),
+    });
+    const data = await response.json();
+    console.log(data);
   };
 
   return (

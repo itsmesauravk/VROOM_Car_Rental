@@ -19,6 +19,11 @@ const{
     showDistributors
 } = require('../controller/controller')
 
+// Importing from Booking.js
+const {
+    createRequest
+} = require('../controller/Booking')
+
 
 
 router.route('/register').post(registration)
@@ -36,6 +41,10 @@ router.route('/show-distributors').get(showDistributors)
 
 //admin routes
 router.route('/register-admin').post(registerAdmin)
+
+
+// Handling the user request
+router.route('/create-request').post(createRequest)
 
 
 
