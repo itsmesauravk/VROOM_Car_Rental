@@ -39,11 +39,9 @@ const Requests = () => {
               <p><FaCalendarAlt className="car-icon"/> To</p>
               <h1>{request.eDate}</h1> 
               </div>
-             <div className='status'>
+              <div className='status'>
                 <div className='pending-status'></div>
-                <p>
-                  {request.status}
-                </p>
+                <p>{request.status}</p>
               </div>
             </div>
           ))}

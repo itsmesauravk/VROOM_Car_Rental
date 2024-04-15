@@ -10,7 +10,7 @@ import "../css/filtercar.css"
 import { format } from "date-fns";
 
 const FilterCar = () => {
-  const { selectedCity, setSelectedCity, selectedVehicle, setSelectedVehicle,addrentedVehicle } = useContext(CityContext);
+  const { selectedCity, setSelectedCity, selectedVehicle, setSelectedVehicle,addrentedVehicle, rentedVehicles} = useContext(CityContext);
   const [isCityOpen, setIsCityOpen] = useState(false);
   const [isVehicleOpen, setIsVehicleOpen] = useState(false);
   const [date, setDate] = useState({
@@ -119,22 +119,26 @@ const FilterCar = () => {
       return;
     }
 
-    addrentedVehicle({
-      city:selectedCity,
-      vehicle:selectedVehicle,
-      sDate:date.startDate.toISOString().split("T")[0],
-      eDate:date.endDate.toISOString().split("T")[0],
-      status:"pending"
-    })
+    if(rentedVehicles.length >1){
+      setApp("You can only book twice before your request is approved.")
+      setTimeout(() => {
+        setApp("");
+      }, 4000);
+      return
+    }else{
+      addrentedVehicle({
+        city:selectedCity,
+        vehicle:selectedVehicle,
+        sDate:date.startDate.toISOString().split("T")[0],
+        eDate:date.endDate.toISOString().split("T")[0],
+        status:"pending"
+      })
+    }
 
     setApp(true);
     setTimeout(() => {
       setApp("");
     }, 2000);
-    console.log(selectedCity);
-    console.log(selectedVehicle);
-    console.log(date.startDate.toISOString().split("T")[0])
-    console.log(date.endDate.toISOString().split("T")[0])
 
     const response = await fetch('http://localhost:4000/create-request', {
       method: 'POST',
