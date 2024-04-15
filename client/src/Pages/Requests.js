@@ -4,6 +4,8 @@ import { CityContext } from '../components/CityContext';
 import "../css/request.css";
 import { IoCarSport } from "react-icons/io5";
 import { IoLocation } from "react-icons/io5";
+import { FaCalendar } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const Requests = () => {
   const { rentedVehicles } = useContext(CityContext);
@@ -26,14 +28,22 @@ const Requests = () => {
               <h1>{request.vehicle}</h1>
               </div>
               <div  className='req-vehicle-box'>
-              <p><IoLocation/> City</p>
+              <p><IoLocation className="car-icon"/> City</p>
               <h1>{request.city}</h1>
               </div>
-              <p>{request.sDate}</p>
-              <p>{request.eDate}</p> 
+              <div className="req-vehicle-box">
+              <p><FaCalendar className="car-icon"/> From</p>
+              <h1>{request.sDate}</h1>
+              </div>
+              <div className="req-vehicle-box">
+              <p><FaCalendarAlt className="car-icon"/> To</p>
+              <h1>{request.eDate}</h1> 
+              </div>
              <div className='status'>
                 <div className='pending-status'></div>
-                <p>pending</p>
+                <p>
+                  {request.status}
+                </p>
               </div>
             </div>
           ))}

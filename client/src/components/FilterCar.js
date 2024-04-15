@@ -28,7 +28,6 @@ const FilterCar = () => {
   const CalendarRef = useRef();
 
 
-  //get loggeding user info 
   const getUserInfo = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -105,8 +104,6 @@ const FilterCar = () => {
   };
 
 
-  //data fetching process goes here
-
   const handleApp = async(e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
@@ -126,7 +123,8 @@ const FilterCar = () => {
       city:selectedCity,
       vehicle:selectedVehicle,
       sDate:date.startDate.toISOString().split("T")[0],
-      eDate:date.endDate.toISOString().split("T")[0]
+      eDate:date.endDate.toISOString().split("T")[0],
+      status:"pending"
     })
 
     setApp(true);
