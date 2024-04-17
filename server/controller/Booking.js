@@ -48,23 +48,41 @@ const createRequest = async (req, res) => {
     }
 }
 
-//for showing the requested data to the user
-const showRequest = async (req, res) => {
+// request status to show the user
+const showUserRequestStatus = async (req, res) => {
     try {
-        const token = req.headers.authorization;
-        // console.log(token)
-        if (!token) {
-            return res.status(401).json({ success: false, message: 'Token not provided' });
+       const userId = req.params.id;
+    //    console.log(distributorId)
+        
+        if (!userId) {
+            return res.status(401).json({ success: false, message: 'Id not provided' });
         }
 
-        const decodedToken = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
-        if (!decodedToken) {
-            return res.status(401).json({ success: false, message: 'Invalid token' });
-        }   
-        const userId = decodedToken.id;
-    
-        
         const requests = await Request.find({ senderUser: userId }).populate('receiverDistributor').populate('senderUser')
+        .exec(); //to execute
+        if (requests.length === 0) {
+            return res.status(404).json({ success: false, message: 'No requests found' });
+        }
+
+        res.status(200).json({ success: true, data: requests });
+    } catch (error) {
+        console.error('Error getting requests:', error);
+        res.status(500).json({ success: false, message: 'Failed to get requests' });
+    }
+}
+
+
+//for showing the requested data to the distributor
+const showRequest = async (req, res) => {
+    try {
+       const distributorId = req.params.id;
+    //    console.log(distributorId)
+        
+        if (!distributorId) {
+            return res.status(401).json({ success: false, message: 'Id not provided' });
+        }
+
+        const requests = await Request.find({ receiverDistributor: distributorId }).populate('receiverDistributor').populate('senderUser')
         .exec(); //to execute
         if (requests.length === 0) {
             return res.status(404).json({ success: false, message: 'No requests found' });
@@ -81,5 +99,6 @@ const showRequest = async (req, res) => {
 
 module.exports = {
      createRequest ,
-        showRequest
+        showRequest,
+        showUserRequestStatus
     }

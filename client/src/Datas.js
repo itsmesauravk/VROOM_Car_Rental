@@ -6,7 +6,34 @@ import { FaTruckFront } from "react-icons/fa6";
 
 // const token=localStorage.getItem("token")
 //getting the user details 
+// const [distInfo,setDistInfo] = useState({})
 
+// const token = localStorage.getItem('token')
+
+// const distInfoShow = async()=>{
+//     try{
+//         const response = await fetch('http://localhost:4000/distributor-info',{
+//             method:'GET',
+//             headers:{
+//                 'Content-Type':'application/json',
+//                 'Authorization':`Bearer ${token}`
+//             }
+//         })
+//         const data = await response.json()
+//         if(data.success === true){
+//             setDistInfo(data.dist)
+//         }
+//     }catch(error){
+//         console.log(error)
+//     }
+
+// }
+
+// useEffect(()=>{
+//     distInfoShow()
+// },[])
+
+// console.log(distInfo)
 
 export const Menu=[
     {
@@ -54,10 +81,10 @@ export const sideNavPath = [
 ]
 export const distNavPath = [
     {
-        title:'Home',
+        title:'Profile',
         className:'navigation_Lists',
         icon:<IoMdHome className="nav-icon"/>,
-        path:'/'
+        path:'/distributors_profile'
     },
     {
         title:'User Request',

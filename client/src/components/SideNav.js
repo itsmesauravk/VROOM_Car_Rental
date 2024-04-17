@@ -10,7 +10,14 @@ const SideNav = () => {
       return path;
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem('token')
+    window.location.href = '/login'
+  }
+
   return (
+    
+
     <>
       <div className="left">
         <div className="leftContent">
@@ -46,10 +53,10 @@ const SideNav = () => {
               })}
             </ul>
           </div>
-          <Link className="logout" to="/login">
+          <button onClick={logoutHandler} className="logout">
             <IoMdExit className="nav-icon"/>
-            Logout
-          </Link>
+              Logout
+          </button>
         </div>
       </div>
     </>

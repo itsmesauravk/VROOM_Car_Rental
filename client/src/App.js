@@ -15,6 +15,7 @@ import RentalClients from "./Pages/RentalClients"
 import UserRequest from "./Pages/UserRequest"
 import DistributerForm from "./components/DistributerForm"
 import AddAdmin from "./Pages/AddAdmin";
+import DistProfile from "./Pages/DistProfile";
 
 
 
@@ -28,14 +29,15 @@ function App() {
         <Route path="/signup" element={<Signup/>}  />
         <Route path="/forgot" element={<ForgotPassword/>} />
         <Route path="/reset-password/:token" element={<PasswordReset/>} />
-        <Route path="/Requests" element={<Requests/>}/>
+        <Route path="/Requests/:userId" element={<Requests/>}/>
         <Route path='/cars' element={<Cars/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path="/adminDashboard" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
         <Route  path="/distributers" element={<Distributers />}  />
-        <Route  path="/rental_clients" element={<RentalClients/>}  />
-        <Route  path="/user_requests" element={<UserRequest/>}  />
+        <Route  path="/distributors_profile/:id" element={<DistProfile/>}  />
+        <Route  path="/rental_clients/:id" element={<RentalClients/>}  />
+        <Route  path="/user_requests/:id" element={<UserRequest/>}  />
         <Route  path="/addDistributers" element={<DistributerForm />}  />
         <Route path="/add-admin-dashboard" element={<AddAdmin/>} />
       </Routes>

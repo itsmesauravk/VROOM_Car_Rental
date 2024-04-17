@@ -51,6 +51,7 @@ const Nav = () => {
           {userInfo && <h4 className='nav--user'>Welcome {userInfo.fullname}</h4>}
         </div>
         <ul className='navmenu'>
+        
           {Menu.map((item, index) => (
             <li key={index} className={location.pathname === item.url ? "active" : ""}>
               <Link to={item.url} className={item.cName}>
@@ -60,10 +61,14 @@ const Nav = () => {
             </li>
           ))}
         </ul>
+        {/* show user request status  */}
+          <Link to={`/Requests/${userInfo._id}`}>
+            <h1 className='nav--button'>Request</h1>
+          </Link>
+        
         {token ? (
           <>
-          <Link to="/user_requests" className='to_dashboard'>Distributor Panel</Link>
-            <Link to="/adminDashboard" className='to_dashboard' >Admin Dashboard</Link>
+          
             <div>
               <button className='nav--button' onClick={handleLogout}>
                 Logout

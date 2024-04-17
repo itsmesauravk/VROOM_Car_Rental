@@ -9,6 +9,7 @@ const {
     resetPassword,
     newPassword,
     userInfo,
+    distInfo,
     registerAdmin,
     registerDistributor
 } = require('../controller/LoginRegister')
@@ -22,7 +23,8 @@ const{
 // Importing from Booking.js
 const {
     createRequest,
-    showRequest
+    showRequest,
+    showUserRequestStatus
 } = require('../controller/Booking')
 
 
@@ -36,9 +38,14 @@ router.route('/reset-password').post(newPassword)
 router.route('/user-info').get(userInfo)
 router.route('/show-users').get(showUsers)
 
+
+
 //distributor routes
 router.route('/register-distributor').post(registerDistributor)
 router.route('/show-distributors').get(showDistributors)
+router.route('/distributor-info').get(distInfo)
+router.route('/show-user-request-status/:id').get(showUserRequestStatus)
+
 
 //admin routes
 router.route('/register-admin').post(registerAdmin)
@@ -46,7 +53,8 @@ router.route('/register-admin').post(registerAdmin)
 
 // Handling the user request
 router.route('/create-request').post(createRequest)
-router.route('/show-request').get(showRequest)
+router.route('/show-request/:id').get(showRequest)
+
 
 
 

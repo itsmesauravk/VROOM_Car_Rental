@@ -48,36 +48,56 @@ const registration = async (req, res) => {
 
 
 
-  //user login
   const login = async (req, res) => {
     try {
       const { email, password } = req.body;
   
-      // Check if the email exists
-      const user = await User.findOne({ email});
-      if(!user){
+      let user;
+  
+      // Check if the email exists as a regular user
+      user = await User.findOne({ email });
+      if (!user) {
+        // If not found, check if the email exists as a distributor
+        const distributor = await Distributor.findOne({ email });
+        if (distributor) {
+          user = distributor;
+        } else {
+          // If still not found, check if the email exists as an admin
+          const admin = await Admin.findOne({ email });
+          if (admin) {
+            user = admin;
+          }
+        }
+      }
+  
+      // If user is still not found, return an error
+      if (!user) {
         return res.status(400).json({ success: false, message: 'Invalid email or password' });
       }
-
-      //verify password
+  
+      // Verify password
       const isMatch = bcrypt.compareSync(password, user.password);
-      if(!isMatch){
+      if (!isMatch) {
         return res.status(400).json({ success: false, message: 'Invalid email or password' });
       }
-      
+  
+      //checking the user role
+      const role = user.role;
+      const id = user._id;
+      // console.log(role)
+
+      // Generate JWT token
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-
-      res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === "production" });
-      res.status(200).json({ success: true, message: 'User logged in successfully', token });
-
-
-    }catch(error){
+  
+      // Set the token in a cookie
+      res.cookie("token", token, { httpOnly: true });
+      res.status(200).json({ success: true, message: 'User logged in successfully', token,id, role });
+    } catch (error) {
       console.error('Error logging in user:', error);
       res.status(500).json({ success: false, message: 'Internal server error' });
     }
-
   }
-
+  
   //password reset
 
   const resetPassword = async (req, res) => {
@@ -174,6 +194,24 @@ const registration = async (req, res) => {
     }
   }
 
+  //getting the loggedin distributor info
+  //getting the loggedin user data
+  const distInfo = async(req, res) => {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const tokenDecoded =await jwt.verify(token, process.env.JWT_SECRET);
+      const dist = await Distributor.findById(tokenDecoded.id)
+      if(!dist){
+        return res.status(400).json({ success: false, message: 'User not found' });
+      }
+      res.status(200).json({ success: true, dist });
+    }
+    catch (error) {
+      console.error('Error getting user data:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
 
   //register admin
   const registerAdmin = async (req, res) => {
@@ -250,6 +288,7 @@ const registration = async (req, res) => {
     resetPassword,
     newPassword,
     userInfo,
+    distInfo,
     registerAdmin,
     registerDistributor
   }

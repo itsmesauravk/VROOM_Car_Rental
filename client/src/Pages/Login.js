@@ -10,6 +10,7 @@ const Login = () => {
   const [usePassword,setUserPassword] = useState("");
   const navigate = useNavigate();
   const [showHide, setShowHide] = useState(false)
+  const [role, setRole] = useState("")
 
   function handleSubmit(e){
     e.preventDefault();
@@ -26,19 +27,30 @@ const Login = () => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       if(data.success){
         alert('User logged in successfully')
         setUserEmail("");
         setUserPassword("");
-        navigate('/')
         localStorage.setItem('token', data.token)
+
+        if(data.role === 'admin'){
+          navigate('/adminDashboard')
+        }else if(data.role === 'user'){
+          navigate('/')
+        }else{
+          navigate(`/distributors_profile/${data.id}`)
+        }
+        // document.cookie = `token = ${data.token}`
       }
       if(!data.success){
         alert('Invalid email or password')
+        setRole("")
       }
     })
   }
+
+  
 
   return (
     <>

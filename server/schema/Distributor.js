@@ -25,9 +25,9 @@ const DistributorSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    isDistributor:{
-        type:Boolean,
-        default:true
+    role:{
+        type:String,
+        default:"distributor"
     }
 },
 timestamps = true

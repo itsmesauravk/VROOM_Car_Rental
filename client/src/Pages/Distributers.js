@@ -38,7 +38,7 @@ const Distributers = () => {
             <table className="distributers">
               <tr className="heading">
                 <th>S.No.</th>
-                <th>Customer</th>
+                <th>Distributors</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
@@ -58,12 +58,18 @@ const Distributers = () => {
                         {datas.distributionLocation}
                       </td>
                       <div className="editDelete">
-                        <td className="deleteButton">
+                        <button>
+                          Delete
+                        </button>
+                        {/* <td className="deleteButton">
                           <MdDelete />
-                        </td>
-                        <td className="editButton">
+                        </td> */}
+                        <button>
+                          Edit
+                        </button>
+                        {/* <td className="editButton">
                           <FaEdit />
-                        </td>
+                        </td> */}
                       </div>
                     </tr>
                   </>
