@@ -4,7 +4,9 @@ import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaTruckFront } from "react-icons/fa6";
 
-const token=localStorage.getItem("token")
+// const token=localStorage.getItem("token")
+//getting the user details 
+
 
 export const Menu=[
     {
@@ -17,7 +19,7 @@ export const Menu=[
         title:'Requests',
         icon:<IoCarSport className="nav-icon"/>,
         cName:'nav-link',
-        url:`/Requests/${token}`
+        url:`/Requests`
     }
 ]
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Nav from "../components/Nav";
 import { CityContext } from '../components/CityContext';
 import "../css/request.css";
@@ -9,6 +9,35 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 const Requests = () => {
   const { rentedVehicles } = useContext(CityContext);
+  const [userRequest, setUserRequest] = useState([])
+
+  const token = localStorage.getItem('token');
+
+  const showRequest = async () => {
+    try {
+      
+      const response = await fetch(`http://localhost:4000/show-request`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      const result = await response.json()
+      if(result.success === true){
+        setUserRequest(result.data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    if(token){
+      showRequest()
+    }
+  }, [token])
+
+  console.log("UserRequests : ",userRequest)
 
   return (
     <div>
@@ -46,6 +75,21 @@ const Requests = () => {
             </div>
           ))}
         </ul>
+      </div>
+      {/* test  */}
+      <div>
+        {userRequest.map((request, index) => (
+          <div key={index} style={{marginTop:"2rem"}}>
+            <h1>{request.senderUser.fullname}</h1>
+            <h1>{request.receiverDistributor.fullname}</h1>
+            <h1>{request.receiverDistributor.address}</h1>
+
+            <h1>{request.bookingDetails.vehicle}</h1>
+            <h1>{request.bookingDetails.startDate}</h1>
+            <h1>{request.bookingDetails.endDate}</h1>
+          </div>
+        ))
+      }
       </div>
     </div>
   );

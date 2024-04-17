@@ -40,6 +40,7 @@ const Nav = () => {
     userData()
   },[])
 
+  // console.log(userInfo._id)
   
 
   return (

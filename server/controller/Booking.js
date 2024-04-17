@@ -2,6 +2,8 @@ const Request = require('../schema/Requests')
 const User = require('../schema/User')
 const Distributor = require('../schema/Distributor')
 
+const jwt = require('jsonwebtoken')
+
 
 // Create a new booking request
 const createRequest = async (req, res) => {
@@ -47,23 +49,37 @@ const createRequest = async (req, res) => {
 }
 
 //for showing the requested data to the user
-const showRequest = async(req,res)=>{
+const showRequest = async (req, res) => {
     try {
-        // Find the request by its id
-        const {userId} = req.params;
-        const  requests = await Request.find({senderUser:userId})
-        if(!requests){
-            return res.status(404).json({success:false,message:'No requests found'})
+        const token = req.headers.authorization;
+        // console.log(token)
+        if (!token) {
+            return res.status(401).json({ success: false, message: 'Token not provided' });
         }
-        res.status(200).json({success:true,data:requests})
+
+        const decodedToken = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
+        if (!decodedToken) {
+            return res.status(401).json({ success: false, message: 'Invalid token' });
+        }   
+        const userId = decodedToken.id;
+    
         
+        const requests = await Request.find({ senderUser: userId }).populate('receiverDistributor').populate('senderUser')
+        .exec(); //to execute
+        if (requests.length === 0) {
+            return res.status(404).json({ success: false, message: 'No requests found' });
+        }
+
+        res.status(200).json({ success: true, data: requests });
     } catch (error) {
-        res.status(400).json({success:false,message:'Failed to get requests'})
+        console.error('Error getting requests:', error);
+        res.status(500).json({ success: false, message: 'Failed to get requests' });
     }
 }
 
 
 
 module.exports = {
-     createRequest 
+     createRequest ,
+        showRequest
     }
