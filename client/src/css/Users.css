@@ -40,3 +40,20 @@
     background-color: gray;
     color: white;
 }
+
+.deleteButton{
+    color: red;
+    font-size: 22px;
+    cursor: pointer;
+}
+.editButton{
+    color: green;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.u{
+    position: relative;
+    top: 20px;
+    left: 10%;
+}
