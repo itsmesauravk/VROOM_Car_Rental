@@ -12,9 +12,14 @@
     margin-left: 10px;
     
 }
+.dist{
+    position: relative;
+    top: 20px;
+    left: 10%;
+}
 .distributers{
     position: relative;
-    top: 40px;
+    top: 60px;
     left: 10%;
     border-collapse: collapse;
     width: 1200px;
