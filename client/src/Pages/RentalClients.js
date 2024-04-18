@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DistNav from './DistNav';
+import { Link } from 'react-router-dom';
 
 const RentalClients = () => {
   const [cars, setCars] = useState([]);
@@ -37,6 +38,7 @@ const RentalClients = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       <div className='rentalclients'>
+        <Link to='/add-car' className='add-car-link'>Add Car</Link>
         <h2 className='clienth1'>Rental Clients</h2>
         <hr className='line1'></hr>
         <div className='clientdiv' >
