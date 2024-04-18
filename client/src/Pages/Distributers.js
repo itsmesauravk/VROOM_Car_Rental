@@ -28,21 +28,21 @@ const Distributers = () => {
 
   //for handling edit and delete 
   const editDeleteHandler = async (id, action) => {
-    // try {
-    //   const response = await fetch(`http://localhost:4000/edit-delete-distributor/${id}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ action: action }),
-    //   });
-    //   const data = await response.json();
-    //   console.log(data);
-    //   showDistributors();
-    // } catch (error) {
-    //   console.log("Distributors error", error);
-    // }
-    console.log(id, action);
+    try {
+      const response = await fetch(`http://localhost:4000/edit-delete-handler/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ action: action }),
+      });
+      const data = await response.json();
+      console.log(data);
+      showDistributors();
+    } catch (error) {
+      console.log("Distributors error", error);
+    }
+    // console.log(id, action);
   }
 
   // console.log(distributors);
