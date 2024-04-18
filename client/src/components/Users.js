@@ -30,7 +30,27 @@ export const Users = () => {
     showUsers();
   },[]);
 
-  console.log(users)
+
+    //for handling edit and delete 
+    const editDeleteHandler = async (id, action) => {
+      // try {
+      //   const response = await fetch(`http://localhost:4000/edit-delete-distributor/${id}`, {
+      //     method: "DELETE",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({ action: action }),
+      //   });
+      //   const data = await response.json();
+      //   console.log(data);
+      //   showDistributors();
+      // } catch (error) {
+      //   console.log("Distributors error", error);
+      // }
+      console.log(id, action);
+    }
+
+  // console.log(users)
 
 
   return (
@@ -56,14 +76,20 @@ export const Users = () => {
                 <tr className='values' key={key}>
             <td style={{fontWeight: "bold"}} >{key}</td>
             <td className='imageAndName'>
+              
             <p style={{fontWeight: "bold"}}>{values.fullname}</p>
             </td>
             <td style={{fontWeight: "bold"}} >{values.email}</td>
             <td  style={{fontWeight: "bold"}}>{values.phone}</td>
             <td style={{fontWeight: "bold"}} >{values.address}</td>
             <div className='editDelete'>
-            <td className='deleteButton'><MdDelete /></td>
-            <td className='editButton'><FaEdit/></td>
+            ``<button onClick={()=>editDeleteHandler(values._id, "edit")}>
+                <td className='editButton'><FaEdit /></td>
+              </button>
+              <button onClick={()=>editDeleteHandler(values._id, "delete")}>
+                <td className='deleteButton'><MdDelete /></td>
+              </button>
+              
             </div>
           </tr>
           </>

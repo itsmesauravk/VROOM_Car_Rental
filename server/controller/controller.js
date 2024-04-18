@@ -4,7 +4,6 @@ const User = require('../schema/User')
 const Admin = require('../schema/Admin')
 // Distributor
 const Distributor = require('../schema/Distributor');
-const { model } = require('mongoose');
 
 
 

@@ -10,6 +10,7 @@ const {
     newPassword,
     userInfo,
     distInfo,
+    adminInfo,
     registerAdmin,
     registerDistributor
 } = require('../controller/LoginRegister')
@@ -49,6 +50,7 @@ router.route('/show-user-request-status/:id').get(showUserRequestStatus)
 
 //admin routes
 router.route('/register-admin').post(registerAdmin)
+router.route('/admin-info').get(adminInfo) 
 
 
 // Handling the user request

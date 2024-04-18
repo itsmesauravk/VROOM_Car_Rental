@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/sideNav.css";
 import { sideNavPath } from "../Datas";
@@ -14,6 +14,31 @@ const SideNav = () => {
     localStorage.removeItem('token')
     window.location.href = '/login'
   }
+  const token = localStorage.getItem('token')
+  const [adminInfo, setAdminInfo] = useState({})
+  //get the admin details
+  const adminDetails = async()=>{
+    try {
+      const response = await fetch('http://localhost:4000/admin-info',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        
+      }
+    })
+    const data = await response.json()
+    // console.log(data)
+    setAdminInfo(data.admin)
+  }
+    catch(err){
+      console.log(err)
+    }
+      
+}
+  useEffect(() => {
+    adminDetails()
+  },[])
 
   return (
     
@@ -30,7 +55,9 @@ const SideNav = () => {
             <p className="welcome"> 
               Welcome Back,
               <br></br>
-              Ram Thapa
+              {adminInfo && 
+              <h2>{adminInfo.fullname}</h2>
+              }
             </p>
           </div>
           <div className="navigation_Lists">

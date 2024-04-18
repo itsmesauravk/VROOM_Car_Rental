@@ -213,6 +213,24 @@ const registration = async (req, res) => {
   }
 
 
+  //getting the admin details
+  const adminInfo = async(req, res) => {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const tokenDecoded =await jwt.verify(token, process.env.JWT_SECRET);
+      const admin = await Admin.findById(tokenDecoded.id)
+      if(!admin){
+        return res.status(400).json({ success: false, message: 'Admin not found' });
+      }
+      res.status(200).json({ success: true, admin });
+    }
+    catch (error) {
+      console.error('Error getting admin data:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+
   //register admin
   const registerAdmin = async (req, res) => {
     try {
@@ -280,6 +298,8 @@ const registration = async (req, res) => {
       res.status(500).json({ success: false, message: 'Internal server error' });
     }
   }
+
+
   
 
   module.exports = {
@@ -289,6 +309,7 @@ const registration = async (req, res) => {
     newPassword,
     userInfo,
     distInfo,
+    adminInfo,
     registerAdmin,
     registerDistributor
   }
