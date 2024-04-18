@@ -48,7 +48,7 @@ const UserRequest = () => {
                 <img src={imageUrl} alt='User' className='user-image' />
                 <div className="user-details">
                 <p className='req-id'>Request id : {item._id}</p>
-                <p className='user-name'>User: {item.senderUser.fullname}</p>
+                <p className='user-name'>User: {item.senderUser?.fullname}</p>
                 <p className='vehicle-name'>Requested Vehicle:<span>{item.bookingDetails.vehicle}</span></p>
                 <p className='date-range'>DateRented:<span>Start Date : {item.bookingDetails.startDate} - {item.bookingDetails.endDate}</span></p>
                 </div>

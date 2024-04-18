@@ -189,7 +189,7 @@ const registration = async (req, res) => {
       res.status(200).json({ success: true, user });
     }
     catch (error) {
-      console.error('Error getting user data:', error);
+      // console.error('Error getting user data:', error);
       res.status(500).json({ success: false, message: 'Internal server error' });
     }
   }
@@ -207,7 +207,7 @@ const registration = async (req, res) => {
       res.status(200).json({ success: true, dist });
     }
     catch (error) {
-      console.error('Error getting user data:', error);
+      console.error('Error getting dist data:', error);
       res.status(500).json({ success: false, message: 'Internal server error' });
     }
   }

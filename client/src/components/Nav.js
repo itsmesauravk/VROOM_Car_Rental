@@ -13,7 +13,8 @@ const Nav = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/');
+    window.location.reload();
+    // navigate('/');
   };
 
 

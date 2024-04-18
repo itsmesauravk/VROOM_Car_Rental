@@ -27,11 +27,14 @@ const FilterCar = () => {
   const vehicleRef = useRef();
   const CalendarRef = useRef();
 
+ 
+
 
   const getUserInfo = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
       navigate('/login');
+     
       return;
     }
     const response = await fetch('http://localhost:4000/user-info', {
@@ -170,7 +173,7 @@ const FilterCar = () => {
        }),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
   };
 
   return (

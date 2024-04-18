@@ -16,6 +16,7 @@ import UserRequest from "./Pages/UserRequest"
 import DistributerForm from "./components/DistributerForm"
 import AddAdmin from "./Pages/AddAdmin";
 import DistProfile from "./Pages/DistProfile";
+import AddCars from "./Pages/AddCars";
 
 
 
@@ -39,7 +40,11 @@ function App() {
         <Route  path="/rental_clients/:id" element={<RentalClients/>}  />
         <Route  path="/user_requests/:id" element={<UserRequest/>}  />
         <Route  path="/addDistributers" element={<DistributerForm />}  />
+
+        {/* beta testing  */}
         <Route path="/add-admin-dashboard" element={<AddAdmin/>} />
+        <Route path="/add-car" element={<AddCars/>} />
+
       </Routes>
     </div>
   );
