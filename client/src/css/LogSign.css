@@ -116,14 +116,14 @@ input:focus {
     border-radius: 10px;
     border: 1px solid black;
     cursor: pointer;
-    background-color: black;
-    color: white;
+    background-color:white;
+    color: black;
 }
 
 .SignupBtn:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid white;
+    background-color:var(--primary-color) ;
+    color: white;
+    border: 1px solid black;
 
 }
 

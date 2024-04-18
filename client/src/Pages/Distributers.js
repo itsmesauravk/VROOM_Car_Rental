@@ -79,18 +79,19 @@ const Distributers = () => {
                       </td>
                       <div className="editDelete">
 
-                      <button onClick={()=>editDeleteHandler(datas._id, "edit")}>
-                          <td className="editButton">
+                      <td ><button onClick={()=>editDeleteHandler(datas._id, "edit")}  className="editButton">
+                          
                             <FaEdit />
-                          </td>
+                          
                         </button>
-
-                        <button onClick={()=>editDeleteHandler(datas._id, "delete")} >
-                          <td className="deleteButton">
+                        </td>
+                        <td >
+                        <button onClick={()=>editDeleteHandler(datas._id, "delete")} className="deleteButton">
+                          
                             <MdDelete />
-                          </td>
+                         
                         </button>
-                        
+                        </td>
                       </div>
                     </tr>
                   </>
