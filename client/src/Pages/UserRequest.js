@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import DistNav from './DistNav';
-import UserRequestItem from '../components/UserRequestItem';
 import '../css/userrequests.css';
+import "../css/userrequestitem.css"
 import { useParams } from 'react-router-dom';
 
 const UserRequest = () => {
   const [userRequest, setUserRequest] = useState([]);
-  const { id } = useParams(); // distributor id
+  const { id } = useParams();
+  const imageUrl= "https://w0.peakpx.com/wallpaper/123/749/HD-wallpaper-baki-raitai-anime-fight.jpg";
 
   const showRequest = async () => {
     try {
@@ -32,7 +33,6 @@ const UserRequest = () => {
     }
   }, []);
 
-  // console.log(userRequest);
 
   return (
     <div className='userrequests'>
@@ -43,17 +43,21 @@ const UserRequest = () => {
         <div className='userreqdiv'>
           {userRequest.length > 0 ? (
             userRequest.map((item, index) => (
-              <div key={index} style={{border:"2px solid black"}}>
-                <h4>Request id : {item._id}</h4>
-                <h2>Sender: {item.senderUser.fullname}</h2>
-                <h3>Requested Vehicle : {item.bookingDetails.vehicle}</h3>
-                <h3>Start Date : {item.bookingDetails.startDate}</h3>
-                <h3>End Date : {item.bookingDetails.endDate}</h3>
-
-                <div>
-                  <button>Accept</button>
-                  <button>Reject</button>
+              <div key={index} className='user-request-item'>
+                <div className="user-info">
+                <img src={imageUrl} alt='User' className='user-image' />
+                <div className="user-details">
+                <p className='req-id'>Request id : {item._id}</p>
+                <p className='user-name'>User: {item.senderUser.fullname}</p>
+                <p className='vehicle-name'>Requested Vehicle:<span>{item.bookingDetails.vehicle}</span></p>
+                <p className='date-range'>DateRented:<span>Start Date : {item.bookingDetails.startDate} - {item.bookingDetails.endDate}</span></p>
                 </div>
+                </div>
+
+                 <div className='action-buttons'>
+        <button className='approve-button'>Approve</button>
+        <button className='deny-button'>Deny</button>
+      </div>
                
               </div>
             ))

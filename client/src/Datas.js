@@ -1,5 +1,4 @@
 import { IoMdHome } from "react-icons/io";
-import { IoCarSport } from "react-icons/io5";
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaTruckFront } from "react-icons/fa6";
@@ -41,12 +40,6 @@ export const Menu=[
         icon:<IoMdHome className="nav-icon"/>,
         cName:'nav-link',
         url:'/'
-    },
-    {
-        title:'Requests',
-        icon:<IoCarSport className="nav-icon"/>,
-        cName:'nav-link',
-        url:`/Requests`
     }
 ]
 
