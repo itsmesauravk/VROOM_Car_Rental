@@ -29,6 +29,12 @@ const {
 } = require('../controller/Booking')
 
 
+// editing - deleting user
+const {
+   editDelete 
+} = require('../controller/EditDelete')
+
+
 
 router.route('/register').post(registration)
 router.route('/login').post(login)
@@ -56,6 +62,10 @@ router.route('/admin-info').get(adminInfo)
 // Handling the user request
 router.route('/create-request').post(createRequest)
 router.route('/show-request/:id').get(showRequest)
+
+
+//edit delete handler
+router.route('/edit-delete-handler/:id').delete(editDelete)
 
 
 
