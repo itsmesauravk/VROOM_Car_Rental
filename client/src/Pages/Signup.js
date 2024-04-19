@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import env from 'react-dotenv';
-import "../css/LogSign.css"
+import "../css/SignUp.css"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 
@@ -67,7 +67,7 @@ function Signup() {
     <form onSubmit={(e)=>submitData(e)}>
     <div className="Signup">
       <h1>Sign up</h1>
-      <div className="container">
+      <div className="containerS">
         <p>Full Name</p >
         <input type='text'
           placeholder='Your Name'
