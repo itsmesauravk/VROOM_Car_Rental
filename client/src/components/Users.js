@@ -84,13 +84,16 @@ export const Users = () => {
             <td  style={{fontWeight: "bold"}}>{values.phone}</td>
             <td style={{fontWeight: "bold"}} >{values.address}</td>
             <div className='editDelete'>
-            <button onClick={()=>editDeleteHandler(values._id, "edit")}>
-                <td className='editButton'><FaEdit /></td>
+            <td >
+            <button onClick={()=>editDeleteHandler(values._id, "edit")} className='editButton'>
+                <FaEdit />
               </button>
-              <button onClick={()=>editDeleteHandler(values._id, "delete")}>
-                <td className='deleteButton'><MdDelete /></td>
+              </td>
+              <td>
+              <button onClick={()=>editDeleteHandler(values._id, "delete")}  className='deleteButton'>
+                <MdDelete />
               </button>
-              
+              </td>
             </div>
           </tr>
           </>
