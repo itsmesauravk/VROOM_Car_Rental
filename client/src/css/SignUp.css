@@ -1,0 +1,300 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.signupPage {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.Signup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  padding: 30px 50px;
+  border: 3px solid var(--primary-color);
+  border-radius: 20px;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+}
+.signImage {
+  object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+}
+.signup-link {
+  text-decoration: underline;
+  color: var(--primary-color);
+  letter-spacing: 3px;
+}
+
+.containerS {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.containerS p {
+  font-size: 18px;
+  color: white;
+  margin: 1rem 0rem 0rem 1rem;
+}
+
+.containerS input {
+  width: 100%;
+  padding: 0px 12px 12px 12px;
+  color: white;
+  font-size: 18px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+input:focus {
+  outline: none;
+}
+
+.SignupBtn {
+  position: relative;
+  left: 30%;
+  top: 10px;
+  width: 40%;
+  padding: 7px 12px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.SignupBtn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid black;
+}
+
+.existingS {
+  position: relative;
+  left: 8%;
+}
+
+.bgImage {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6);
+}
+
+.to_dashboard {
+  color: black;
+}
+.showHideSignup {
+  font-size: 23px;
+  width: 30px;
+  background: none;
+  border: none;
+  position: relative;
+  left: 92%;
+  bottom: 50px;
+  cursor: pointer;
+  color: white;
+}
+@media screen and (max-width: 1600px) {
+  .Signup {
+    width: 40%;
+    padding: 15px 50px;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .existingS {
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 1470px) {
+  .existingS {
+    left: 12%;
+  }
+}
+
+@media screen and (max-width: 1395px) {
+  .Signup {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .existingS {
+    left: 12%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .existingS {
+    left: 9%;
+  }
+  .Signup {
+    width: 50%;
+  }
+}
+
+
+
+@media screen and (max-width: 1098px) {
+  .existingS {
+    left: 8%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Signup {
+    width: 55%;
+  }
+  .existingS {
+    left: 8%;
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .Signup {
+    width: 55%;
+  }
+  .existingS {
+    left: 8%;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .Signup {
+    width: 57%;
+  }
+  .existingS {
+    left: 7%;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .Signup {
+    width: 59%;
+  }
+  .existingS {
+    
+    left: 4%;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .Signup {
+    width: 65%;
+  }
+  .existingS {
+    
+    left: 4%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .Signup {
+    width: 70%;
+  }
+  .existingS {
+    
+    left: 3%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .Signup {
+    width: 75%;
+  }
+  .existingS {
+    
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Signup {
+    width: 78%;
+  }
+  .existingS {
+    
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .Signup {
+    width: 80%;
+  }
+  .existingS {
+    
+    left: 2%;
+  }
+}
+@media screen and (max-width: 565px) {
+  .Signup {
+    width: 90%;
+  }
+  .existingS {
+    
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Signup {
+    width: 95%;
+  }
+  .existingS {
+    
+    left: 1%;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .Signup {
+    width: 95%;
+    padding: 15px 30px;
+  }
+  .existingS {
+    
+    left: 1%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .Signup {
+    width: 97%;
+    padding: 15px 30px;
+  }
+  .existingS {
+    
+    left: 0%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .Signup {
+    width: 97%;
+    padding: 15px 20px;
+  }
+  .existingS {
+    
+    left: 0%;
+  }
+}

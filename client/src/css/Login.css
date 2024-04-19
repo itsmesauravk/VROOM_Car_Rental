@@ -1,0 +1,271 @@
+  
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+.loginPage {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    padding: 30px 50px;
+    border: 3px solid var(--primary-color);
+    border-radius: 20px;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+  }
+  
+  .login h1 {
+    margin-left: 7.5rem;
+    font-size: 38px;
+    color: var(--primary-color);
+    letter-spacing: 5px;
+    font-weight: 500;
+  }
+
+  .containerL {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .containerL p {
+    font-size: 18px;
+    color: white;
+    margin: 1rem 0rem 0rem 1rem;
+  }
+  
+  .containerL input {
+    width: 100%;
+    padding: 0px 12px 12px 12px;
+    color: white;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .loginBtn {
+    position: relative;
+    left: 23%;
+    width: 60%;
+    padding: 12px 16px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    color: var(--primary-color);
+    transition: 0.5s all;
+  }
+  .loginBtn:hover {
+    color: white;
+    background-color: var(--primary-color);
+    transition: 0.5s all;
+    transform: scale(1.05);
+  }
+  .existingL {
+    position: relative;
+    left: 10%;
+  }
+
+  .resetPass {
+    position: relative;
+    left: 30%;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  
+
+  @media screen and (max-width:1600px) {
+    .login{
+        width: 40%;
+    }
+    .login h1 {
+        margin-left: 10rem;
+    }
+  }
+
+  @media screen and (max-width:1320px) {
+    .login h1 {
+        margin-left: 9rem;
+    }
+    .loginBtn{
+        left: 21%;
+    }
+    .existingL{
+        left: 6%;
+    }
+    .resetPass {
+        left: 27%;
+    }
+  }
+
+  @media screen and (max-width:1200px) {
+    .login{
+        width: 42%;
+    }
+    .login h1 {
+        margin-left: 9rem;
+    }
+  }
+
+  @media screen and (max-width:1155px) {
+    .login{
+        width: 45%;
+    }
+    .login h1 {
+        margin-left: 9rem;
+    }
+    .loginBtn{
+        left: 21%;
+    }
+    .existingL{
+        left: 4%;
+    }
+    .resetPass {
+        left: 27%;
+    }
+  }
+
+  @media screen and (max-width:1100px) {
+    .login{
+        width: 47%;
+    }
+  }
+
+  @media screen and (max-width:1030px) {
+    .login{
+        width: 50%;
+    }
+  }
+
+  @media screen and (max-width:990px) {
+    .login{
+        width: 55%;
+    }
+    .existingL{
+        left: 5%;
+    }
+  }
+
+  @media screen and (max-width:850px) {
+    .login{
+        width: 60%;
+    }
+    .existingL{
+        left: 5%;
+    }
+    .login h1 {
+        margin-left: 8rem;
+    }
+  }
+  @media screen and (max-width:770px) {
+    .login{
+        width: 65%;
+    }
+    .existingL{
+        left: 5%;
+    }
+    .login h1 {
+        margin-left: 8rem;
+    }
+  }
+
+  @media screen and (max-width:700px) {
+    .login{
+        width: 70%;
+    }
+    .existingL{
+        left: 2%;
+    }
+  }
+
+  @media screen and (max-width:650px) {
+    .login{
+        width: 73%;
+    }
+    .existingL{
+        left: 1%;
+    }
+    .resetPass {
+        left: 25%;
+    }
+  }
+
+  @media screen and (max-width:630px) {
+    .login{
+        width: 80%;
+    }
+    .login h1 {
+        margin-left: 7.5rem;
+    }
+  }
+
+  @media screen and (max-width:600px) {
+    .login{
+        width: 80%;
+        padding: 20px 40px;
+    }
+    .login h1 {
+        margin-left: 7.5rem;
+    }
+  }
+
+  @media screen and (max-width:550px) {
+    .login{
+        width: 85%;
+    }
+    
+  }
+
+  @media screen and (max-width:515px) {
+    .login{
+        width: 85%;
+        padding: 10px 30px;
+    }
+    .login h1 {
+        margin-left: 7rem;
+    }
+    .existingL{
+        left: 0%;
+    }
+  }
+
+  @media screen and (max-width:500px) {
+    .login{
+        width: 90%;
+
+    }
+  }
+  @media screen and (max-width:470px) {
+    .login{
+        width: 95%;
+        padding: 5px 30px;
+    }
+  }
+
+  @media screen and (max-width:450px) {
+    .login{
+        width: 97%;
+        
+    }
+    .existingL{
+        left: -2%;
+    }
+  }
