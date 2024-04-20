@@ -5,7 +5,7 @@
     margin-bottom: 15px;
     padding: .5rem 1rem;
     width: 60vw;
-    font-family: cochin;
+    font-family: sedan;
 }
 
 .user-info {
@@ -79,7 +79,6 @@
     cursor: pointer;
     border: none;
     font-size: 1rem;
-    font-family: cochin;
 }
 
 .approve-button {

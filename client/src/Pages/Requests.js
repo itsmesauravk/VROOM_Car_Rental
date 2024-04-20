@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Nav from "../components/Nav";
-import { CityContext } from '../components/CityContext';
 import "../css/request.css";
 import { IoCarSport } from "react-icons/io5";
 import { IoLocation } from "react-icons/io5";
@@ -9,12 +8,11 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 
 const Requests = () => {
-  const { rentedVehicles } = useContext(CityContext);
   const token = localStorage.getItem('token');
   const {userId} = useParams()
   const [userRequestStatus, setUserRequestStatus] = useState([]);
   
-  
+  // Function to fetch and display user's request history
   const showRequestedVehicles = async () => { 
     try {
       const response = await fetch(`http://localhost:4000/show-user-request-status/${userId}`, {
@@ -24,7 +22,7 @@ const Requests = () => {
         },
       });
       const data = await response.json();
-      // console.log(data);
+      // Update state with user's request history
       if(data.success){
         setUserRequestStatus(data.data)
       }
@@ -32,6 +30,8 @@ const Requests = () => {
       console.log("Users error", error);
     }
   }
+  
+  // Fetch user's request history on component mount
   useEffect(() => {
     if(token){
       showRequestedVehicles();
@@ -47,26 +47,32 @@ const Requests = () => {
         <ul>
           {userRequestStatus.map((request, index) => (
             <div className="rented-list" key={index}>
+              {/* Request ID */}
               <div className='req-box'>
-              <p>Req Id:</p>
-              <h1 className='req-num'>#{index+1}</h1>
+                <p>Req Id:</p>
+                <h1 className='req-num'>#{index+1}</h1>
               </div>
+              {/* Vehicle */}
               <div className='req-vehicle-box'>
-              <p><IoCarSport className="car-icon"/> Vehicle</p>
-              <h1>{request.bookingDetails.vehicle}</h1>
+                <p><IoCarSport className="car-icon"/> Vehicle</p>
+                <h1>{request.bookingDetails.vehicle}</h1>
               </div>
+              {/* City */}
               <div  className='req-vehicle-box'>
-              <p><IoLocation className="car-icon"/> City</p>
-              <h1>{request.receiverDistributor.distributionLocation}</h1>
+                <p><IoLocation className="car-icon"/> City</p>
+                <h1>{request.receiverDistributor.distributionLocation}</h1>
               </div>
+              {/* Start Date */}
               <div className="req-vehicle-box">
-              <p><FaCalendar className="car-icon"/> From</p>
-              <h1>{request.bookingDetails.startDate}</h1>
+                <p><FaCalendar className="car-icon"/> From</p>
+                <h1>{request.bookingDetails.startDate}</h1>
               </div>
+              {/* End Date */}
               <div className="req-vehicle-box">
-              <p><FaCalendarAlt className="car-icon"/> To</p>
-              <h1>{request.bookingDetails.endDate}</h1> 
+                <p><FaCalendarAlt className="car-icon"/> To</p>
+                <h1>{request.bookingDetails.endDate}</h1> 
               </div>
+              {/* Request Status */}
               <div className='status'>
                 <div className='pending-status'></div>
                 <p>{request.status}</p>
