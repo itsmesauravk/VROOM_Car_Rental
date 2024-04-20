@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import env from 'react-dotenv';
-import "../css/LogSign.css"
+import "../css/SignUp.css"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 
@@ -12,10 +12,11 @@ function Signup() {
     const [userLocation,setUserLocation] = useState("");
     const [usePassword,setUserPassword] = useState("");
     const [showHide, setShowHide] = useState(false)
-
+   
 
     const submitData = async (e) => {
       e.preventDefault();
+
   
       const formData = {
         fullname: userName,
@@ -54,6 +55,7 @@ function Signup() {
       } catch (error) {
         console.error('Error:', error);
       }
+      
     };
 
 
@@ -65,7 +67,7 @@ function Signup() {
     <form onSubmit={(e)=>submitData(e)}>
     <div className="Signup">
       <h1>Sign up</h1>
-      <div className="container">
+      <div className="containerS">
         <p>Full Name</p >
         <input type='text'
           placeholder='Your Name'
@@ -85,7 +87,7 @@ function Signup() {
         <input type='text'
           placeholder='xyz-01, abc street'
          value={userLocation} onChange={(e)=> setUserLocation(e.target.value)}  required/>
-        <button className='SignupBtn' type="submit" onClick={(e)=>submitData(e)}>Signup</button>
+         <button className='SignupBtn' type="submit" onClick={(e)=>submitData(e)}>Signup</button>
         <p className='existingS'>Already have an account? <Link to="/login">Login</Link></p>
       </div>
     </div>

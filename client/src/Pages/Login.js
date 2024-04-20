@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import "../css/LogSign.css"
+import "../css/Login.css"
 import { Link, useNavigate } from 'react-router-dom';
 
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 
 const Login = () => {
+
   const [userEmail,setUserEmail] = useState("");
   const [usePassword,setUserPassword] = useState("");
   const navigate = useNavigate();
@@ -60,14 +61,14 @@ const Login = () => {
     <form onSubmit={handleSubmit}>
     <div className="login">
       <h1>Login</h1>
-      <div className="container">
+      <div className="containerL">
         <p>Email</p >
         <input type='email' value={userEmail} autoFocus onChange={(e)=> setUserEmail(e.target.value)} />
         <p>Password</p >
-        <input type='password' value={usePassword} onChange={(e)=> setUserPassword(e.target.value)} />
+        <input type={showHide? "text": 'password'} value={usePassword} onChange={(e)=> setUserPassword(e.target.value)} />
         <button type='button' className='showHideSignup'  onClick={()=>setShowHide(!showHide)}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
         <button className='loginBtn' type="submit" onClick={(e)=>handleSubmit(e)}>Login</button>
-        <p className='existing'>Don't have an account? <Link to="/signup" className='signup-link'>Signup</Link></p>
+        <p className='existingL'>Don't have an account? <Link to="/signup" className='signup-link'>Signup</Link></p>
         <Link to="/forgot" className='resetPass'>Forgot password? </Link>
       </div>
     </div>

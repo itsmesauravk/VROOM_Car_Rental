@@ -45,11 +45,15 @@
     color: red;
     font-size: 22px;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 .editButton{
     color: green;
     font-size: 22px;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .u{
