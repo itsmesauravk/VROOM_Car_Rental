@@ -55,13 +55,9 @@ const Requests = () => {
               <p><IoCarSport className="car-icon"/> Vehicle</p>
               <h1>{request.bookingDetails.vehicle}</h1>
               </div>
-              <div className='req-vehicle-box'>
-              <p><IoCarSport className="car-icon"/> Vehicle</p>
-              <h1>{request.receiverDistributor.fullname}</h1>
-              </div>
               <div  className='req-vehicle-box'>
               <p><IoLocation className="car-icon"/> City</p>
-              <h1>{request.receiverDistributor.address}</h1>
+              <h1>{request.receiverDistributor.distributionLocation}</h1>
               </div>
               <div className="req-vehicle-box">
               <p><FaCalendar className="car-icon"/> From</p>
