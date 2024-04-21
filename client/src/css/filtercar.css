@@ -50,12 +50,12 @@
     position: absolute;
     z-index: 9999999;
     background-color: rgb(141, 204, 214);
-    font-size: 1rem;
+    font-size: 1.2rem;
     filter: opacity(.9);
     border-radius: 20px;
     padding: 1rem 2rem;
     top: 20rem;
-    left: 30rem;
+    left: 31rem;
     opacity: 1;
     transition: 1s all;
 }
@@ -179,7 +179,7 @@
     top: 35rem;
     left: 43rem;
     cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sedan;
     transition: 1s all;
 }
 
@@ -194,12 +194,12 @@
     position: absolute;
     z-index: 9999999;
     background-color: rgb(221, 131, 131);
-    font-size: 1rem;
+    font-size: 1.2rem;
     filter: opacity(1.1);
     border-radius: 20px;
     padding: 1rem 2rem;
     top: 20rem;
-    left: 30rem;
+    left: 31rem;
     opacity: 0;
 }
 

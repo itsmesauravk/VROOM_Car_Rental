@@ -1,6 +1,6 @@
 import React from 'react'
 import "../css/home.css"
-import FilterCar from '../components/FilterCar'
+import FilterCar from '../components/UserChoice'
 import Nav from '../components/Nav'
 
 const Home = () => {

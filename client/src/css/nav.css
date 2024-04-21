@@ -65,14 +65,15 @@ li.active{
 }
 
 .nav--button {
-    border-radius: 30px;
+    border-radius: 15px;
     font-size:18px;
     color: black;
     font-weight: 600;
     border: 1px solid grey;
     cursor: pointer;
-    padding: 1rem 2rem;
+    padding: .8rem 1.5rem;
     background-color: white;
+    font-family: sedan;
     letter-spacing: 2px;
     margin-right: 2rem;
     transition: .5s all;
