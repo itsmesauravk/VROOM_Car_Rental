@@ -1,0 +1,121 @@
+.form-container {
+    position: relative;
+    left: -7rem;
+    width: 50%;
+    margin: 20px auto;
+    padding: 1rem 0rem 1rem 3rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-family: sedan;
+
+    h1{
+        font-size: 1.5rem;
+        text-align: center;
+        width: 37%;
+        color: aliceblue;
+        margin-left: 12rem;
+        font-weight: 300;
+        letter-spacing: 3px;
+        background-color: var(--primary-color);
+        padding: 1rem 1.4rem;
+        border-radius: 30px;
+    }
+    h2{
+        text-align: center;
+        margin-left: -7rem;
+        margin-bottom: .3rem;
+        margin-top: 1rem;
+    }
+    .owner-line{
+        width: 20%;
+        border: 1px solid var(--primary-color);
+        margin-left: 15rem;
+        margin-bottom: 1rem;
+    }
+}
+.form-wrapper {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+input[type='text'],
+input[type='file'] {
+    width: 50%;
+    font-size: 1rem;
+    padding: 10px 14px;
+    margin-top: .4rem;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+button[type='submit'] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    margin-left:16rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    width: 20%;
+    cursor: pointer;
+        transition: .5s all;
+}
+
+button[type='submit']:hover {
+    background-color: rgb(119, 212, 235);
+    transition: .5s all ;
+    transform: scale(1.1);
+}
+
+.owner-details,
+.car-details,
+.driver-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.owner-details .form-group,
+.car-details .form-group,
+.driver-details .form-group {
+    flex:50%;
+    margin-right: -6rem;
+}
+
+.rental-back{
+    border: none;
+    margin-left: 3rem;
+    padding: 1rem 1.5rem;
+    font-size: 1em;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 6px;
+    position: relative;
+    top: 2rem;
+    height: 3rem;
+
+    .link-rental{
+        text-decoration: none;
+        color: aliceblue;
+    }
+}
+.rental-back:hover{
+    background-color: rgb(113, 206, 210);
+    transform: scale(1.1);
+    transition: all .5s;
+}
+.main-div-rental{
+    display: flex
+}
