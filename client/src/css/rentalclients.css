@@ -1,0 +1,88 @@
+.main--div--rental{
+    display: flex;
+}
+.rentalclients{
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+.add-car-link{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: .7rem 1.5rem;
+    font-size: 1.5rem;
+    color: aliceblue;
+    margin-bottom: 3rem;
+    letter-spacing: 3px;
+}
+.clienth1{
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+.line12{
+    width: 50%;
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+    margin-bottom: 1rem;
+}
+.clientdiv{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.client-info{
+    display: flex;
+    gap: 1rem;
+}
+.client-item{
+    background-color: aliceblue;
+    padding:1rem;
+    border-radius: 15px;
+    border: 1px solid var(--primary-color);
+    margin: 0rem .5rem;
+    box-shadow: 0px 2px 4px var(--primary-color);
+}
+.client-item img{
+    width: 30% !important;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,.5);
+
+}
+
+.client-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.owner,.driver,.vehicle-client{
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    justify-content: space-between;
+    margin: 1rem 1rem 1rem .5rem;
+}
+
+.owner p{
+    background-color: rgb(50, 198, 221);
+    border-radius: 12px;
+    padding: .7rem 1.5rem;
+}
+.driver p{
+    background-color: rgb(63, 205, 227);
+    border-radius: 12px;
+    padding: .7rem 1.5rem;
+}
+
+.vehicle-client p{
+    background-color: rgb(79, 189, 206);
+    border-radius: 12px;
+    padding: .7rem 1.5rem;
+    margin-left: .5rem;
+}
+
+.detail-detial{
+    font-size: 1.2rem;
+    font-weight: 200;
+    letter-spacing: 3px;
+}
