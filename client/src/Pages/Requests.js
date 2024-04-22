@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import Nav from "../components/Nav";
 import "../css/request.css";
 import { IoCarSport } from "react-icons/io5";
@@ -39,11 +39,14 @@ const Requests = () => {
   }, []);
  
   return (
-    <div>
-      <Nav/>
-      <h1 className='req-title'>Request History</h1>
-      <hr className='req--line'></hr>
-      <div className='rented-vehicles'>
+  <div>
+    <Nav/>
+    <h1 className='req-title'>Request History</h1>
+    <hr className='req--line'></hr>
+    <div className='rented-vehicles'>
+      {userRequestStatus.length === 0 ? (
+        <p className='no-history'>No request history to display.</p>
+      ) : (
         <ul>
           {userRequestStatus.map((request, index) => (
             <div className="rented-list" key={index}>
@@ -80,9 +83,10 @@ const Requests = () => {
             </div>
           ))}
         </ul>
-      </div>
+      )}
     </div>
-  );
+  </div>
+);
 };
 
 export default Requests;

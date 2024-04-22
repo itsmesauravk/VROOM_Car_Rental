@@ -8,7 +8,7 @@
     border-radius: 10px;
     font-family: sedan;
 
-    h1{
+    h1 {
         font-size: 1.5rem;
         text-align: center;
         width: 37%;
@@ -20,19 +20,22 @@
         padding: 1rem 1.4rem;
         border-radius: 30px;
     }
-    h2{
+
+    h2 {
         text-align: center;
         margin-left: -7rem;
         margin-bottom: .3rem;
         margin-top: 1rem;
     }
-    .owner-line{
+
+    .owner-line {
         width: 20%;
         border: 1px solid var(--primary-color);
         margin-left: 15rem;
         margin-bottom: 1rem;
     }
 }
+
 .form-wrapper {
     margin-top: 2rem;
 }
@@ -58,23 +61,23 @@ input[type='file'] {
     border-radius: 8px;
 }
 
-button[type='submit'] {
+.add-car-button {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem 1.5rem;
     border: none;
     font-size: 1rem;
-    margin-left:16rem;
+    margin-left: 16rem;
     margin-top: 2rem;
     border-radius: 8px;
     width: 20%;
     cursor: pointer;
-        transition: .5s all;
+    transition: .5s all;
 }
 
-button[type='submit']:hover {
+.add-car-button:hover {
     background-color: rgb(119, 212, 235);
-    transition: .5s all ;
+    transition: .5s all;
     transform: scale(1.1);
 }
 
@@ -90,11 +93,11 @@ button[type='submit']:hover {
 .owner-details .form-group,
 .car-details .form-group,
 .driver-details .form-group {
-    flex:50%;
+    flex: 50%;
     margin-right: -6rem;
 }
 
-.rental-back{
+.rental-back {
     border: none;
     margin-left: 3rem;
     padding: 1rem 1.5rem;
@@ -106,16 +109,18 @@ button[type='submit']:hover {
     top: 2rem;
     height: 3rem;
 
-    .link-rental{
+    .link-rental {
         text-decoration: none;
         color: aliceblue;
     }
 }
-.rental-back:hover{
+
+.rental-back:hover {
     background-color: rgb(113, 206, 210);
     transform: scale(1.1);
     transition: all .5s;
 }
-.main-div-rental{
+
+.main-div-rental {
     display: flex
 }
