@@ -75,7 +75,7 @@ export const Users = () => {
               return(
                 <>
                 <tr className='values' key={key}>
-            <td style={{fontWeight: "bold"}} >{key}</td>
+            <td style={{fontWeight: "bold"}} >{key+1}</td>
             <td className='imageAndName'>
               
             <p style={{fontWeight: "bold"}}>{values.fullname}</p>
