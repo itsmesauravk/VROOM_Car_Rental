@@ -152,22 +152,7 @@ const FilterCar = () => {
     }
 
     // Check if the user has already made two bookings before their request is approved
-    if(rentedVehicles.length >1){
-      setApp("You can only book twice before your request is approved.")
-      setTimeout(() => {
-        setApp("");
-      }, 4000);
-      return
-    } else {
-      // Add the rented vehicle details to the list of rented vehicles
-      addrentedVehicle({
-        city:selectedCity,
-        vehicle:selectedVehicle,
-        sDate:date.startDate.toISOString().split("T")[0],
-        eDate:date.endDate.toISOString().split("T")[0],
-        status:"pending"
-      })
-    }
+    
 
     // Set success message
     setApp(true);
