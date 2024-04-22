@@ -13,6 +13,12 @@
     color: aliceblue;
     margin-bottom: 3rem;
     letter-spacing: 3px;
+    transition: all .5s;
+}
+.add-car-link:hover{
+    transform: scale(1.1);
+    transition: all .5s;
+    background-color: rgb(99, 232, 232);
 }
 .clienth1{
     margin-top: 2rem;
@@ -38,7 +44,7 @@
     padding:1rem;
     border-radius: 15px;
     border: 1px solid var(--primary-color);
-    margin: 0rem .5rem;
+    margin: 0rem 1rem;
     box-shadow: 0px 2px 4px var(--primary-color);
 }
 .client-item img{
@@ -69,13 +75,13 @@
     padding: .7rem 1.5rem;
 }
 .driver p{
-    background-color: rgb(63, 205, 227);
+    background-color: rgb(61, 127, 207);
     border-radius: 12px;
     padding: .7rem 1.5rem;
 }
 
 .vehicle-client p{
-    background-color: rgb(79, 189, 206);
+    background-color: rgb(166, 79, 206);
     border-radius: 12px;
     padding: .7rem 1.5rem;
     margin-left: .5rem;

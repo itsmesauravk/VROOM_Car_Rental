@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import '../css/addcars.css';
+import { Link,useParams } from 'react-router-dom';
 
 const AddCars = () => {
+  const { id } = useParams();
+
   const [formData, setFormData] = useState({
     ownerName: '',
     ownerPhone: '',
@@ -54,47 +58,69 @@ const AddCars = () => {
     }
   };
 
-  return (
-    <div>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Add Cars</h1>
-      <div style={{ width: '50%', margin: '0 auto' }}>
+  return (<>
+  <div className='main-div-rental'>
+     <button className="rental-back">
+    <Link to={`/rental_clients/${id}`}className='link-rental' >
+              Back to Clients
+            </Link>
+  </button>
+    <div className="form-container">
+      <h1>Add Clients</h1>
+      <div className="form-wrapper">
         <form onSubmit={addCarHandler} encType="multipart/form-data">
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='ownerName'>Owner Name:</label>
-            <input type='text' id='ownerName' name='ownerName' value={formData.ownerName} onChange={handleChange} required />
+            <h2>Owner details:</h2>
+            <hr className='owner-line'></hr>
+          <div className="owner-details">
+            <div className="form-group">
+              <label htmlFor='ownerName'>Name of the owner:</label>
+              <input type='text' id='ownerName' name='ownerName' value={formData.ownerName} onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor='ownerPhone'>Owner Phone:</label>
+              <input type='text' id='ownerPhone' name='ownerPhone' value={formData.ownerPhone} onChange={handleChange} required />
+            </div>
           </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='ownerPhone'>Owner Phone:</label>
-            <input type='text' id='ownerPhone' name='ownerPhone' value={formData.ownerPhone} onChange={handleChange} required />
+           <h2>Vehicle details:</h2>
+            <hr className='owner-line'></hr>
+          <div className="owner-details"></div>
+          <div className="car-details">
+            <div className="form-group">
+              <label htmlFor='carBrand'>Brand:</label>
+              <input type='text' id='carBrand' name='carBrand' value={formData.carBrand} onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor='carType'>Vehicle:</label>
+              <input type='text' id='carType' name='carType' value={formData.carType} onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor='carPhoto'>Vehicle Image:</label>
+              <input type='file' id='carPhoto' name='carPhoto' onChange={handlePhotoChange} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor='carNumber'>Vehicle Number:</label>
+              <input type='text' id='carNumber' name='carNumber' value={formData.carNumber} onChange={handleChange} required />
+            </div>
           </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='carBrand'>Car Brand:</label>
-            <input type='text' id='carBrand' name='carBrand' value={formData.carBrand} onChange={handleChange} required />
-          </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='carType'>Car Type:</label>
-            <input type='text' id='carType' name='carType' value={formData.carType} onChange={handleChange} required />
-          </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='carPhoto'>Car Photo:</label>
-            <input type='file' id='carPhoto' name='carPhoto' onChange={handlePhotoChange} required />
-          </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='carNumber'>Car Number:</label>
-            <input type='text' id='carNumber' name='carNumber' value={formData.carNumber} onChange={handleChange} required />
-          </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='driverName'>Driver Name:</label>
-            <input type='text' id='driverName' name='driverName' value={formData.driverName} onChange={handleChange} required />
-          </div>
-          <div style={{ marginBottom: '10px' }}>
-            <label htmlFor='driverPhone'>Driver Phone:</label>
-            <input type='text' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required />
+           <h2>Driver details:</h2>
+            <hr className='owner-line'></hr>
+          <div className="owner-details"></div>
+          <div className="driver-details">
+            <div className="form-group">
+              <label htmlFor='driverName'>Name of Driver:</label>
+              <input type='text' id='driverName' name='driverName' value={formData.driverName} onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor='driverPhone'>Driver Phone:</label>
+              <input type='text' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required />
+            </div>
           </div>
           <button type='submit'>Add Car</button>
         </form>
       </div>
     </div>
+  </div>
+  </>
   );
 };
 
