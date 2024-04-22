@@ -22,7 +22,7 @@ const Requests = () => {
         },
       });
       const data = await response.json();
-      // Update state with user's request history
+      // Update state with user's request 
       if(data.success){
         setUserRequestStatus(data.data)
       }
