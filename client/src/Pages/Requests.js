@@ -31,6 +31,10 @@ const Requests = () => {
     }
   }
   
+  
+  const deleteRequest = async (requestId) => {
+    console.log("Request ID", requestId);
+  }
   // Fetch user's request history on component mount
   useEffect(() => {
     if(token){
@@ -79,6 +83,11 @@ const Requests = () => {
               <div className='status'>
                 <div className='pending-status'></div>
                 <p>{request.status}</p>
+              </div>
+
+            
+              <div>
+                <button className='cancel-btn' onClick={()=>deleteRequest(request._id)}>Cancel Req</button>
               </div>
             </div>
           ))}
