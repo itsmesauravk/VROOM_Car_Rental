@@ -96,9 +96,27 @@ const showRequest = async (req, res) => {
 }
 
 
+//deleting the rent requiest (user side)
+const deleteRentRequest = async (req, res) => {
+    try {
+        const requestId = req.params.id;
+        // console.log(requestId)
+        if (!requestId) {
+            return res.status(400).json({ success: false, message: 'Request ID not provided' });
+        }
+
+        await Request.findByIdAndDelete(requestId);
+        res.status(200).json({ success: true, message: 'Request deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting request:', error);
+        res.status(500).json({ success: false, message: 'Failed to delete request' });
+    }
+}
+
 
 module.exports = {
      createRequest ,
         showRequest,
-        showUserRequestStatus
+        showUserRequestStatus,
+        deleteRentRequest
     }

@@ -25,7 +25,8 @@ const{
 const {
     createRequest,
     showRequest,
-    showUserRequestStatus
+    showUserRequestStatus,
+    deleteRentRequest
 } = require('../controller/Booking')
 
 
@@ -62,6 +63,7 @@ router.route('/admin-info').get(adminInfo)
 // Handling the user request
 router.route('/create-request').post(createRequest)
 router.route('/show-request/:id').get(showRequest)
+router.route('/delete-rent-request/:id').delete(deleteRentRequest)
 
 
 //edit delete handler

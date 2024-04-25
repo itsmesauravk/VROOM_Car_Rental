@@ -33,7 +33,21 @@ const Requests = () => {
   
   
   const deleteRequest = async (requestId) => {
-    console.log("Request ID", requestId);
+    try {
+      const response = await fetch(`http://localhost:4000/delete-rent-request/${requestId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      // Update state with user's request 
+      if(data.success){
+        showRequestedVehicles();
+      }
+    } catch (error) {
+      console.log("Users error", error);
+    }
   }
   // Fetch user's request history on component mount
   useEffect(() => {
