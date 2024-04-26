@@ -100,7 +100,7 @@ const showRequest = async (req, res) => {
 const deleteRentRequest = async (req, res) => {
     try {
         const requestId = req.params.id;
-        // console.log(requestId)
+        console.log(requestId)
         if (!requestId) {
             return res.status(400).json({ success: false, message: 'Request ID not provided' });
         }
