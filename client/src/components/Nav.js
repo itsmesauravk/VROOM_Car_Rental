@@ -74,6 +74,10 @@ const Nav = () => {
         <Link to={`/Requests/${userInfo._id}`}>
           <h1 className='nav--button'>Request</h1>
         </Link>
+        <Link to={`/Settings/${userInfo._id}`}>
+          <h1 className='nav--button'>Settings</h1>
+        </Link>
+
         {/* Conditional rendering based on user authentication */}
         {token ? (
           <>

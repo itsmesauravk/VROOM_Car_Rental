@@ -17,7 +17,7 @@ import DistributerForm from "./components/DistributerForm"
 import AddAdmin from "./Pages/AddAdmin";
 import DistProfile from "./Pages/DistProfile";
 import AddCars from "./Pages/AddCars";
-
+import Settings from "./Pages/Settings"
 
 
 
@@ -31,6 +31,7 @@ function App() {
         <Route path="/forgot" element={<ForgotPassword/>} />
         <Route path="/reset-password/:token" element={<PasswordReset/>} />
         <Route path="/Requests/:userId" element={<Requests/>}/>
+        <Route path="/Settings/:userId" element={<Settings/>}/>
         <Route path='/cars' element={<Cars/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path="/adminDashboard" element={<Dashboard />} />
