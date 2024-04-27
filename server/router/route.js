@@ -18,7 +18,8 @@ const {
 //Importing from controller.js
 const{
     showUsers,
-    showDistributors
+    showDistributors,
+    showDistributorsLocations
 } = require('../controller/controller')
 
 // Importing from Booking.js
@@ -53,6 +54,9 @@ router.route('/register-distributor').post(registerDistributor)
 router.route('/show-distributors').get(showDistributors)
 router.route('/distributor-info').get(distInfo)
 router.route('/show-user-request-status/:id').get(showUserRequestStatus)
+
+router.route('/show-distributors-locations').get(showDistributorsLocations)
+
 
 
 //admin routes

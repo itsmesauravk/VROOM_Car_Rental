@@ -32,9 +32,23 @@ const showDistributors = async (req, res) => {
   }
 
 
+//displaying all the distributors location
+const showDistributorsLocations = async(req,res)=>{
+    try{
+        const distributors = await Distributor.find();
+        const DistributorLocation = distributors.map(distributor => distributor.distributionLocation)
+        res.status(200).json({success:true, DistributorLocation})
+    }catch(error){
+        console.error('Error showing distributors:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+
+}
+
 
 
 module.exports = { 
     showUsers,
-    showDistributors 
+    showDistributors,
+    showDistributorsLocations
 };
