@@ -112,7 +112,7 @@ const Requests = () => {
           </ul>
         )}
       </div>
-      {/* {cancelmsg && <div className='cancel-msg'>{cancelmsg}</div>} */}
+      {cancelmsg && <div className='cancel-msg'>{cancelmsg}</div>}
     </div>
   );
 };
