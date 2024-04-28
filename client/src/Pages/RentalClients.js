@@ -47,8 +47,6 @@ const RentalClients = () => {
       {/* Display error message if there's an error */}
       {error && <p>Error: {error.message}</p>}
       <div className='rentalclients'>
-        {/* Link to add new clients */}
-        <Link to='/add-car' className='add-car-link'>Add Clients</Link>
         {/* Heading for rental clients */}
         <h2 className='clienth1'>Rental Clients</h2>
         {/* Horizontal line */}
