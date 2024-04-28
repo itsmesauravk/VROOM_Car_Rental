@@ -103,11 +103,11 @@ const AddCars = () => {
               <div className="owner-details">
                 <div className="form-group">
                   <label htmlFor='ownerName'>Name of the owner:</label>
-                  <input type='text' id='ownerName' name='ownerName' value={formData.ownerName} onChange={handleChange} required />
+                  <input type='text' id='ownerName' name='ownerName' value={formData.ownerName} onChange={handleChange} required  className='input--'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor='ownerPhone'>Owner Phone:</label>
-                  <input type='text' id='ownerPhone' name='ownerPhone' value={formData.ownerPhone} onChange={handleChange} required />
+                  <input type='text' id='ownerPhone' name='ownerPhone' value={formData.ownerPhone} onChange={handleChange} required className='input--' />
                 </div>
               </div>
               <h2>Vehicle details:</h2>
@@ -116,19 +116,19 @@ const AddCars = () => {
               <div className="car-details">
                 <div className="form-group">
                   <label htmlFor='carBrand'>Brand:</label>
-                  <input type='text' id='carBrand' name='carBrand' value={formData.carBrand} onChange={handleChange} placeholder='eg. BMW, Audi' required />
+                  <input type='text' id='carBrand' name='carBrand' value={formData.carBrand} onChange={handleChange} placeholder='eg. BMW, Audi' required className='input--' />
                 </div>
                 <div className="form-group">
                   <label htmlFor='carType'>Vehicle Type:</label>
-                  <input type='text' id='carType' name='carType' value={formData.carType} onChange={handleChange} placeholder='eg. Sedan, 4x4' required />
+                  <input type='text' id='carType' name='carType' value={formData.carType} onChange={handleChange} placeholder='eg. Sedan, 4x4' required className='input--'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor='carPhoto'>Vehicle Image:</label>
-                  <input type='file' id='carPhoto' name='carPhoto' onChange={handlePhotoChange} required />
+                  <input type='file' id='carPhoto' name='carPhoto' onChange={handlePhotoChange} required className='input--'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor='carNumber'>Vehicle Number:</label>
-                  <input type='text' id='carNumber' name='carNumber' value={formData.carNumber} onChange={handleChange} required />
+                  <input type='text' id='carNumber' name='carNumber' value={formData.carNumber} onChange={handleChange} required className='input--'/>
                 </div>
               </div>
               <h2>Driver details:</h2>
@@ -137,15 +137,15 @@ const AddCars = () => {
               <div className="driver-details">
                 <div className="form-group">
                   <label htmlFor='driverName'>Name of Driver:</label>
-                  <input type='text' id='driverName' name='driverName' value={formData.driverName} onChange={handleChange} required />
+                  <input type='text' id='driverName' name='driverName' value={formData.driverName} onChange={handleChange} required className='input--'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor='driverPhone'>Driver Phone:</label>
-                  <input type='text' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required />
+                  <input type='text' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required className='input--'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor='documentPhoto'>Driver's license:</label>
-                  <input type='file' id='documentPhoto' name='documentPhoto' onChange={handleLicenseChange} required />
+                  <input type='file' id='documentPhoto' name='documentPhoto' onChange={handleLicenseChange} required className='input--'/>
                 </div>
               </div>
               <button type='submit' className='add-car-button'>Add Rental Client</button>

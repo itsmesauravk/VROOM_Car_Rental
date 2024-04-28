@@ -1,6 +1,7 @@
 .settings-container {
     margin-top: 5.5rem;
     margin-left: 3rem;
+    font-family: sedan;
     h1{
         font-size: 3rem;
         letter-spacing: 3px;
@@ -8,37 +9,119 @@
 }
 
 .user-details {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-right: 2rem;
 }
 
 .user-card {
     border: 2px solid var(--primary-color);
-    padding: 10px;
-    width: 50%;
+    padding: 1rem 2rem;
+    width: 30%;
     border-radius: 8px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.user-card img {
+.setting-photo {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .user-card h2 {
-    margin-top: 0;
+    font-weight: 700;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
 }
 
 .user-card p {
-    margin: 5px 0;
+    font-weight: 300;
+    margin: 1rem 0rem;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
 }
 
-.profile-save{
+.profile-save-1{
     font-size: 1.2rem;
     margin-left: 1rem;
+    background-color: var(--primary-color);
+    color: aliceblue;
+    cursor: pointer;
     border: none;
     border-radius: 10px;
+    padding: .7rem 1.6rem;
+    margin-bottom: 2rem;
+    transition: all .5s;
+}
+.profile-save-1:hover,.profile-save-2:hover,.change-setting:hover{
+    transform: scale(1.05);
+    transition: all .5s;
+}
+.profile-save-edit{
+    font-size: 1.2rem;
+        background-color: var(--primary-color);
+        color: aliceblue;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        padding: .7rem 1.6rem;
+        transition: all .5s;
+        margin-top: 1rem;
+}
+.profile-save-2{
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    color: aliceblue;
+    background-color: rgb(231, 98, 98);
+    border: none;
+    border-radius: 10px;
+    padding: .7rem 1.6rem;
+    margin-bottom: 2rem;
+    transition: all .5s;
+}
+
+.user-setting-image{
+    display: flex;
+    margin-left: 2rem;
+}
+
+.change-setting{
+    cursor: pointer;
+    color: aliceblue;
+    background-color: var(--primary-color);
     padding: .8rem 1.2rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    height: 3.2rem;
+    margin-top: 4rem;
+    margin-left: 3rem;
+    border: none;
+}
+.change-setting-1{
+    cursor: pointer;
+    padding: .8rem 1.2rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    height: 3.2rem;
+    margin-top: 8rem;
+    margin-left: -11.5rem;
+    border: none;
+}
+.change-setting-2 {
+    cursor: pointer;
+    color: aliceblue;
+    background-color: rgb(227, 81, 81);
+    padding: .1rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    height: 2.5rem;
+    margin-top: 12rem;
+    margin-left: -8rem;
+    border: none;
 }
