@@ -3,9 +3,11 @@ import "../css/Dashboard.css"
 import SideNav from '../components/SideNav'
 
 
+//Admin dashboard
 export const Dashboard = (props) => {
   const [users, setUsers] = useState([]);
   const [distributors, setDistributors] = useState([]);
+  const [rentalClients, setRentalClients] = useState([]);
 
 
 
@@ -40,10 +42,26 @@ export const Dashboard = (props) => {
     }
   }
 
+  const showTotalRentalClients = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/show-total-rental-clients", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setRentalClients(data.rentalClients);
+    } catch (error) {
+      console.log("Distributors error", error);
+    }
+  }
+
 
   useEffect(() => {
     showUsers();
     showDistributors();
+    showTotalRentalClients();
 
   },[]);
 
@@ -70,8 +88,8 @@ export const Dashboard = (props) => {
 
           </div>
           <div className='TotalCars'>
-            <h1 className='total_cars'>Total Cars</h1>
-            <p className='show_cars'>-</p>
+            <h1 className='total_cars'>Total Rental Client</h1>
+            <p className='show_cars'>{rentalClients.length}</p>
 
           </div>
           <div className='TotalUsers'>

@@ -19,7 +19,8 @@ const {
 const{
     showUsers,
     showDistributors,
-    showDistributorsLocations
+    showDistributorsLocations,
+    showRentalClients
 } = require('../controller/controller')
 
 // Importing from Booking.js
@@ -52,16 +53,13 @@ router.route('/reset-password').post(newPassword)
 
 //user routes
 router.route('/user-info').get(userInfo)
-router.route('/show-users').get(showUsers)
 
 
 
 //distributor routes
 router.route('/register-distributor').post(registerDistributor)
-router.route('/show-distributors').get(showDistributors)
-router.route('/distributor-info').get(distInfo)
 router.route('/show-user-request-status/:id').get(showUserRequestStatus)
-
+router.route('/distributor-info').get(distInfo)
 router.route('/show-distributors-locations').get(showDistributorsLocations)
 
     //for  rental client
@@ -72,6 +70,11 @@ router.route('/get-cars-details/:id').get(getCarsDetails)
 //admin routes
 router.route('/register-admin').post(registerAdmin)
 router.route('/admin-info').get(adminInfo) 
+
+    //showing for dashboard
+router.route('/show-users').get(showUsers)
+router.route('/show-total-rental-clients').get(showRentalClients)
+router.route('/show-distributors').get(showDistributors)
 
 
 // Handling the user request

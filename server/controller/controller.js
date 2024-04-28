@@ -4,6 +4,8 @@ const User = require('../schema/User')
 const Admin = require('../schema/Admin')
 // Distributor
 const Distributor = require('../schema/Distributor');
+// Rental Client
+const RentalClient = require('../schema/AddCar');
 
 
 
@@ -45,10 +47,21 @@ const showDistributorsLocations = async(req,res)=>{
 
 }
 
+const showRentalClients = async (req, res) => {
+    try {
+      const rentalClients = await RentalClient.find();
+      res.status(200).json({ success: true, rentalClients });
+    } catch (error) {
+      console.error('Error showing rental clients:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
 
 
 module.exports = { 
     showUsers,
     showDistributors,
-    showDistributorsLocations
+    showDistributorsLocations,
+    showRentalClients
   };

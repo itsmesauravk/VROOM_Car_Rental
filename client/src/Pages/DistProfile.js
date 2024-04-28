@@ -1,14 +1,16 @@
 import React from 'react'
 import DistNav from './DistNav'
-import { useParams } from 'react-router-dom'
+
 
 const DistProfile = () => {
 
 
   return (
-    <div>
+    <div style={{display:"flex",gap:'1rem'}}>
         <DistNav />
-        DistProfile
+        <div>
+          DistProfile
+        </div>
     </div>
   )
 }
