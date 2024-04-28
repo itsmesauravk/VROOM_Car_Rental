@@ -7,7 +7,7 @@ const app = express();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads');
+    cb(null, './uploads/rentalClients');
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -54,7 +54,9 @@ const addNewClient = async (req, res) => {
 // Get all car details
 const getCarsDetails = async (req, res) => {
   try {
-    const cars = await Cars.find({});
+    const distributerId = req.params.id;
+    // console.log(distributerId)
+    const cars = await Cars.find({distributorId:distributerId});
     if(cars.length === 0){
       return res.status(404).json({ success: false, message: 'No cars found' });
     }

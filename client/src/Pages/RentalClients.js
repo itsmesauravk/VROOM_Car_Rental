@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DistNav from './DistNav';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "../css/rentalclients.css"
 
 const RentalClients = () => {
@@ -8,15 +8,16 @@ const RentalClients = () => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { id } = useParams();
   
   // Function to fetch car data from the server
   const fetchCars = async () => {
     try {
-      const response = await fetch('http://localhost:4000/get-cars-details', {
+      const response = await fetch(`http://localhost:4000/get-cars-details/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-        },
+        }
       });
       const data = await response.json();
       if (data.success) {
@@ -36,7 +37,7 @@ const RentalClients = () => {
     fetchCars();
   }, []); 
 
-  console.log(cars);
+  // console.log(cars);
 
   return (
     <div className='main--div--rental'>

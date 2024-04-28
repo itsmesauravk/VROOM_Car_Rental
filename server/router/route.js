@@ -66,7 +66,7 @@ router.route('/show-distributors-locations').get(showDistributorsLocations)
 
     //for  rental client
 router.route('/add-rental-client').post(addNewClientMiddleware,addNewClient)
-router.route('/get-cars-details').get(getCarsDetails)
+router.route('/get-cars-details/:id').get(getCarsDetails)
 
 
 //admin routes

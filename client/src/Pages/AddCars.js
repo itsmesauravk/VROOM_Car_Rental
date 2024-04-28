@@ -55,7 +55,7 @@ const AddCars = () => {
     formDataToSend.append('documentPhoto', formData.documentPhoto);
     formDataToSend.append('distributorId', id);
 
-    console.log(formDataToSend);
+    // console.log(formDataToSend);
 
     try {
       const response = await fetch('http://localhost:4000/add-rental-client', {
