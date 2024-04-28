@@ -48,7 +48,7 @@ const Requests = () => {
         setCancelmsg("Your reservation has been cancelled.");
         setTimeout(() => {
           setCancelmsg("");
-        }, 3000);
+        }, 2000);
       }
     } catch (error) {
       console.log("Users error", error);

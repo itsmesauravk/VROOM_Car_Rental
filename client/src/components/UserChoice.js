@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri';
-import { CityList, VehicleList } from '../Datas'; // Assuming CityList and VehicleList are imported from a file called 'Datas'
+import {VehicleList } from '../Datas'; // Assuming CityList and VehicleList are imported from a file called 'Datas'
 import { CityContext } from './CityContext';
 import { useNavigate } from 'react-router-dom';
 import { DateRangePicker } from "react-date-range";
@@ -65,7 +65,7 @@ const showDistributorsLocations = async()=>{
   useEffect(() => {
     getUserInfo();
     showDistributorsLocations();
-  }, []);
+  },[]);
 
   // Effect to handle click outside city dropdown
   useEffect(() => {
@@ -187,25 +187,6 @@ const showDistributorsLocations = async()=>{
     setTimeout(() => {
       setApp("");
     }, 2000);
-
-    // Send a request to the backend to create a reservation
-    const response = await fetch('http://localhost:4000/create-request', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        senderUser: userData._id, // ID of the sender user
-        receiverDistributor: selectedCity, // Selected city for the reservation
-        bookingDetails:{
-          vehicle:selectedVehicle, // Selected vehicle for the reservation
-          startDate:date.startDate.toISOString().split("T")[0], // Start date of the reservation
-          endDate:date.endDate.toISOString().split("T")[0] // End date of the reservation
-        }
-       }),
-    });
-    const data = await response.json();
-    // console.log(data);
   };
 
   return (

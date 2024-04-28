@@ -51,8 +51,7 @@ label {
     letter-spacing: 1px;
 }
 
-input[type='text'],
-input[type='file'] {
+.input-- {
     width: 50%;
     font-size: 1rem;
     padding: 10px 14px;

@@ -6,6 +6,7 @@ const Settings = () => {
     const [userInfo, setUserInfo] = useState({});
     const [isEditing, setIsEditing] = useState(false);
     const [editedUserInfo, setEditedUserInfo] = useState({});
+    const [isPhotoChanged, setIsPhotoChanged] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -61,6 +62,10 @@ const handleSubmit = async (e) => {
         fetchUserInfo();
     }, []);
 
+    const changePhoto=()=>{
+        setIsPhotoChanged(true)
+    }
+
     return (
         <>
             <Nav />
@@ -69,33 +74,50 @@ const handleSubmit = async (e) => {
                 <div className="user-details">
                     {isEditing ? (
                         <form onSubmit={handleSubmit}>
+                            <div className='user-setting-image'>
+                            <img className='setting-photo' src="https://images.pexels.com/photos/20832069/pexels-photo-20832069/free-photo-of-a-narrow-street-with-buildings-and-cars.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt="" />
+                            <label htmlFor="userPhoto" onClick={changePhoto} className='change-setting'>Change Photo</label>
+                            {isPhotoChanged && 
+                            <div>
+                                <input type='file' id='userPhoto' name='userPhoto' onChange="" className='change-setting-1'></input>
+                                <button onClick={()=>{setIsPhotoChanged(false)}} className='change-setting-2'>Cancel</button>
+                                </div>}
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="username">Username:</label>
-                                <input type="text" id="username" name="username" value={editedUserInfo.username} onChange={handleInputChange} />
+                                <input type="text" id="username" name="username" value={editedUserInfo.fullname} onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">Email:</label>
-                                <input type="email" id="email" name="email" value={editedUserInfo.email} onChange={handleInputChange} />
+                                <input type="email" id="email" name="email" value={editedUserInfo.email} onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="phone">Phone:</label>
-                                <input type="text" id="phone" name="phone" value={editedUserInfo.phone} onChange={handleInputChange} />
+                                <input type="text" id="phone" name="phone" value={editedUserInfo.phone} onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="address">Address:</label>
-                                <input type="text" id="address" name="address" value={editedUserInfo.address} onChange={handleInputChange} />
+                                <input type="text" id="address" name="address" value={editedUserInfo.address} onChange={handleInputChange} className='input--'/>
                             </div>
-                            <button type="submit" className='profile-save'>Save</button>
-                            <button type="button" className='profile-save'onClick={() => setIsEditing(false)}>Cancel</button>
+                            <div className="form-group">
+                                <label htmlFor="address">Old Password:</label>
+                                <input type="password" id="old-password" name="old-password" value="" onChange={handleInputChange} className='input--' autoComplete='off'/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="address">New Password:</label>
+                                <input type="new-password" id="new-password" name="new-password" value="" onChange={handleInputChange} className='input--' autoComplete='off'/>
+                            </div>
+                            <button type="submit" className='profile-save-1'>Save</button>
+                            <button type="button" className='profile-save-2'onClick={() => setIsEditing(false)}>Cancel</button>
                         </form>
                     ) : (
                         <div className="user-card">
-                            <img src="https://images.pexels.com/photos/20832069/pexels-photo-20832069/free-photo-of-a-narrow-street-with-buildings-and-cars.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt="" />
+                            <img className='setting-photo' src="https://images.pexels.com/photos/20832069/pexels-photo-20832069/free-photo-of-a-narrow-street-with-buildings-and-cars.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt="" />
                             <h2>{userInfo.fullname}</h2>
-                            <p>{userInfo.email}</p>
+                            <p>Email:{userInfo.email}</p>
                             <p>Contact: {userInfo.phone}</p>
                             <p>Address: {userInfo.address}</p>
-                            <button onClick={() => setIsEditing(true)} className='profile-save'>Edit Profile </button>
+                            <button onClick={() => setIsEditing(true)} className='profile-save-edit'>Edit Profile </button>
                         </div>
                     )}
                 </div>
