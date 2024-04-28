@@ -40,11 +40,12 @@ function App() {
         <Route  path="/distributors_profile/:id" element={<DistProfile/>}  />
         <Route  path="/rental_clients/:id" element={<RentalClients/>}  />
         <Route  path="/user_requests/:id" element={<UserRequest/>}  />
+        <Route path="/add_car/:id" element={<AddCars/>} />
+
         <Route  path="/addDistributers" element={<DistributerForm />}  />
 
-        {/* beta testing  */}
+
         <Route path="/add-admin-dashboard" element={<AddAdmin/>} />
-        <Route path="/add-car" element={<AddCars/>} />
 
       </Routes>
     </div>

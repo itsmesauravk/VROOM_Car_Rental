@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser')
 require('dotenv').config();
 
 const routes = require("./router/route")
-const car = require('./controller/CarsControl')
+
 
 const path = require('path')
 
@@ -25,7 +25,6 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use('/',routes)
-app.use('/',car )
 
 
 //database

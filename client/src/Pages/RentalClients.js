@@ -12,7 +12,7 @@ const RentalClients = () => {
   // Function to fetch car data from the server
   const fetchCars = async () => {
     try {
-      const response = await fetch('http://localhost:4000/get-cars', {
+      const response = await fetch('http://localhost:4000/get-cars-details', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

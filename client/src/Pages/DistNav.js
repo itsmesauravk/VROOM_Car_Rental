@@ -74,7 +74,7 @@ const DistNav = () => {
             </Link>
           </button>
           <button className={`distnav--button ${activePage(`/add-car`)}`}>
-            <Link to='/add-car' className="nav-link">
+            <Link to={`/add_car/${id}`} className="nav-link">
               Add Clients
             </Link>
           </button>

@@ -51,4 +51,4 @@ module.exports = {
     showUsers,
     showDistributors,
     showDistributorsLocations
-};
+  };

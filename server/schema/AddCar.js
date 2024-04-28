@@ -32,6 +32,15 @@ const AddCarSchema = new mongoose.Schema({
     driverPhone: {
         type: String,
         required: true
+    },
+    documentPhoto:{
+        type: String,
+        require: true
+    },
+    distributorId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Distributor",
+        required:true
     }
 },
 { timestamps: true }

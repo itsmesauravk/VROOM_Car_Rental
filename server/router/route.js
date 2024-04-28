@@ -30,6 +30,13 @@ const {
     deleteRentRequest
 } = require('../controller/Booking')
 
+// Importing from RentalClient
+const {
+    addNewClient,
+    addNewClientMiddleware,
+    getCarsDetails
+} = require('../controller/RentalClient')
+
 
 // editing - deleting user
 const {
@@ -57,6 +64,9 @@ router.route('/show-user-request-status/:id').get(showUserRequestStatus)
 
 router.route('/show-distributors-locations').get(showDistributorsLocations)
 
+    //for  rental client
+router.route('/add-rental-client').post(addNewClientMiddleware,addNewClient)
+router.route('/get-cars-details').get(getCarsDetails)
 
 
 //admin routes
