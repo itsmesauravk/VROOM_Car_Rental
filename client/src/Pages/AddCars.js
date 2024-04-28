@@ -14,6 +14,7 @@ const AddCars = () => {
     carNumber: '',
     driverName: '',
     driverPhone: '',
+    licensePhoto:null
   });
 
   const handleChange = (e) => {
@@ -30,6 +31,12 @@ const AddCars = () => {
       carPhoto: e.target.files[0],
     }));
   };
+  const handlelicenseChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      licensePhoto: e.target.files[0],
+    }));
+  };
 
   const addCarHandler = async (e) => {
     e.preventDefault();
@@ -43,6 +50,8 @@ const AddCars = () => {
     formDataToSend.append('carNumber', formData.carNumber);
     formDataToSend.append('driverName', formData.driverName);
     formDataToSend.append('driverPhone', formData.driverPhone);
+    formDataToSend.append('licensePhoto', formData.licensePhoto);
+
 
     const response = await fetch('http://localhost:4000/add-car', {
       method: 'POST',
@@ -66,7 +75,7 @@ const AddCars = () => {
             </Link>
   </button>
     <div className="form-container">
-      <h1>Add Clients</h1>
+      <h1>Clients Form</h1>
       <div className="form-wrapper">
         <form onSubmit={addCarHandler} encType="multipart/form-data">
             <h2>Owner details:</h2>
@@ -114,8 +123,12 @@ const AddCars = () => {
               <label htmlFor='driverPhone'>Driver Phone:</label>
               <input type='text' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required />
             </div>
+            <div className="form-group">
+              <label htmlFor='licensePhoto'>Driver's license:</label>
+              <input type='file' id='licensePhoto' name='licensePhoto' onChange={handlelicenseChange} required />
+            </div>
           </div>
-          <button type='submit'>Add Car</button>
+          <button type='submit' className='add-car-button'>Add Client</button>
         </form>
       </div>
     </div>

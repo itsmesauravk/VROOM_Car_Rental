@@ -117,3 +117,30 @@
     margin-left: 8rem;
     font-size: 3rem;
 }
+
+/* .cancel-req{
+    cursor: pointer;
+    padding: .8rem 1.2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color:rgb(243, 106, 106);
+    color: aliceblue;
+    margin-right: 1rem;
+    transition: .5s all;
+}
+.cancel-req:hover{
+    background-color:rgb(239, 44, 44);
+    color: aliceblue;
+    transition: .5s all;
+    transform: scale(1.05);
+}
+
+.cancel-msg{
+    color: red;
+    margin-left: 23rem;
+    margin-top: 2rem;
+    font-size: 3rem;
+    font-family: sedan;
+    letter-spacing: 3px;
+} */

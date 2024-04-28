@@ -73,6 +73,11 @@ const DistNav = () => {
               Clients
             </Link>
           </button>
+          <button className={`distnav--button ${activePage(`/add-car`)}`}>
+            <Link to='/add-car' className="nav-link">
+              Add Clients
+            </Link>
+          </button>
           <button onClick={logoutHandler} className="distnav--button-logout">
             <IoMdExit className="nav-icon" />
             <Link to="" className="nav-link">

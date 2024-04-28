@@ -25,6 +25,7 @@ const FilterCar = () => {
   const [app, setApp] = useState("");
   const navigate = useNavigate();
   const [userData,setUserData] = useState({});
+  const [cities,setCities]=useState([]);
 
   // Refs for handling click outside events
   const cityRef = useRef();
@@ -32,6 +33,17 @@ const FilterCar = () => {
   const CalendarRef = useRef();
 
   // Function to fetch user info
+const showDistributorsLocations = async()=>{
+    const response = await fetch('http://localhost:4000/show-distributors-locations', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application'
+      }
+    });
+    const data1 = await response.json();
+    setCities(data1.DistributorLocation);
+  }
+
   const getUserInfo = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -52,6 +64,7 @@ const FilterCar = () => {
   // Fetch user info on component mount
   useEffect(() => {
     getUserInfo();
+    showDistributorsLocations();
   }, []);
 
   // Effect to handle click outside city dropdown
@@ -218,7 +231,7 @@ const FilterCar = () => {
             </div>
             <div className={`dropdown-menu ${isCityOpen ? 'open' : ''}`} ref={cityRef}>
               {/* Render city options */}
-              {CityList.map((city, index) => (
+              {cities.map((city, index) => (
                 <div key={index} className="dropdown--li city-item" onClick={() => handleCity(city)}>
                   {city}
                 </div>
