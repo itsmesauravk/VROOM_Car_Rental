@@ -1,106 +1,190 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import SideNav from "./SideNav";
-import "../css/DistributersForm.css"
+import "../css/DistributersForm.css";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 
 const DistributerForm = () => {
-  const [name,setName] = useState("");
-  const [address,setAddress] = useState("");
-  const [phone,setPhone] = useState();
-  const [location,setLocation] = useState("");
-  const [email,setEmail] = useState();
-  const [password,setPass] = useState("");
-  const [showHide, setShowHide] = useState(false)
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState();
+  const [location, setLocation] = useState("");
+  const [email, setEmail] = useState();
+  const [password, setPass] = useState("");
+  const [showHide, setShowHide] = useState(false);
+  let profileDistributer = useRef(null);
+  const [changeImage, setChangeImage] = useState("");
 
-  
-  const handleForm = async(e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     try {
-      const response =await fetch('http://localhost:4000/register-distributor', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ fullname: name, address, phone, distributionLocation: location, email, password}),
-      });
-      const data =await response.json();
+      const response = await fetch(
+        "http://localhost:4000/register-distributor",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullname: name,
+            address,
+            phone,
+            distributionLocation: location,
+            email,
+            password,
+          }),
+        }
+      );
+      const data = await response.json();
       console.log(data);
-      if(data.success){
-        alert("Distributor added successfully")
-        clearData()
-      }else{
-        alert("Distributor not added")
+      if (data.success) {
+        alert("Distributor added successfully");
+        clearData();
+      } else {
+        alert("Distributor not added");
       }
-      
     } catch (error) {
-      console.log("Add distributor error",error)
-      
+      console.log("Add distributor error", error);
     }
-    
   };
 
-  const distributersData = ()=>{
-    console.log(name)
-    console.log(address)
-    console.log(phone)
-    console.log(location)
-    console.log(email)
+  const distributersData = () => {
+    console.log(name);
+    console.log(address);
+    console.log(phone);
+    console.log(location);
+    console.log(email);
     // console.log(carName)
+  };
 
-  }
-  
-  const clearData = ()=>{
-    setAddress(" ")
-    setEmail(" ")
-    setName(" ")
-    setLocation(" ")
-    setPhone(" ")
-    setPass(" ")
-  }
+  const clearData = () => {
+    setAddress(" ");
+    setEmail(" ");
+    setName(" ");
+    setLocation(" ");
+    setPhone(" ");
+    setPass(" ");
+  };
+
+  const handleImageClick = () => {
+    profileDistributer.current.click();
+  };
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    setChangeImage(event.target.files[0]);
+  };
 
   return (
-    <> 
-        <div className="distributerForm">
-          <SideNav />
-          <form onSubmit={(e) => handleForm(e)} className="distributerDetailsForm">
-            <h1>Distributer Form</h1>
-            <br></br>
-            <div className="get_details">
-              <div className="name">
-                <p>Full Name</p>
-                <input type="text" value={name}  onChange={(e)=>setName(e.target.value)} required />
+    <>
+      <div className="distributerForm">
+        <SideNav />
+        <form
+          onSubmit={(e) => handleForm(e)}
+          className="distributerDetailsForm"
+        >
+          <h1>Distributer Form</h1>
+          <br></br>
+          <div className="profile-picture" >
+              <div className="image-uploader">
+              {changeImage ? (
+                <img
+                  src={URL.createObjectURL(changeImage)}
+                  alt="user profile"
+                  className="userProfile"
+                />
+              ) : (
+                <img
+                  src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+                  alt="user profile"
+                  className="userProfile"
+                />
+              )}
+              <input
+                type="file"
+                ref={profileDistributer}
+                onChange={(e)=>handleImageChange(e)}
+                style={{ display: "none" }}
+              />
               </div>
-              <div className="company">
-                <p>Address</p>
-                <input type="text" value={address}  onChange={(e)=>setAddress(e.target.value)}  required />
-              </div>
-              <div className="phone">
-                <p>Phone Number</p>
-                <input type="number" value={phone}  onChange={(e)=>setPhone(e.target.value)} required />
-              </div>
-              <div className="company_location">
-                <p>Distribution Location</p>
-                <input type="text" value={location}  onChange={(e)=>setLocation(e.target.value)} required />
-              </div>
-              <div className="registration number">
-                <p>Email</p>
-                <input type="email" value={email}  onChange={(e)=>setEmail(e.target.value)} required />
-              </div>
-              <div className="car_details">
-                <p>Password</p>
-                <input type={showHide ? "text" : "password"}  value={password}  onChange={(e)=>setPass(e.target.value)} />
-                <button type='button' className='eyeButton'  onClick={()=>setShowHide(!showHide)}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
+              <div>
+              <button type="button" onClick={handleImageClick}>Upload</button>
               </div>
             </div>
-            <div className="cancelAndSubmit">
-            <button className="cancelForm" onClick={clearData}>Cancel</button>
-            <button className="submitForm" onClick={distributersData}>Submit</button>
-          
-            </div>
-            </form>
-        </div>
+          <div className="get_details">
+            
 
+            <div className="name">
+              <p>Full Name</p>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="company">
+              <p>Address</p>
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
+              />
+            </div>
+            <div className="phone">
+              <p>Phone Number</p>
+              <input
+                type="number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
+            </div>
+            <div className="company_location">
+              <p>Distribution Location</p>
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                required
+              />
+            </div>
+            <div className="registration number">
+              <p>Email</p>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="car_details">
+              <p>Password</p>
+              <input
+                type={showHide ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPass(e.target.value)}
+              />
+              <button
+                type="button"
+                className="eyeButton"
+                onClick={() => setShowHide(!showHide)}
+              >
+                {showHide ? <FaRegEye /> : <FaRegEyeSlash />}{" "}
+              </button>
+            </div>
+          </div>
+          <div className="cancelAndSubmit">
+            <button className="cancelForm" onClick={clearData}>
+              Cancel
+            </button>
+            <button className="submitForm" onClick={distributersData}>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

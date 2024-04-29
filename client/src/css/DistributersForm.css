@@ -74,3 +74,25 @@
     color: white;
     border: 1px solid white;
 }
+.profile-picture{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.profile-picture button{
+    width: 90px;
+    background-color: black;
+    color: white ;
+    border: none;
+    font-size: 17px;
+    border-radius: 10px;
+    padding: 7px 7px;
+    margin-top: 40px;
+}
+.profile-picture button:hover{
+    background-color:  rgb(83, 174, 187);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
