@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    photo:{
+        type:String,
+        default:"https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg"
+    },
     role:{
         type:String,
         default:"user"
