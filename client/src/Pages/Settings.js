@@ -40,6 +40,7 @@ const Settings = () => {
     };
 
 const handleSubmit = async (e) => {
+    console.log(editedUserInfo)
     e.preventDefault();
     try {
         const response = await fetch('http://localhost:4000/update-user-info', {
@@ -52,7 +53,6 @@ const handleSubmit = async (e) => {
         });
         const data = await response.json();
         if (data.success === true) {
-            
             setUserInfo(editedUserInfo);
             setIsEditing(false); 
         }
@@ -110,28 +110,28 @@ const handleSubmit = async (e) => {
                                 </div>}
                             </div>
                             <div className="form-group">
-                                <label htmlFor="username">Username:</label>
-                                <input type="text" id="username" name="username" value={editedUserInfo.fullname} onChange={handleInputChange} className='input--'/>
+                                <label htmlFor="fullname">Username:</label>
+                                <input type="text" id="fullname" name="fullname" onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">Email:</label>
-                                <input type="email" id="email" name="email" value={editedUserInfo.email} onChange={handleInputChange} className='input--'/>
+                                <input type="email" id="email" name="email" onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="phone">Phone:</label>
-                                <input type="text" id="phone" name="phone" value={editedUserInfo.phone} onChange={handleInputChange} className='input--'/>
+                                <input type="text" id="phone" name="phone" onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="address">Address:</label>
-                                <input type="text" id="address" name="address" value={editedUserInfo.address} onChange={handleInputChange} className='input--'/>
+                                <input type="text" id="address" name="address" onChange={handleInputChange} className='input--'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="address">Old Password:</label>
-                                <input type="password" id="old-password" name="old-password" value="" onChange={handleInputChange} className='input--' autoComplete='off'/>
+                                <input type="password" id="old-password" name="old-password"  onChange={handleInputChange} className='input--' autoComplete='off'/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="address">New Password:</label>
-                                <input type="new-password" id="new-password" name="new-password" value="" onChange={handleInputChange} className='input--' autoComplete='off'/>
+                                <input type="password" id="new-password" name="new-password" onChange={handleInputChange} className='input--' autoComplete='off'/>
                             </div>
                             <button type="submit" className='profile-save-1'>Save</button>
                             <button type="button" className='profile-save-2'onClick={() => setIsEditing(false)}>Cancel</button>
