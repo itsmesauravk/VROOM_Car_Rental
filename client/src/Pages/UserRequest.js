@@ -45,7 +45,10 @@ const UserRequest = () => {
             userRequest.map((item, index) => (
               <div key={index} className='user-request-item'>
                 <div className="user-info">
-                <img src={imageUrl} alt='User' className='user-image' />
+                <img 
+                // src={item.senderUser?.photo ? `http://localhost:4000/${item.senderUser?.photo}` : imageUrl}
+                src={imageUrl}
+                alt='User' className='user-image' />
                 <div className="user-details">
                 <p className='req-id'>Request id : {item._id}</p>
                 <p className='user-name'>User: {item.senderUser?.fullname}</p>

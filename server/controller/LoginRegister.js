@@ -296,7 +296,7 @@ const registration = async (req, res) => {
     try {
       const { fullname, address, phone, distributionLocation, email, password } = req.body;
       const profilePicure = req.file.path;
-      console.log(profilePicure)
+      // console.log(profilePicure)
   
 
       const salt = bcrypt.genSaltSync(10);
@@ -325,6 +325,27 @@ const registration = async (req, res) => {
       res.status(201).json({ success: true, message: 'Distributor registered successfully', distributor: newDistributor });
     } catch (error) {
       console.error('Error registering distributor:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+
+
+  /// updaing the user profile
+  const updateUserProfile = async (req, res) => {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const tokenDecoded =await jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(tokenDecoded.id)
+      if(!user){
+        return res.status(400).json({ success: false, message: 'User not found' });
+      }
+      const { fullname, email, phone, address } = req.body;
+      const updatedUser = await User.findByIdAndUpdate(tokenDecoded.id, { fullname, email, phone, address }, { new: true });
+      res.status(200).json({ success: true, message: 'User updated successfully', user: updatedUser });
+    }
+    catch (error) {
+      console.error('Error updating user:', error);
       res.status(500).json({ success: false, message: 'Internal server error' });
     }
   }

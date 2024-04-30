@@ -40,25 +40,26 @@ const Settings = () => {
     };
 
 const handleSubmit = async (e) => {
-    console.log(editedUserInfo)
+    
     e.preventDefault();
-    try {
-        const response = await fetch('http://localhost:4000/update-user-info', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(editedUserInfo)
-        });
-        const data = await response.json();
-        if (data.success === true) {
-            setUserInfo(editedUserInfo);
-            setIsEditing(false); 
-        }
-    } catch (error) {
-        console.log(error);
-    }
+    console.log(editedUserInfo)
+    // try {
+    //     const response = await fetch('http://localhost:4000/update-user-info', {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         },
+    //         body: JSON.stringify(editedUserInfo)
+    //     });
+    //     const data = await response.json();
+    //     if (data.success === true) {
+    //         setUserInfo(editedUserInfo);
+    //         setIsEditing(false); 
+    //     }
+    // } catch (error) {
+    //     console.log(error);
+    // }
 };
     useEffect(() => {
         fetchUserInfo();
