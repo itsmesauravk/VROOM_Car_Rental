@@ -32,6 +32,34 @@ const FilterCar = () => {
   const vehicleRef = useRef();
   const CalendarRef = useRef();
 
+  //for sending the booking request
+  const sendBookingRequest = async()=>{
+    try {
+      const response = await fetch('http://localhost:4000/create-request',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        senderUser:userData._id,
+        receiverDistributor:selectedCity,
+        bookingDetails:{
+          vehicle:selectedVehicle,
+          sDate:date.startDate.toISOString().split("T")[0],
+          eDate:date.endDate.toISOString().split("T")[0],
+          status:"pending"
+        }
+      })
+    })
+    const data = await response.json();
+    console.log(data)
+    } catch (error) {
+      console.log("Error sending booking request:",error)
+    }
+  }
+
+
+
   // Function to fetch user info
 const showDistributorsLocations = async()=>{
     const response = await fetch('http://localhost:4000/show-distributors-locations', {
@@ -181,6 +209,9 @@ const showDistributorsLocations = async()=>{
         status:"pending"
       })
     }
+
+    // Send booking request
+    sendBookingRequest();
 
     // Set success message
     setApp(true);
