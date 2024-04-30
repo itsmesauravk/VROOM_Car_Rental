@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const DistributorSchema = new mongoose.Schema({
+    profilePicture:{
+        type:String,
+        default:"https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg"
+    },
     fullname:{
         type:String,
         required:true

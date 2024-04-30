@@ -2,6 +2,11 @@ const User = require('../schema/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
+const multer = require('multer')
+const express = require('express')
+const app = express()
+
+const path = require('path')
 
 //for admin
 const Admin = require('../schema/Admin')
@@ -10,6 +15,27 @@ const Admin = require('../schema/Admin')
 // Distributor
 const Distributor = require('../schema/Distributor')
 
+
+
+
+//for adding image (using multer)
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/distributors');
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.urlencoded({ extended: false }));
+
+
+const distributorProfileMiddleware = upload.single('profilePicture');
 
 
 //user register (signup)
@@ -269,6 +295,9 @@ const registration = async (req, res) => {
   const registerDistributor = async (req, res) => {
     try {
       const { fullname, address, phone, distributionLocation, email, password } = req.body;
+      const profilePicure = req.file.path;
+      console.log(profilePicure)
+  
 
       const salt = bcrypt.genSaltSync(10);
       const hashedPassword = bcrypt.hashSync(password, salt);
@@ -281,6 +310,7 @@ const registration = async (req, res) => {
   
       // Create a new distributor instance for distributor registration
       const newDistributor = new Distributor({
+        profilePicture:profilePicure,
         fullname,
         address,
         phone,
@@ -311,5 +341,6 @@ const registration = async (req, res) => {
     distInfo,
     adminInfo,
     registerAdmin,
-    registerDistributor
+    registerDistributor,
+    distributorProfileMiddleware
   }

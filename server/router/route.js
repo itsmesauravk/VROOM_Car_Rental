@@ -12,7 +12,8 @@ const {
     distInfo,
     adminInfo,
     registerAdmin,
-    registerDistributor
+    registerDistributor,
+    distributorProfileMiddleware
 } = require('../controller/LoginRegister')
 
 //Importing from controller.js
@@ -57,7 +58,7 @@ router.route('/user-info').get(userInfo)
 
 
 //distributor routes
-router.route('/register-distributor').post(registerDistributor)
+router.route('/register-distributor').post(distributorProfileMiddleware,registerDistributor)
 router.route('/show-user-request-status/:id').get(showUserRequestStatus)
 router.route('/distributor-info').get(distInfo)
 router.route('/show-distributors-locations').get(showDistributorsLocations)

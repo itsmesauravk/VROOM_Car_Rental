@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 // Create a new booking request
 const createRequest = async (req, res) => {
     try {
-        console.log("check")
+        
         const { senderUser, receiverDistributor, bookingDetails } = req.body;
         // console.log(senderUser, receiverDistributor, bookingDetails)
         

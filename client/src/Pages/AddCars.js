@@ -31,12 +31,14 @@ const AddCars = () => {
       ...prevData,
       carPhoto: e.target.files[0],
     }));
+    
   };
 
   const handleLicenseChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       documentPhoto: e.target.files[0],
+      
     }));
   };
 
@@ -55,8 +57,7 @@ const AddCars = () => {
     formDataToSend.append('documentPhoto', formData.documentPhoto);
     formDataToSend.append('distributorId', id);
 
-    // console.log(formDataToSend);
-
+   
     try {
       const response = await fetch('http://localhost:4000/add-rental-client', {
         method: 'POST',

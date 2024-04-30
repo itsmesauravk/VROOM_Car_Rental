@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import SideNav from "./SideNav";
 import "../css/DistributersForm.css";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -7,32 +7,30 @@ import { FaRegEye } from "react-icons/fa";
 const DistributerForm = () => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const [showHide, setShowHide] = useState(false);
-  let profileDistributer = useRef(null);
-  const [changeImage, setChangeImage] = useState("");
+  const [changeImage, setChangeImage] = useState(null);
 
   const handleForm = async (e) => {
     e.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append('profilePicture', changeImage); 
+      formData.append('fullname', name);
+      formData.append('address', address);
+      formData.append('phone', phone);
+      formData.append('distributionLocation', location);
+      formData.append('email', email);
+      formData.append('password', password);
+  
       const response = await fetch(
         "http://localhost:4000/register-distributor",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            fullname: name,
-            address,
-            phone,
-            distributionLocation: location,
-            email,
-            password,
-          }),
+          body: formData,
         }
       );
       const data = await response.json();
@@ -48,31 +46,14 @@ const DistributerForm = () => {
     }
   };
 
-  const distributersData = () => {
-    console.log(name);
-    console.log(address);
-    console.log(phone);
-    console.log(location);
-    console.log(email);
-    // console.log(carName)
-  };
-
   const clearData = () => {
-    setAddress(" ");
-    setEmail(" ");
-    setName(" ");
-    setLocation(" ");
-    setPhone(" ");
-    setPass(" ");
-  };
-
-  const handleImageClick = () => {
-    profileDistributer.current.click();
-  };
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    console.log(file);
-    setChangeImage(event.target.files[0]);
+    setAddress("");
+    setEmail("");
+    setName("");
+    setLocation("");
+    setPhone("");
+    setPass("");
+    setChangeImage(null);
   };
 
   return (
@@ -82,11 +63,12 @@ const DistributerForm = () => {
         <form
           onSubmit={(e) => handleForm(e)}
           className="distributerDetailsForm"
+          encType="multipart/form-data"
         >
           <h1>Distributer Form</h1>
-          <br></br>
-          <div className="profile-picture" >
-              <div className="image-uploader">
+          <br />
+          <div className="profile-picture">
+            <div className="image-uploader">
               {changeImage ? (
                 <img
                   src={URL.createObjectURL(changeImage)}
@@ -102,18 +84,17 @@ const DistributerForm = () => {
               )}
               <input
                 type="file"
-                ref={profileDistributer}
-                onChange={(e)=>handleImageChange(e)}
+                onChange={(e) => setChangeImage(e.target.files[0])}
                 style={{ display: "none" }}
+                name="profilePicture"
+                id="profilePicture"
               />
-              </div>
-              <div>
-              <button type="button" onClick={handleImageClick}>Upload</button>
-              </div>
+              <label htmlFor="profilePicture" className="uploadLabel">
+                Upload
+              </label>
             </div>
+          </div>
           <div className="get_details">
-            
-
             <div className="name">
               <p>Full Name</p>
               <input
@@ -179,7 +160,7 @@ const DistributerForm = () => {
             <button className="cancelForm" onClick={clearData}>
               Cancel
             </button>
-            <button className="submitForm" onClick={distributersData}>
+            <button className="submitForm" type="submit">
               Submit
             </button>
           </div>

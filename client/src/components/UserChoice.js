@@ -45,8 +45,8 @@ const FilterCar = () => {
         receiverDistributor:selectedCity,
         bookingDetails:{
           vehicle:selectedVehicle,
-          sDate:date.startDate.toISOString().split("T")[0],
-          eDate:date.endDate.toISOString().split("T")[0],
+          startDate:date.startDate.toISOString().split("T")[0],
+          endDate:date.endDate.toISOString().split("T")[0],
           status:"pending"
         }
       })

@@ -5,7 +5,6 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 
 
-//Admin dashboard
 const Distributers = () => {
   const [distributors, setDistributors] = useState([]);
 
@@ -59,6 +58,7 @@ const Distributers = () => {
             <table className="distributers">
               <tr className="heading">
                 <th>S.No.</th>
+                <th>Profile</th>
                 <th>Distributors</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -70,6 +70,14 @@ const Distributers = () => {
                   <>
                     <tr className="values" key={key}>
                       <td style={{ fontWeight: "bold" }}>{key+1}</td>
+                      <td>
+                        <img
+                          src={`http://localhost:4000/${datas.profilePicture}`}
+                          alt="profile"
+                          style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "50%"}}
+                          className="profilePicture"
+                        />
+                      </td>
                       <td className="imageAndName">
                         
                         <p style={{ fontWeight: "bold" }}> {datas.fullname}</p>
