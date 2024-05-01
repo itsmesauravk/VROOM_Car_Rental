@@ -55,12 +55,17 @@ const Nav = () => {
       <nav className="navbaritem">
         <div className='logo-side'>
           <h2 className='navlogo'>Vroom</h2>
-          {/* Display user's full name */}
-          {userInfo && <h4 className='nav--user'>Welcome {userInfo.fullname}</h4>}
+          
         </div>
         {/* Navigation menu */}
         <ul className='navmenu'>
           {/* Map through Menu items to generate navigation links */}
+          
+            {/* Display user's full name */}
+            <img style={{width:"40px", height:"40px"}} src={`http://localhost:4000/${userInfo.photo}`} alt="user profile" />
+            {userInfo && <h4 style={{marginRight:"2rem"}} className='nav--user'>{userInfo.fullname}</h4>}
+          
+
           {Menu.map((item, index) => (
             <li key={index} className={location.pathname === item.url ? "active" : ""}>
               <Link to={item.url} className={item.cName}>
@@ -70,6 +75,7 @@ const Nav = () => {
             </li>
           ))}
         </ul>
+        
         {/* Link to user's requests page */}
         <Link to={`/Requests/${userInfo._id}`}>
           <h1 className='nav--button'>Request</h1>

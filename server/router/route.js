@@ -31,7 +31,8 @@ const {
     createRequest,
     showRequest,
     showUserRequestStatus,
-    deleteRentRequest
+    deleteRentRequest,
+    acceptRejectRequest
 } = require('../controller/Booking')
 
 // Importing from RentalClient
@@ -71,6 +72,9 @@ router.route('/show-distributors-locations').get(showDistributorsLocations)
     //for  rental client
 router.route('/add-rental-client').post(addNewClientMiddleware,addNewClient)
 router.route('/get-cars-details/:id').get(getCarsDetails)
+
+        //request actions
+router.route('/accept-reject-request/:id').patch(acceptRejectRequest)
 
 
 //admin routes

@@ -33,6 +33,27 @@ const UserRequest = () => {
     }
   }, []);
 
+  
+  //accept reject request
+  const acceptRejectRequest = async (requestId, action) => {
+    try {
+      const response = await fetch(`http://localhost:4000/accept-reject-request/${requestId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ action })
+      });
+      const result = await response.json();
+      if (result.success === true) {
+        showRequest();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
 
   return (
     <div className='userrequests'>
@@ -46,8 +67,8 @@ const UserRequest = () => {
               <div key={index} className='user-request-item'>
                 <div className="user-info">
                 <img 
-                // src={item.senderUser?.photo ? `http://localhost:4000/${item.senderUser?.photo}` : imageUrl}
-                src={imageUrl}
+                src={item.senderUser?.photo ? `http://localhost:4000/${item.senderUser?.photo}` : imageUrl}
+                
                 alt='User' className='user-image' />
                 <div className="user-details">
                 <p className='req-id'>Request id : {item._id}</p>
@@ -57,10 +78,14 @@ const UserRequest = () => {
                 </div>
                 </div>
 
-                 <div className='action-buttons'>
-        <button className='approve-button'>Approve</button>
-        <button className='deny-button'>Deny</button>
-      </div>
+                 {item.status === 'Pending' ? (
+                  <div className='action-buttons'>
+                  <button className='approve-button' onClick={()=>acceptRejectRequest(item._id, "accept")}>Approve</button>
+                  <button className='deny-button' onClick={()=>acceptRejectRequest(item._id, "reject")}>Deny</button>
+              </div>
+              ):(
+                <p className='req-status'>Status: {item.status}</p>
+              )}
                
               </div>
             ))

@@ -362,7 +362,11 @@ const registration = async (req, res) => {
       const { fullname, email, phone, address,newPassword } = req.body;
       const userPhoto = req.file.path;
 
-      const updatedUser = await User.findByIdAndUpdate(tokenDecoded.id, { photo:userPhoto,fullname, email, phone, address , password:newPassword}, { new: true });
+      //hashing password
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(newPassword, salt);
+
+      const updatedUser = await User.findByIdAndUpdate(tokenDecoded.id, { photo:userPhoto,fullname, email, phone, address , password:hashedPassword}, { new: true });
       res.status(200).json({ success: true, message: 'User updated successfully', user: updatedUser });
     }
     catch (error) {

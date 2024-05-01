@@ -115,9 +115,46 @@ const deleteRentRequest = async (req, res) => {
 }
 
 
+
+//request actions
+
+//accepting/ rejecting the request
+
+
+
+
+
+const acceptRejectRequest = async (req, res) => {
+    try {
+        const requestId = req.params.id;
+        const { action } = req.body;
+        if (!requestId || !action) {
+            return res.status(400).json({ success: false, message: 'Request ID or status not provided' });
+        }
+
+        if(action === 'accept') {
+            await Request.findByIdAndUpdate(requestId, { status: 'Accepted' });
+            return res.status(200).json({ success: true, message: 'Request accepted successfully' });
+        }
+        if(action === 'reject') {
+            await Request.findByIdAndUpdate(requestId, { status: 'Rejected' });
+            return res.status(200).json({ success: true, message: 'Request rejected successfully' });
+        }
+    }
+    catch (error) {
+        console.error('Error accepting/rejecting request:', error);
+        res.status(500).json({ success: false, message: 'Failed to accept/reject request' });
+    }
+}
+
+
+
+
+
 module.exports = {
      createRequest ,
         showRequest,
         showUserRequestStatus,
-        deleteRentRequest
+        deleteRentRequest,
+        acceptRejectRequest
     }

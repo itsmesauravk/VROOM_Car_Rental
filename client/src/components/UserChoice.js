@@ -47,7 +47,7 @@ const FilterCar = () => {
           vehicle:selectedVehicle,
           startDate:date.startDate.toISOString().split("T")[0],
           endDate:date.endDate.toISOString().split("T")[0],
-          status:"pending"
+          
         }
       })
     })
