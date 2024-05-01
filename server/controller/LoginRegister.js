@@ -35,8 +35,27 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.urlencoded({ extended: false }));
 
 
+//for distributor photo
 const distributorProfileMiddleware = upload.single('profilePicture');
 
+//for adding image (using multer)
+const storageUser = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/users');
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
+  }
+});
+
+const uploadUser = multer({ storage: storageUser });
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.urlencoded({ extended: false }));
+
+//for user photo
+const userProfileMiddleware = uploadUser.single('userPhoto')
 
 //user register (signup)
 
@@ -340,8 +359,10 @@ const registration = async (req, res) => {
       if(!user){
         return res.status(400).json({ success: false, message: 'User not found' });
       }
-      const { fullname, email, phone, address } = req.body;
-      const updatedUser = await User.findByIdAndUpdate(tokenDecoded.id, { fullname, email, phone, address }, { new: true });
+      const { fullname, email, phone, address,newPassword } = req.body;
+      const userPhoto = req.file.path;
+
+      const updatedUser = await User.findByIdAndUpdate(tokenDecoded.id, { photo:userPhoto,fullname, email, phone, address , password:newPassword}, { new: true });
       res.status(200).json({ success: true, message: 'User updated successfully', user: updatedUser });
     }
     catch (error) {
@@ -363,5 +384,7 @@ const registration = async (req, res) => {
     adminInfo,
     registerAdmin,
     registerDistributor,
-    distributorProfileMiddleware
+    distributorProfileMiddleware,
+    updateUserProfile,
+    userProfileMiddleware
   }

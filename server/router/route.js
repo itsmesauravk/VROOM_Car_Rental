@@ -13,7 +13,9 @@ const {
     adminInfo,
     registerAdmin,
     registerDistributor,
-    distributorProfileMiddleware
+    distributorProfileMiddleware,
+    updateUserProfile,
+    userProfileMiddleware
 } = require('../controller/LoginRegister')
 
 //Importing from controller.js
@@ -54,6 +56,9 @@ router.route('/reset-password').post(newPassword)
 
 //user routes
 router.route('/user-info').get(userInfo)
+
+//updating user profile
+router.route('/update-user-info').patch(userProfileMiddleware,updateUserProfile)
 
 
 
