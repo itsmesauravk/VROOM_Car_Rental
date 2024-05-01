@@ -64,6 +64,7 @@ export const Users = () => {
         <table className='user'>
           <tr className='headig'>
             <th>S.No.</th>
+            <th>Profile</th>
             <th>Customer</th>
             <th>Email</th>
             <th>Phone</th>
@@ -76,6 +77,9 @@ export const Users = () => {
                 <>
                 <tr className='values' key={key}>
             <td style={{fontWeight: "bold"}} >{key+1}</td>
+            <td>
+              <img style={{width:"50px", height:"50px", borderRadius:"50%"}} src={`http://localhost:4000/${values.photo}`} alt='user' className='userImage' />
+            </td>
             <td className='imageAndName'>
               
             <p style={{fontWeight: "bold"}}>{values.fullname}</p>

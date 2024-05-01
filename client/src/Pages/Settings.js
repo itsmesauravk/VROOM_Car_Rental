@@ -107,8 +107,7 @@ const Settings = () => {
                             <div className='user-setting-image'>
                                 <img
                                     className='setting-photo'
-                                    src= {userInfo.photo ? `http://localhost:4000/${userInfo.photo}` : "https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg"}
-                                    
+                                    src={userInfo.photo ? `http://localhost:4000/${userInfo.photo}` : "https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg"}                                    
                                     alt=""
                                 />
                                 <label htmlFor="userPhoto" onClick={changePhoto} className='change-setting'>Change Photo</label>
