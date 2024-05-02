@@ -62,8 +62,10 @@ const Nav = () => {
           {/* Map through Menu items to generate navigation links */}
           
             {/* Display user's full name */}
-            <img style={{width:"40px", height:"40px"}} src={`http://localhost:4000/${userInfo.photo}`} alt="user profile" />
+            <div className="nav-user-detail">
+            <img style={{width:"50px", height:"50px"}} src={`http://localhost:4000/${userInfo.photo}`} alt="user profile" className='nav-image'/>
             {userInfo && <h4 style={{marginRight:"2rem"}} className='nav--user'>{userInfo.fullname}</h4>}
+            </div>
           
 
           {Menu.map((item, index) => (
