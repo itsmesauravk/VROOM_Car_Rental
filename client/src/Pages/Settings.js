@@ -9,7 +9,7 @@ const Settings = () => {
     const [isPhotoChanged, setIsPhotoChanged] = useState(false);
     const [photoURL, setPhotoURL] = useState(null);
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
 
     const fetchUserInfo = async () => {
         try {
