@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../css/Dashboard.css"
 import SideNav from '../components/SideNav'
+import DistributerCard from '../components/DistributerCard';
 
 
 //Admin dashboard
@@ -8,6 +9,7 @@ export const Dashboard = (props) => {
   const [users, setUsers] = useState([]);
   const [distributors, setDistributors] = useState([]);
   const [rentalClients, setRentalClients] = useState([]);
+  const [change, setChange] = useState(false);
 
 
 
@@ -72,7 +74,7 @@ export const Dashboard = (props) => {
 
   return (
     <>
-    <div className='dashboardPage'>
+    {change ? <DistributerCard changes={change}  /> : <div className='dashboardPage'>
       <SideNav />
       <div className='dashboard'>
         <h1>Dashboard</h1>
@@ -82,12 +84,12 @@ export const Dashboard = (props) => {
             <p className='show_users'>{users.length}</p>
 
           </div>
-          <div className='TotalDistributers'>
+          <div  className='TotalDistributers' >
             <h1 className='total_distributer'>Total Distributers</h1>
             <p className='show_distributer'>{distributors.length}</p>
 
-          </div>
-          <div className='TotalCars'>
+          </div>          
+          <div className='TotalCars' onClick={()=>setChange(!change)}>
             <h1 className='total_cars'>Total Rental Client</h1>
             <p className='show_cars'>{rentalClients.length}</p>
 
@@ -101,7 +103,7 @@ export const Dashboard = (props) => {
       </div>
       
     </div>
-    
+    }
     
     </>
   )
