@@ -18,6 +18,7 @@ import AddAdmin from "./Pages/AddAdmin";
 import DistProfile from "./Pages/DistProfile";
 import AddCars from "./Pages/AddCars";
 import Settings from "./Pages/Settings"
+import DistributerCard from "./components/DistributerCard";
 
 
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/add_car/:id" element={<AddCars/>} />
 
         <Route  path="/addDistributers" element={<DistributerForm />}  />
+        <Route  path="/DistributerCard" element={<DistributerCard />}/>
 
 
         <Route path="/add-admin-dashboard" element={<AddAdmin/>} />
