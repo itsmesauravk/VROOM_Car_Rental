@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import "../css/distnav.css";
-import { IoMdExit } from "react-icons/io";
 
 const DistNav = () => {
   const location = useLocation();
@@ -78,13 +77,12 @@ const DistNav = () => {
               Clients
             </Link>
           </button>
-          <button className={`distnav--button ${activePage(`/add-car`)}`}>
+          <button className={`distnav--button ${activePage(`/add_car/${id}`)}`}>
             <Link to={`/add_car/${id}`} className="nav-link">
               Add Clients
             </Link>
           </button>
           <button onClick={logoutHandler} className="distnav--button-logout">
-            <IoMdExit className="nav-icon" />
             <Link to="" className="nav-link">
               Logout
             </Link>

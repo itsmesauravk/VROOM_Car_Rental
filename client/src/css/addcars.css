@@ -1,8 +1,9 @@
 .form-container {
     position: relative;
-    left: -7rem;
     width: 50%;
-    margin: 20px auto;
+    position: relative;
+    left: 8%;
+    margin-top: 2rem;
     padding: 1rem 0rem 1rem 3rem;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -121,5 +122,7 @@ label {
 }
 
 .main-div-rental {
-    display: flex
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

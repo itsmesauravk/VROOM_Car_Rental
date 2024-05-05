@@ -40,9 +40,10 @@ const RentalClients = () => {
   // console.log(cars);
 
   return (
+    <>
+      <DistNav />
     <div className='main--div--rental'>
       {/* Navigation component */}
-      <DistNav />
       {/* Display loading message if data is being fetched */}
       {loading && <p>Loading...</p>}
       {/* Display error message if there's an error */}
@@ -93,6 +94,7 @@ const RentalClients = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -33,9 +33,9 @@ const DistProfile = () => {
     distributorInfo()
   },[])
 
-  return (
-    <div style={{display:"flex",gap:'1rem'}}>
+  return (<>
         <DistNav />
+    <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
         <div className='settings-container2'>
         <div className='user-details2'>
            <div className="user-card2">
@@ -56,6 +56,7 @@ const DistProfile = () => {
         </div>
         </div>
     </div>
+  </>
   )
 }
 

@@ -2,18 +2,18 @@
     justify-content: center;
     width: 20%;
     height: 100vh;
+    position: fixed;
     display: flex;
     flex-direction: row;
     background: rgb(184, 184, 184);
     color: white;
-    font-family: cochin;
 }
 .left .line{
     width: 100%;
     border: 1.5px solid;
 }
 .leftContent {
-    margin-top: 40px;
+    margin-top: 1rem;
     padding-right: 50px;
     padding-left: 40px;
     display: flex;
@@ -103,7 +103,7 @@ li.activeSideNav {
     justify-content: center;
     text-align: center;
     border: none;
-    margin-top: 4rem;
+    margin-top: -5rem;
 }
 
 a.logout {
@@ -148,7 +148,7 @@ a.logout {
     width: 90%;
     font-weight: 300;
     border: none;
-    margin-top: 10rem;
+    margin-top: 6rem;
     cursor: pointer;
     padding: .4rem 1rem;
     background-color: white;

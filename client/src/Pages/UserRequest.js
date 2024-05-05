@@ -57,9 +57,9 @@ const UserRequest = () => {
 
 
 
-  return (
-    <div className='userrequests'>
+  return (<>
       <DistNav />
+    <div className='userrequests'>
       <div className='userReqlist'>
         <h2 className='userh1'>User Requests</h2>
         <hr className='line1'></hr>
@@ -97,6 +97,7 @@ const UserRequest = () => {
         </div>
       </div>
     </div>
+  </>
   );
 };
 
