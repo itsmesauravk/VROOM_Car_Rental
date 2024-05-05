@@ -105,3 +105,31 @@
         background-color: #f44658;
 }
 
+.req-status.accepted{
+    background-color: rgb(16, 198, 16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    height: 2rem;
+    position: relative;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    top: 1rem;
+    right: .5rem;
+    
+}
+.req-status.rejected{
+    background-color: rgb(234, 63, 57);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    height: 2rem;
+    position: relative;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    top: 1rem;
+    right: .5rem;
+    font-size: 1.2rem;
+}

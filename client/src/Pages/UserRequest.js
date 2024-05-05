@@ -20,6 +20,7 @@ const UserRequest = () => {
       const result = await response.json();
       if (result.success === true) {
         setUserRequest(result.data);
+        console.log(result)
       }
     } catch (error) {
       console.log(error);
@@ -47,6 +48,7 @@ const UserRequest = () => {
       const result = await response.json();
       if (result.success === true) {
         showRequest();
+        
       }
     } catch (error) {
       console.log(error);
@@ -84,7 +86,7 @@ const UserRequest = () => {
                   <button className='deny-button' onClick={()=>acceptRejectRequest(item._id, "reject")}>Deny</button>
               </div>
               ):(
-                <p className='req-status'>Status: {item.status}</p>
+                <p className={item.status==="Rejected"?"req-status rejected": "req-status accepted"}>Status : {item.status}</p>
               )}
                
               </div>
