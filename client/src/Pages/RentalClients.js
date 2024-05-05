@@ -65,7 +65,7 @@ const RentalClients = () => {
                     {/* Owner details */}
                     <h1 className='detail-detial'>Owner Detail:</h1>
                     <div className="owner">
-                      <p>Verified !</p>
+                      <p style={{backgroundColor:"#32CD32"}}>Verified !</p>
                       <p className='client-name'>Owner: {item.ownerName}</p>
                       <p className='client-phone'>Phone: {item.ownerPhone}</p>
                     </div>

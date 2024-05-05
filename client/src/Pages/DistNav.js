@@ -51,6 +51,11 @@ const DistNav = () => {
         <h1>Vroom - Distributor</h1>
         <div className="adminPortal"></div>
         <div className="user_profile">
+          <img
+                                className='setting-photo2'
+                                src= {`http://localhost:4000/${distInfo.profilePicture}`}
+                                alt=""
+                            />
           <p className="welcome">
             {distInfo && <h2 className="nav--user"> {distInfo.fullname}</h2>}
           </p>

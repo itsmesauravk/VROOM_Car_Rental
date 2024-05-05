@@ -171,3 +171,9 @@ a.logout {
     border: 1px solid white;
     transition: all 0.7s;
 }
+
+.setting-photo2{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+}
