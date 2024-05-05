@@ -1,5 +1,8 @@
 .userrequests{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     gap: 1rem;
     font-family: sedan;
 }

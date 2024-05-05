@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/addcars.css';
 import { Link, useParams } from 'react-router-dom';
+import DistNav from './DistNav';
 
 
 const AddCars = () => {
@@ -89,12 +90,8 @@ const AddCars = () => {
 
   return (
     <>
+      <DistNav/>
       <div className='main-div-rental'>
-        <button className="rental-back">
-          <Link to={`/rental_clients/${id}`} className='link-rental'>
-            Back to Clients
-          </Link>
-        </button>
         <div className="form-container">
           <h1>Clients Form</h1>
           <div className="form-wrapper">

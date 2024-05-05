@@ -19,11 +19,11 @@
     border: 3px solid var(--primary-color);
     border-radius: 20px;
     justify-content: center;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(7px);
+
   }
-  
   .login h1 {
-    margin-left: 7.5rem;
+    margin-left: 10rem;
     font-size: 38px;
     color: var(--primary-color);
     letter-spacing: 5px;
@@ -38,13 +38,14 @@
   }
   
   .containerL p {
-    font-size: 18px;
+    font-size: 24px;
     color: white;
     margin: 1rem 0rem 0rem 1rem;
   }
   
   .containerL input {
     width: 100%;
+    margin-top: -.3rem;
     padding: 0px 12px 12px 12px;
     color: white;
     font-size: 18px;
@@ -53,16 +54,19 @@
     outline: none;
     border-bottom: 2px solid var(--primary-color);
   }
-  
+    .containerL input::placeholder{
+      color: rgb(177, 177, 178);
+    }
+
   input:focus {
     outline: none;
   }
   
   .loginBtn {
     position: relative;
-    left: 23%;
-    width: 60%;
-    padding: 12px 16px;
+    left: 35%;
+    width: 30%;
+    padding: 14px 24px;
     font-size: 20px;
     border-radius: 10px;
     border: none;
@@ -70,6 +74,7 @@
     background-color: white;
     color: var(--primary-color);
     transition: 0.5s all;
+    margin-top: -1.5rem;
   }
   .loginBtn:hover {
     color: white;
@@ -78,13 +83,11 @@
     transform: scale(1.05);
   }
   .existingL {
-    position: relative;
-    left: 10%;
+    text-align: center;
   }
 
   .resetPass {
-    position: relative;
-    left: 30%;
+    text-align: center;
     font-size: 16px;
     letter-spacing: 2px;
     color: var(--primary-color);

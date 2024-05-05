@@ -25,7 +25,15 @@ a {
   border: 3px solid var(--primary-color);
   border-radius: 20px;
   justify-content: center;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(7px);
+  
+  h1{
+    text-align: center;
+    color: aliceblue;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: .5rem;
+  }
 }
 .signImage {
   object-fit: cover;
@@ -57,11 +65,15 @@ a {
   color: white;
   font-size: 18px;
   background: transparent;
+  margin-top: -.2rem;
   border: none;
   outline: none;
   border-bottom: 2px solid var(--primary-color);
 }
-
+.containerS input::placeholder{
+  color: rgb(177, 177, 178);
+  margin-left: 2rem;
+}
 input:focus {
   outline: none;
 }
@@ -71,8 +83,8 @@ input:focus {
   left: 30%;
   top: 10px;
   width: 40%;
-  padding: 7px 12px;
-  font-size: 15px;
+  padding: 14px 26px;
+  font-size: 1.2rem;
   border-radius: 10px;
   border: 1px solid black;
   cursor: pointer;
@@ -88,7 +100,18 @@ input:focus {
 
 .existingS {
   position: relative;
-  left: 8%;
+  left: 18%;
+  letter-spacing: 2px;
+  
+}
+
+.login--link{
+  text-decoration: underline;
+  color: aliceblue;
+}
+
+p.address{
+  margin-top: -2rem;
 }
 
 .bgImage {

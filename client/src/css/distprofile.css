@@ -1,0 +1,42 @@
+.settings-container2{
+    margin-top: 3rem;
+    width: 50%;
+
+    h2{
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+}
+
+.user-card2 {
+    border: 2px solid var(--primary-color);
+    padding: 1rem 2rem;
+    width: 60%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.user-card2 p {
+    font-weight: 300;
+    margin: 2rem 0rem;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.detail-card{
+    background-color: rgb(244, 244, 252);
+        border-radius: 10px;
+        padding: 1rem 2rem;
+}
+
+.line2{
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+    margin: -.7rem 0rem 1rem 2.6rem;
+    width: 80%;
+}
