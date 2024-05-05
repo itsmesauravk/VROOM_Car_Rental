@@ -63,7 +63,7 @@ function Signup() {
   return (
     <>
     <div className='signupPage'>
-    <img src="https://images.pexels.com/photos/38570/lamborghini-car-speed-prestige-38570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="car" className="signImage" />
+    <img src="https://images.unsplash.com/photo-1578470303280-ea206504cc22?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE4fHxkYXJrJTIwY2FyfGVufDB8MHwwfHx8MA%3D%3D" alt="car" className="signImage" />
     <form onSubmit={(e)=>submitData(e)}>
     <div className="Signup">
       <h1>Sign up</h1>
@@ -81,14 +81,14 @@ function Signup() {
           placeholder='0123456789'
         value={userNumber} onChange={(e)=> setUserNumber(e.target.value)} required />
         <p>Password</p >
-        <input value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)}  required/>
+        <input value={usePassword} type={showHide ? "text" : "password"} onChange={(e)=> setUserPassword(e.target.value)} required/>
         <button  type='button'className='showHideSignup'  onClick={()=>setShowHide(!showHide)}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
-         <p>Address</p >
+         <p className='address'>Address</p >
         <input type='text'
           placeholder='xyz-01, abc street'
          value={userLocation} onChange={(e)=> setUserLocation(e.target.value)}  required/>
          <button className='SignupBtn' type="submit" onClick={(e)=>submitData(e)}>Signup</button>
-        <p className='existingS'>Already have an account? <Link to="/login">Login</Link></p>
+        <p className='existingS'>Already have an account? <Link to="/login" className='login--link'>Login</Link></p>
       </div>
     </div>
     </form>

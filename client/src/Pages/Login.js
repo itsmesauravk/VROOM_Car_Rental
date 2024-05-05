@@ -56,19 +56,19 @@ const Login = () => {
   return (
     <>
     <div className='loginPage'>
-   <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="car" className="bgImage" />
+   <img src="https://images.unsplash.com/photo-1541348263662-e068662d82af?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGFyayUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D" alt="car" className="bgImage" />
    <div className='login-div'>
     <form onSubmit={handleSubmit}>
     <div className="login">
       <h1>Login</h1>
       <div className="containerL">
         <p>Email</p >
-        <input type='email' value={userEmail} autoFocus onChange={(e)=> setUserEmail(e.target.value)} />
+        <input type='email' value={userEmail} autoFocus onChange={(e)=> setUserEmail(e.target.value)}/>
         <p>Password</p >
         <input type={showHide? "text": 'password'} value={usePassword} onChange={(e)=> setUserPassword(e.target.value)} />
         <button type='button' className='showHideSignup'  onClick={()=>setShowHide(!showHide)}>{showHide ? <FaRegEye /> :  <FaRegEyeSlash /> } </button>
         <button className='loginBtn' type="submit" onClick={(e)=>handleSubmit(e)}>Login</button>
-        <p className='existingL'>Don't have an account? <Link to="/signup" className='signup-link'>Signup</Link></p>
+        <p className='existingL' style={{fontSize:"18px"}}>Don't have an account? <Link to="/signup" className='signup-link'>Signup</Link></p>
         <Link to="/forgot" className='resetPass'>Forgot password? </Link>
       </div>
     </div>
