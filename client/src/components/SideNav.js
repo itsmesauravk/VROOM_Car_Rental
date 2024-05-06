@@ -44,7 +44,7 @@ const SideNav = () => {
     
 
     <>
-      <div className="left">
+      <div className="left1">
         <div className="leftContent">
           <h1>Vroom</h1>
           <div className="adminPortal">
