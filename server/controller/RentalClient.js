@@ -83,5 +83,6 @@ const getAllCars = async (req, res) => {
 module.exports = {
     addNewClient,
     addNewClientMiddleware,
-    getCarsDetails 
+    getCarsDetails,
+    getAllCars 
 };
