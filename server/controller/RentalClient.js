@@ -66,6 +66,15 @@ const getCarsDetails = async (req, res) => {
   }
 };
 
+//get car details according to location
+const getSpecificCarRentals = async(req,res) => {
+  try {
+    const kathmandu = await Cars.find({})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
     addNewClient,
     addNewClientMiddleware,
