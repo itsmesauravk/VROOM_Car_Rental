@@ -39,7 +39,8 @@ const {
 const {
     addNewClient,
     addNewClientMiddleware,
-    getCarsDetails
+    getCarsDetails,
+    getAllCars
 } = require('../controller/RentalClient')
 
 
