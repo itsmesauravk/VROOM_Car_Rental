@@ -13,8 +13,21 @@ const Requests = () => {
   const [userRequestStatus, setUserRequestStatus] = useState([]);
   const [cancelmsg, setCancelmsg] = useState("");
 
+  const [status, setstatus] = useState("pending-status");
+
+  useEffect(()=>{
+        if(userRequestStatus[0].status==="Accepted"){
+          setstatus("pending-status accepted")
+        }else if (userRequestStatus[0].status==="Rejected"){
+          setstatus("pending-status rejected")
+        }else{
+          setstatus("pending-status")
+        }
+     })
+
   // Function to fetch and display user's request history
   const showRequestedVehicles = async () => {
+
     try {
       const response = await fetch(`http://localhost:4000/show-user-request-status/${userId}`, {
         method: "GET",
@@ -101,7 +114,7 @@ const Requests = () => {
                 </div>
                 {/* Request Status */}
                 <div className='status'>
-                  <div className='pending-status'></div>
+                  <div className={`${status}`}></div>
                   <p>{request.status}</p>
                 </div>
                 <div className="req-vehicle-box">
