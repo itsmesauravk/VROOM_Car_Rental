@@ -66,8 +66,23 @@ const getCarsDetails = async (req, res) => {
   }
 };
 
+//fetchting all the cars accourding to the location
+const getAllCars = async (req, res) => {
+  try {
+    const cars = await Cars.find().populate('distributorId');
+    if(cars.length === 0){
+      return res.status(404).json({ success: false, message: 'No cars found' });
+    }
+    res.status(200).json({ success: true, cars });
+
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
+
 module.exports = {
     addNewClient,
     addNewClientMiddleware,
-    getCarsDetails 
+    getCarsDetails,
+    getAllCars 
 };
