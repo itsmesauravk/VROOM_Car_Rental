@@ -87,7 +87,7 @@ router.route('/show-users').get(showUsers)
 router.route('/show-total-rental-clients').get(showRentalClients)
 router.route('/show-distributors').get(showDistributors)
 router.route('/show-all-cars').get(getAllCars)
-git
+
 // Handling the user request
 router.route('/create-request').post(createRequest)
 router.route('/show-request/:id').get(showRequest)
