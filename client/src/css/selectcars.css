@@ -1,0 +1,13 @@
+.selectcarsdiv{
+    height: 500px;
+    width: 700px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: black;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%,50%);
+}
