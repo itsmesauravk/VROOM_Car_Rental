@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DistNav from './DistNav';
 import '../css/userrequests.css';
 import "../css/userrequestitem.css"
 import { useParams } from 'react-router-dom';
+import { SelectCarContext } from '../components/SelectCarContext';
+import SelectCars from '../components/SelectCars';
 
 const UserRequest = () => {
+  const {handleSelectCar,selectCar}=useContext(SelectCarContext)
   const [userRequest, setUserRequest] = useState([]);
   const { id } = useParams();
   const imageUrl= "https://w0.peakpx.com/wallpaper/123/749/HD-wallpaper-baki-raitai-anime-fight.jpg";
@@ -20,7 +23,6 @@ const UserRequest = () => {
       const result = await response.json();
       if (result.success === true) {
         setUserRequest(result.data);
-        console.log(result)
       }
     } catch (error) {
       console.log(error);
@@ -48,6 +50,7 @@ const UserRequest = () => {
       const result = await response.json();
       if (result.success === true) {
         showRequest();
+        handleSelectCar();
         
       }
     } catch (error) {
@@ -95,6 +98,7 @@ const UserRequest = () => {
             <p>No request found, please try again !!</p>
           )}
         </div>
+        {selectCar && <SelectCars/>}
       </div>
     </div>
   </>
