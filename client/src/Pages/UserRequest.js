@@ -39,23 +39,24 @@ const UserRequest = () => {
   
   //accept reject request
   const acceptRejectRequest = async (requestId, action) => {
-    try {
-      const response = await fetch(`http://localhost:4000/accept-reject-request/${requestId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ action })
-      });
-      const result = await response.json();
-      if (result.success === true) {
-        showRequest();
-        handleSelectCar();
+    handleSelectCar();
+    // try {
+    //   const response = await fetch(`http://localhost:4000/accept-reject-request/${requestId}`, {
+    //     method: 'PATCH',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({ action })
+    //   });
+    //   const result = await response.json();
+    //   if (result.success === true) {
+    //     showRequest();
+    //     handleSelectCar();
         
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
 

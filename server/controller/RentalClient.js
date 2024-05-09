@@ -51,7 +51,7 @@ const addNewClient = async (req, res) => {
 
 
 
-// Get all car details
+// Get car details for distributors
 const getCarsDetails = async (req, res) => {
   try {
     const distributerId = req.params.id;
@@ -65,6 +65,7 @@ const getCarsDetails = async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 };
+
 
 //fetchting all the cars accourding to the location
 const getAllCars = async (req, res) => {
@@ -83,6 +84,6 @@ const getAllCars = async (req, res) => {
 module.exports = {
     addNewClient,
     addNewClientMiddleware,
-    getCarsDetails,
-    getAllCars 
+    getCarsDetails ,
+    getAllCars
 };

@@ -23,7 +23,8 @@ const{
     showUsers,
     showDistributors,
     showDistributorsLocations,
-    showRentalClients
+    showRentalClients,
+    showDistributorRentalCars
 } = require('../controller/controller')
 
 // Importing from Booking.js
@@ -73,6 +74,7 @@ router.route('/show-distributors-locations').get(showDistributorsLocations)
     //for  rental client
 router.route('/add-rental-client').post(addNewClientMiddleware,addNewClient)
 router.route('/get-cars-details/:id').get(getCarsDetails)
+router.route('/get-dist-cars').get(showDistributorRentalCars)
 
         //request actions
 router.route('/accept-reject-request/:id').patch(acceptRejectRequest)
@@ -86,7 +88,8 @@ router.route('/admin-info').get(adminInfo)
 router.route('/show-users').get(showUsers)
 router.route('/show-total-rental-clients').get(showRentalClients)
 router.route('/show-distributors').get(showDistributors)
-router.route('/show-all-cars').get(getAllCars)
+// router.route('/show-all-cars').get(getAllCars)
+
 
 // Handling the user request
 router.route('/create-request').post(createRequest)
