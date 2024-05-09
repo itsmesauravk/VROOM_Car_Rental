@@ -63,6 +63,18 @@
     background-color: rgb(214, 214, 68);
     border-radius: 50%;
 }
+.pending-status.accepted{
+    height: 16px;
+        width: 16px;
+        background-color: rgb(69, 228, 170);
+        border-radius: 50%;
+}
+.pending-status.rejected{
+height: 16px;
+    width: 16px;
+    background-color: rgb(220, 71, 71);
+    border-radius: 50%;
+}
 
 .req-num {
     background-color: aliceblue;

@@ -15,6 +15,7 @@ const Requests = () => {
 
   // Function to fetch and display user's request history
   const showRequestedVehicles = async () => {
+
     try {
       const response = await fetch(`http://localhost:4000/show-user-request-status/${userId}`, {
         method: "GET",
@@ -101,7 +102,7 @@ const Requests = () => {
                 </div>
                 {/* Request Status */}
                 <div className='status'>
-                  <div className='pending-status'></div>
+                  <div className={`pending-status ${request.status === "Accepted" ? "accepted" : request.status === "Rejected" ? "rejected" : ""}`}></div>
                   <p>{request.status}</p>
                 </div>
                 <div className="req-vehicle-box">

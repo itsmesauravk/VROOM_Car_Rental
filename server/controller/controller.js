@@ -8,6 +8,10 @@ const Distributor = require('../schema/Distributor');
 const RentalClient = require('../schema/AddCar');
 
 
+//for jwt
+const jwt = require('jsonwebtoken');
+
+
 
 
 // Show all the Users
@@ -25,7 +29,7 @@ const showUsers = async (req, res) => {
 // Show all the Distributors
 const showDistributors = async (req, res) => {
     try {
-      const distributors = await Distributor.find();
+      const distributors = await Distributor.find({});
       res.status(200).json({ success: true, distributors });
     } catch (error) {
       console.error('Error showing distributors:', error);
@@ -44,7 +48,6 @@ const showDistributorsLocations = async(req,res)=>{
         console.error('Error showing distributors:', error);
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
-
 }
 
 const showRentalClients = async (req, res) => {
@@ -58,10 +61,42 @@ const showRentalClients = async (req, res) => {
   }
 
 
+  // getting spectific distributor rental cars
+
+  const showDistributorRentalCars = async (req, res) => {
+    try {
+      // Check if authorization header is present
+      if (!req.headers.authorization) {
+        return res.status(401).json({ success: false, message: 'Authorization header missing' });
+      }
+  
+      const token = req.headers.authorization.split(' ')[1];
+      // Verify and decode the JWT token
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+  
+      // Check if decoded token contains distributorId
+      if (!decodedToken || !decodedToken.id) {
+        return res.status(401).json({ success: false, message: 'Invalid token or distributor ID missing' });
+      }
+  
+      const distributorId = decodedToken.id;
+      // Query the database to find rental clients for the distributor
+      const rentalClients = await RentalClient.find({ distributorId: distributorId });
+  
+      res.status(200).json({ success: true, rentalClients });
+    } catch (error) {
+      console.error('Error showing rental clients:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  };
+
+
+
 
 module.exports = { 
     showUsers,
     showDistributors,
     showDistributorsLocations,
-    showRentalClients
+    showRentalClients,
+    showDistributorRentalCars
   };
