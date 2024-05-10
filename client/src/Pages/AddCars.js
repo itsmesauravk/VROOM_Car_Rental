@@ -16,6 +16,7 @@ const AddCars = () => {
     carNumber: '',
     driverName: '',
     driverPhone: '',
+    price: '',
     documentPhoto: null
   });
 
@@ -55,6 +56,7 @@ const AddCars = () => {
     formDataToSend.append('carNumber', formData.carNumber);
     formDataToSend.append('driverName', formData.driverName);
     formDataToSend.append('driverPhone', formData.driverPhone);
+    formDataToSend.append('price',formData.price);
     formDataToSend.append('documentPhoto', formData.documentPhoto);
     formDataToSend.append('distributorId', id);
 
@@ -78,6 +80,7 @@ const AddCars = () => {
           carNumber: '',
           driverName: '',
           driverPhone: '',
+          price: '',
           documentPhoto: null
         });
       } else {
@@ -127,6 +130,10 @@ const AddCars = () => {
                 <div className="form-group">
                   <label htmlFor='carNumber'>Vehicle Number:</label>
                   <input type='text' id='carNumber' name='carNumber' value={formData.carNumber} onChange={handleChange} required className='input--'/>
+                </div>
+                <div className="form-group">
+                  <label htmlFor='price'> Price:</label>
+                  <input type='number' id='price' name='price' value={formData.price} onChange={handleChange} required className='input--'/>
                 </div>
               </div>
               <h2>Driver details:</h2>
