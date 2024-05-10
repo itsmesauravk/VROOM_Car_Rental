@@ -99,7 +99,7 @@ const UserRequest = () => {
             <p>No request found, please try again !!</p>
           )}
         </div>
-        {selectCar && <SelectCars/>}
+        {selectCar && <SelectCars requestId={userRequest._id} action={"accept"} />}
       </div>
     </div>
   </>
