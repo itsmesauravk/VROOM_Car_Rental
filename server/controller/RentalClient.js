@@ -25,7 +25,7 @@ const addNewClientMiddleware = upload.fields([{ name: 'carPhoto', maxCount: 1 },
 // Adding a new car
 const addNewClient = async (req, res) => {
     try {
-        const { ownerName, ownerPhone, carBrand, carType, carNumber, driverName, driverPhone,distributorId } = req.body;
+        const { ownerName, ownerPhone, carBrand, carType, carNumber, driverName, driverPhone,price,distributorId } = req.body;
         const carPhoto = req.files['carPhoto'][0].path; // Get path of car photo
         const documentPhoto = req.files['documentPhoto'][0].path; // Get path of document photo
     
@@ -38,6 +38,7 @@ const addNewClient = async (req, res) => {
             carNumber,
             driverName,
             driverPhone,
+            price,
             documentPhoto,
             distributorId
         });

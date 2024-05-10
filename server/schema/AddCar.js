@@ -33,6 +33,10 @@ const AddCarSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    price: {
+        type: Number,
+        required: true
+    },
     documentPhoto:{
         type: String,
         require: true
