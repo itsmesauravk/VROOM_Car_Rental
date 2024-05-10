@@ -3,9 +3,10 @@ import "../css/selectcars.css";
 import { SelectCarContext } from './SelectCarContext';
 import { IoMdClose } from "react-icons/io";
 
-const SelectCars = ({ requestId, action }) => {
+const SelectCars = ({requestId, action}) => {
     const { handleSelectCar } = useContext(SelectCarContext);
-    const [carsList, setCarsList] = useState([]);
+    const [carsList, setCarsList] = useState([]); // Initialize with empty array
+    const [selectedCar,setSelectedCar]=useState()
 
     const token = localStorage.getItem('token');
 
