@@ -71,10 +71,9 @@ const showRentalClients = async (req, res) => {
       }
   
       const token = req.headers.authorization.split(' ')[1];
-      // Verify and decode the JWT token
+      
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
   
-      // Check if decoded token contains distributorId
       if (!decodedToken || !decodedToken.id) {
         return res.status(401).json({ success: false, message: 'Invalid token or distributor ID missing' });
       }
