@@ -39,24 +39,7 @@ const UserRequest = () => {
   
   //accept reject request
   const acceptRejectRequest = async (requestId, action) => {
-    handleSelectCar();
-    // try {
-    //   const response = await fetch(`http://localhost:4000/accept-reject-request/${requestId}`, {
-    //     method: 'PATCH',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ action })
-    //   });
-    //   const result = await response.json();
-    //   if (result.success === true) {
-    //     showRequest();
-    //     handleSelectCar();
-        
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    handleSelectCar(props={requestId, action});
   }
 
 
@@ -99,7 +82,7 @@ const UserRequest = () => {
             <p>No request found, please try again !!</p>
           )}
         </div>
-        {selectCar && <SelectCars/>}
+        {selectCar && <SelectCars {}/>}
       </div>
     </div>
   </>

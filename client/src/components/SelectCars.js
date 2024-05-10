@@ -27,6 +27,7 @@ const SelectCars = () => {
     };
 
     const handleCar=(selectedCar)=>{
+        console.log(selectedCar._id)
         console.log(selectedCar.carNumber)
         console.log(selectedCar.carType)
         console.log(selectedCar.driverName)
