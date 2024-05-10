@@ -3,10 +3,11 @@ import "../css/selectcars.css";
 import { SelectCarContext } from './SelectCarContext';
 import { IoMdClose } from "react-icons/io";
 
-const SelectCars = ({requestId, action}) => {
+const SelectCars = (props) => {
     const { handleSelectCar } = useContext(SelectCarContext);
     const [carsList, setCarsList] = useState([]); // Initialize with empty array
-    const [selectedCar,setSelectedCar]=useState()
+    // const [selectedCar,setSelectedCar]=useState()
+
 
     const token = localStorage.getItem('token');
 
@@ -26,11 +27,33 @@ const SelectCars = ({requestId, action}) => {
         }
     };
 
-    const handleCar=(selectedCar)=>{
-        console.log(selectedCar._id)
-        console.log(selectedCar.carNumber)
-        console.log(selectedCar.carType)
-        console.log(selectedCar.driverName)
+    const handleCar=async(selectedCar)=>{
+        console.log("CarId: ",selectedCar._id)
+        console.log("action = accept")
+        console.log("requestId: ",props.requestId)
+        const action = "accept";
+        try {
+            const response = await fetch(`http://localhost:4000/accept-reject-request/${props.requestId}`, {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                {
+                    action,
+                    carId:selectedCar._id
+                 }
+            )
+            });
+            const result = await response.json();
+            if (result.success === true) {
+                alert("Request Accepted")
+            }
+            
+      
+          } catch (error) {
+              console.log("error on rejecting request", error)
+          }
     }
 useEffect(() => {
     getAllDistCars();

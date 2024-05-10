@@ -41,10 +41,14 @@ const AddCarSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Distributor",
         required:true
+    },
+    status:{
+        type:String,
+        default:"Available"
     }
 },
 { timestamps: true }
 );
 
-
-module.exports = mongoose.model('Cars', AddCarSchema);
+const Cars = mongoose.model('Cars', AddCarSchema);
+module.exports = Cars;

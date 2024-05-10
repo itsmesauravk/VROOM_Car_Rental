@@ -1,6 +1,7 @@
 const Request = require('../schema/Requests')
 const User = require('../schema/User')
 const Distributor = require('../schema/Distributor')
+const Cars = require('../schema/AddCar')
 
 const jwt = require('jsonwebtoken')
 
@@ -59,7 +60,7 @@ const showUserRequestStatus = async (req, res) => {
             return res.status(401).json({ success: false, message: 'Id not provided' });
         }
 
-        const requests = await Request.find({ senderUser: userId }).populate('receiverDistributor').populate('senderUser')
+        const requests = await Request.find({ senderUser: userId }).populate('receiverDistributor').populate('senderUser').populate('carId')
         .exec(); //to execute
         if (requests.length === 0) {
             return res.status(404).json({ success: false, message: 'No requests found' });
@@ -122,18 +123,28 @@ const deleteRentRequest = async (req, res) => {
 
 
 
-
-
 const acceptRejectRequest = async (req, res) => {
     try {
         const requestId = req.params.id;
-        const { action } = req.body;
+        const { action, carId } = req.body;
         if (!requestId || !action) {
             return res.status(400).json({ success: false, message: 'Request ID or status not provided' });
         }
 
         if(action === 'accept') {
-            await Request.findByIdAndUpdate(requestId, { status: 'Accepted' });
+            const reqAccept = await Request.findByIdAndUpdate(requestId, { 
+                                status: 'Accepted',
+                                carId: carId
+                            });
+             const updateCarStatus =  await Cars.findByIdAndUpdate(carId, { status: 'Booked' })
+
+            if(!reqAccept) {
+                return res.status(404).json({ success: false, message: 'Request not found' });
+            }
+            if(!updateCarStatus) {
+                return res.status(404).json({ success: false, message: 'Car not found' });
+            }
+
             return res.status(200).json({ success: true, message: 'Request accepted successfully' });
         }
         if(action === 'reject') {

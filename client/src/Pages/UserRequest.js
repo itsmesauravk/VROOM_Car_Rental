@@ -6,11 +6,13 @@ import { useParams } from 'react-router-dom';
 import { SelectCarContext } from '../components/SelectCarContext';
 import SelectCars from '../components/SelectCars';
 
+
 const UserRequest = () => {
   const {handleSelectCar,selectCar}=useContext(SelectCarContext)
   const [userRequest, setUserRequest] = useState([]);
   const { id } = useParams();
   const imageUrl= "https://w0.peakpx.com/wallpaper/123/749/HD-wallpaper-baki-raitai-anime-fight.jpg";
+  const [requestId,setRequestId]=useState()
 
   const showRequest = async () => {
     try {
@@ -39,10 +41,31 @@ const UserRequest = () => {
   
   //accept reject request
   const acceptRejectRequest = async (requestId, action) => {
-    handleSelectCar(props={requestId, action});
+    if(action==="accept"){
+      handleSelectCar({requestId});
+      setRequestId(requestId)
+    }else{
+      try {
+        const response = await fetch(`http://localhost:4000/accept-reject-request/${requestId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ action })
+        });
+        const result = await response.json();
+        if (result.success === true) {
+          showRequest();
+        }
+  
+      } catch (error) {
+          console.log("error on rejecting request", error)
+      }
+    }
+
   }
 
-
+// console.log(userRequest)
 
   return (<>
       <DistNav />
@@ -82,7 +105,7 @@ const UserRequest = () => {
             <p>No request found, please try again !!</p>
           )}
         </div>
-        {selectCar && <SelectCars/>}
+        {selectCar && <SelectCars requestId={requestId}/>}
       </div>
     </div>
   </>

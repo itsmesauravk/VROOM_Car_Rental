@@ -15,6 +15,11 @@ const RequestSchema = new mongoose.Schema({
         type:Object,
         required:true
     },
+    carId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Cars",
+        default:null
+    },
     status:{
         type:String,
         default:"Pending"
