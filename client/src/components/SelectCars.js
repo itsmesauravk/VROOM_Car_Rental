@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 const SelectCars = () => {
     const { handleSelectCar } = useContext(SelectCarContext);
     const [carsList, setCarsList] = useState([]); // Initialize with empty array
+    const [selectedCar,setSelectedCar]=useState()
 
     const token = localStorage.getItem('token');
 
@@ -24,6 +25,12 @@ const SelectCars = () => {
             console.log(error);
         }
     };
+
+    const handleCar=(selectedCar)=>{
+        console.log(selectedCar.carNumber)
+        console.log(selectedCar.carType)
+        console.log(selectedCar.driverName)
+    }
 useEffect(() => {
     getAllDistCars();
 }, []);
@@ -50,7 +57,7 @@ return (
                 </div>
                 {carsList.map((car,index)=>{
                   return(
-                    <div className='actual-details' key={car.carNumber}>
+                    <div className='actual-details' key={car.carNumber} onClick={()=>handleCar(car)}>
                       <p>{index+1}</p>
                       <img src= {`http://localhost:4000/${car.carPhoto}`} alt='car-photo' className="car-detail-photo"></img>
                       <p>{car.carType}</p>
