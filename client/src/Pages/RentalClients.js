@@ -23,6 +23,7 @@ const RentalClients = () => {
       if (data.success) {
         // If successful response, update car data and loading state
         setCars(data.cars);
+        console.log(data.cars)
         setLoading(false);
       }
     } catch (error) {
@@ -59,6 +60,7 @@ const RentalClients = () => {
             // Map through car data and render client details
             cars.map((item, index) => (
               <div key={index} className='client-item'>
+                <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>{item.status}</p>
                 <div className="client-info">
                   {/* Display car image */}
                   <img src={`http://localhost:4000/${item.carPhoto}`} alt='Car' className='car-image'  style={{width:"400px"}}/>

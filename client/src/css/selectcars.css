@@ -71,11 +71,12 @@
     border: 1px solid gray;
     padding: .8rem 1.6rem;
     align-items: center;
-    gap: 9.5rem;
+    justify-content: space-between;
     height: 4rem;
     font-size: 1.2rem;
     cursor: pointer;
-        transition: .5s all;
+    transition: .5s all;
+
 }
 
 .car-detail-photo{

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState,useRef } from 'react';
 import "../css/selectcars.css";
 import { SelectCarContext } from './SelectCarContext';
 import { IoMdClose } from "react-icons/io";
@@ -8,6 +8,22 @@ const SelectCars = (props) => {
     const [carsList, setCarsList] = useState([]); // Initialize with empty array
     // const [selectedCar,setSelectedCar]=useState()
 
+    const selectcarRef =useRef(null)
+
+        useEffect(()=>{
+            const clicker = (e)=>{
+            if(!selectcarRef.current || !selectcarRef.current.contains(e.target)){
+                handleSelectCar();
+            }
+            }
+    
+            document.addEventListener("mousedown",clicker)
+    
+            return()=>{
+                document.removeEventListener("mousedown",clicker)
+            }
+    
+        },[])
 
     const token = localStorage.getItem('token');
 
@@ -27,11 +43,12 @@ const SelectCars = (props) => {
         }
     };
 
+    
     const handleCar=async(selectedCar)=>{
-        console.log("CarId: ",selectedCar._id)
-        console.log("action = accept")
-        console.log("requestId: ",props.requestId)
         const action = "accept";
+        if((selectedCar.status)==="Booked"){
+            alert("This car is already booked");
+        }else{
         try {
             const response = await fetch(`http://localhost:4000/accept-reject-request/${props.requestId}`, {
               method: 'PATCH',
@@ -48,19 +65,21 @@ const SelectCars = (props) => {
             const result = await response.json();
             if (result.success === true) {
                 alert("Request Accepted")
+                handleSelectCar()
             }
             
       
           } catch (error) {
               console.log("error on rejecting request", error)
           }
+        }
     }
 useEffect(() => {
     getAllDistCars();
-}, []);
+},[]);
 
 return (
-    <div className='selectcarsdiv'>
+    <div className='selectcarsdiv' ref={selectcarRef}>
         <div className='available-div'>
             <h1>Available Cars:</h1>
             <button onClick={handleSelectCar} className='select-car-button'>
@@ -78,6 +97,7 @@ return (
                   <h4>Car Type</h4>
                   <h4>Vehicle No.</h4>
                   <h4>Driver Name</h4>
+                  <h4>Status</h4>
                 </div>
                 {carsList.map((car,index)=>{
                   return(
@@ -87,6 +107,7 @@ return (
                       <p>{car.carType}</p>
                       <p>{car.carNumber}</p>
                       <p>{car.driverName}</p>
+                      <p>{car.status}</p>
                     </div>
                   )
                 })}
