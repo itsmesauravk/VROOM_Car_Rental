@@ -66,6 +66,7 @@ const SelectCars = (props) => {
             if (result.success === true) {
                 alert("Request Accepted")
                 handleSelectCar()
+                window.location.reload()
             }
             
       
