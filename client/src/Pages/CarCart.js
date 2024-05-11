@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 import '../css/CarCart.css'; // Assuming you have a CSS file named CarCart.css for styling
+import { useParams } from 'react-router-dom';
 
 const CarCart = () => {
   const Rentaldetails = {
@@ -14,6 +15,38 @@ const CarCart = () => {
     DriverName: "Saurav Vai",
     DriverPhone: "2313522321"
   };
+
+  const [rentaldetails, setRentaldetails] = useState([]); 
+  const {userId} = useParams();
+
+// for fetching the data from the backend about the booked car details
+
+const showRequest = async () => {
+  try {
+    const response = await fetch(`http://localhost:4000/show-user-request-status/${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const result = await response.json();
+    if (result.success === true && result.data.carId !== null) {
+      setRentaldetails(result.data);
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    showRequest();
+  }
+}, []);
+
+console.log(rentaldetails);
 
   return (
     <>
