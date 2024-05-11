@@ -1,45 +1,185 @@
 .CarCart {
     display: flex;
-
-    border: 2px solid #ccc;
     border-radius: 10px;
-    margin-top: 5rem;
+    width: 100vw;
+    position: relative;
+    margin: 6rem 0rem 1rem 0rem;
+    border: 1px solid black;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .owner-vehicle-details {
     padding: 20px;
+    width: 45%;
+    display: flex;
+    margin-left: 2rem;
+    align-items:flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.payment-details{
+    width: 50%;
 }
 
 .owner-details {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+    background-color: rgb(251, 247, 240);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    height: 18rem;
+
+    span{
+        font-weight: 400;
+        letter-spacing: normal;
+        margin-left: .4rem;
+    }
 }
 
 .driver-details {
     display: flex;
-    align-items: center;
-    padding: 20px;
+    width: 100%;
+    height: 20rem;
+    margin-top: 2rem;
+    padding:1rem;
+    border: 2px solid rgb(177, 176, 176);
+    border-radius: 10px;
 }
 
 .vehicle-image {
-    width: 250px;
-    height: 300px;
+    width: 100%;
+    height:500px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
-.detail {
-    margin-top: 10px;
-}
-
-.detail p {
-    margin: 8px 0;
-}
-
 .round-image {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    border-radius: 10px;
+    width: 300px;
+    height: 280px;
     object-fit: cover;
-    margin-right: 20px;
+}
+.driver-image{
+    width: 45%;
+}
+.lineline{
+    border: .8px solid rgb(184, 184, 184);
+    margin: .5rem 0rem;
+    width: 100%;
+}
+.detail{
+    padding: 1rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    border-radius: 15px;
+    background-color: aliceblue;
+    width: 55%;
+    height: 100%;
+
+    h2{
+        text-align: center;
+        border: 1px solid gray;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+    }
+
+    p{
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        margin-top: .8rem;
+    }
+
+    span {
+        letter-spacing: normal;
+        font-weight: 400;
+        margin-left: .4rem;
+    }
+
+    .lineline{
+        margin-top: 1rem;
+    }
+
+}
+ .thank {
+     text-align: center;
+     font-weight: 300;
+     color: gray;
+     letter-spacing: 2px;
+     font-weight: 1.8rem;
+     margin-bottom: -.3rem;
+ }
+
+ .payment-section{
+    position: relative;
+ }
+
+.payment-section h6{
+    color: aliceblue;
+    background-color: var(--primary-color);
+    font-size: 2.5rem;
+    padding: 1.5rem 2.2rem;
+    border-radius: 8px;
+    margin:1rem 0rem;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.total-cost{
+    background-color: rgb(255, 254, 251);
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 2px;
+    border-radius: 10px;
+
+    .lineline{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .lineline2{
+        border: 1.5px solid rgb(93, 92, 92);
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .price{
+        font-style: italic;
+    }
+
+}
+
+.pay-button{
+    padding: 1rem 2.8rem;
+    background-color: var(--primary-color);
+    color: aliceblue;
+    bottom: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 2rem;
+    right: -80%;
+    border: none;
+    transition: all .5s;
+}
+.pay-button:hover{
+    transform: scale(1.05);
+    transition: all .5s;
+    background-color: rgb(82, 208, 215);
+}
+
+.no-car-message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: none;
+
 }

@@ -87,6 +87,7 @@ const RentalClients = () => {
                     </div>
                   </div>
                 </div>
+                <p className="car-status-price">Rs {item.price}/-</p>
               </div>
             ))
           ) : (

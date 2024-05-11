@@ -95,6 +95,7 @@ return (
                   <h4>S.N.</h4>
                   <h4>Car Image</h4>
                   <h4>Car Type</h4>
+                  <h4>Price/day</h4>
                   <h4>Vehicle No.</h4>
                   <h4>Driver Name</h4>
                   <h4>Status</h4>
@@ -105,6 +106,7 @@ return (
                       <p>{index+1}</p>
                       <img src= {`http://localhost:4000/${car.carPhoto}`} alt='car-photo' className="car-detail-photo"></img>
                       <p>{car.carType}</p>
+                      <strong><p>Rs {car.price}/-</p></strong>
                       <p>{car.carNumber}</p>
                       <p>{car.driverName}</p>
                       <p>{car.status}</p>
