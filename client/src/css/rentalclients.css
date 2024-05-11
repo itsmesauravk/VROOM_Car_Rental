@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;align-items: center;
     position: relative;
-    left: 10%;
+    left: 13%;
 }
 .rentalclients{
     margin-left: 3rem;
@@ -95,4 +95,36 @@
     font-size: 1.2rem;
     font-weight: 200;
     letter-spacing: 3px;
+}
+
+.car-status-rental{
+    position: relative;
+    height: 2rem;
+    width: 10%;
+    color: aliceblue;
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 1.2rem 2.4rem;
+    background-color: rgb(79, 79, 190);
+    top: 2%;
+    right: -90%;
+}
+
+.car-status-rental.available{
+    position: relative;
+        height: 2rem;
+        width: 10%;
+        color: aliceblue;
+        display: flex;
+        font-size: 1.2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        padding: 1.2rem 2.4rem;
+        background-color: rgb(190, 79, 170);
+        top: 2%;
+        right: -90%;
 }
