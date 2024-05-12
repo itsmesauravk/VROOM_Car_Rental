@@ -63,8 +63,8 @@
 .round-image {
     border-radius: 10px;
     width: 300px;
-    height: 280px;
-    object-fit: cover;
+    height: 295px;
+    object-fit: contain;
 }
 .driver-image{
     width: 45%;
@@ -165,10 +165,28 @@
     border-radius: 5px;
     position: relative;
     margin-top: 2rem;
-    right: -80%;
     border: none;
     transition: all .5s;
 }
+.pay-button2{
+    padding: 1rem 2.8rem;
+    background-color: rgb(219, 81, 81);
+    color: aliceblue;
+    bottom: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 2rem;
+    border: none;
+    transition: all .5s;
+}
+.pay-button2:hover{
+        transform: scale(1.05);
+            transition: all .5s;
+            background-color: rgb(239, 62, 62);
+}
+
 .pay-button:hover{
     transform: scale(1.05);
     transition: all .5s;

@@ -99,8 +99,8 @@
 }
 
 .car-status-rental{
-    position: relative;
     height: 2rem;
+    position: relative;
     width: 10%;
     color: aliceblue;
     display: flex;
@@ -110,12 +110,11 @@
     border-radius: 3px;
     padding: 1.2rem 2.4rem;
     background-color: rgb(79, 79, 190);
-    right: -90%;
-    top: 2%;
+    right: -80%;
+    top: 10%;
 }
 
 .car-status-rental.available{
-    position: relative;
         height: 2rem;
         width: 10%;
         color: aliceblue;
@@ -126,10 +125,14 @@
         border-radius: 3px;
         padding: 1.2rem 2.4rem;
         background-color: rgb(190, 79, 170);
-        right: -90%;
+        right: -80%;
+        position: relative;
+        top: 10%;
 }
 .car-status-price {
-    position: relative;
+    right: -86%;
+        position: relative;
+        display: inline-block;
     height: 2rem;
     width: 14%;
     color: rgb(223, 243, 249);
@@ -140,5 +143,27 @@
     border-radius: 5px;
     padding: 1.4rem 2rem;
     background-color: rgb(112, 112, 112);
-    right: -86%;
+}
+.car-status-price2 {
+    position: absolute;
+    height: 2rem;
+    width: 10%;
+    color: rgb(223, 243, 249);
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    right: -81%;
+    position: relative;
+    border-radius: 5px;
+    padding: 1.2rem 2rem;
+    background-color: rgb(239, 46, 46);
+    cursor: pointer;
+    transition: .5s all;
+}
+.car-status-price2:hover {
+    transition: .5s all;
+    transform: scale(1.05);
+    background-color: rgb(245, 13, 13);
+    cursor: pointer;
 }

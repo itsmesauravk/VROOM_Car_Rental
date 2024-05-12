@@ -81,18 +81,18 @@ label {
     transform: scale(1.1);
 }
 
-.owner-details,
+.owner-details2,
 .car-details,
-.driver-details {
+.driver-details2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.owner-details .form-group,
+.owner-details2 .form-group,
 .car-details .form-group,
-.driver-details .form-group {
+.driver-details2 .form-group {
     flex: 50%;
     margin-right: -6rem;
 }
