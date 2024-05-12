@@ -89,9 +89,12 @@ export const Dashboard = (props) => {
             <p className='show_distributer'>{distributors.length}</p>
 
           </div>          
-          <div className='TotalCars' onClick={()=>setChange(!change)}>
+          <div className='TotalCars' >
             <h1 className='total_cars'>Total Rental Client</h1>
             <p className='show_cars'>{rentalClients.length}</p>
+            <div>
+              <button className='showMore' onClick={()=>setChange(!change)}>Show More</button>
+            </div>
 
           </div>
           <div className='TotalUsers'>

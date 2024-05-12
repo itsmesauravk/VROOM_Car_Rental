@@ -76,3 +76,17 @@
 a{
     color: black;
 }
+
+.showMore{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.showMore:hover{
+    background-color: var(--primary-color);
+    
+}

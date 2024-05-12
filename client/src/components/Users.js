@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SideNav from './SideNav'
 import "../css/Users.css"
 import { MdDelete } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
+
 
 
 
@@ -88,11 +88,6 @@ export const Users = () => {
             <td  style={{fontWeight: "bold"}}>{values.phone}</td>
             <td style={{fontWeight: "bold"}} >{values.address}</td>
             <div className='editDelete'>
-            <td >
-            <button onClick={()=>editDeleteHandler(values._id, "edit")} className='editButton'>
-                <FaEdit />
-              </button>
-              </td>
               <td>
               <button onClick={()=>editDeleteHandler(values._id, "delete")}  className='deleteButton'>
                 <MdDelete />
