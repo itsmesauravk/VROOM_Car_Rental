@@ -101,7 +101,7 @@ const AddCars = () => {
             <form onSubmit={addCarHandler} encType="multipart/form-data">
               <h2>Owner details:</h2>
               <hr className='owner-line' />
-              <div className="owner-details">
+              <div className="owner-details2">
                 <div className="form-group">
                   <label htmlFor='ownerName'>Name of the owner:</label>
                   <input type='text' id='ownerName' name='ownerName' value={formData.ownerName} onChange={handleChange} required  className='input--'/>
@@ -113,7 +113,7 @@ const AddCars = () => {
               </div>
               <h2>Vehicle details:</h2>
               <hr className='owner-line' />
-              <div className="owner-details"></div>
+              <div className="owner-details2"></div>
               <div className="car-details">
                 <div className="form-group">
                   <label htmlFor='carBrand'>Brand:</label>
@@ -138,8 +138,8 @@ const AddCars = () => {
               </div>
               <h2>Driver details:</h2>
               <hr className='owner-line' />
-              <div className="owner-details"></div>
-              <div className="driver-details">
+              <div className="owner-details2"></div>
+              <div className="driver-details2">
                 <div className="form-group">
                   <label htmlFor='driverName'>Name of Driver:</label>
                   <input type='text' id='driverName' name='driverName' value={formData.driverName} onChange={handleChange} required className='input--'/>
