@@ -39,9 +39,25 @@ const CarCart = () => {
     }
   };
 
-  const handleDetails=(data)=>{
-    console.log(data)
+
+  //for renewing the car status
+  const renewCarStatus = async(carId)=>{
+    try {
+      const response = await fetch("http://localhost:4000/reavilable-rental-cars",{
+        method: "POST",
+        body: JSON.stringify(carId),
+      })
+
+      const data = await response.json()
+      console.log(data)
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
   }
+
+  
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -132,7 +148,7 @@ const CarCart = () => {
                 <p className='thank'>Additional charges may apply !!!</p>
                 <div style={{display:"flex",justifyContent:"space-between"}}>
                 <button className='pay-button2'> Cancel </button>
-                <button className='pay-button' onClick={()=>handleDetails(rentaldetails[0].carId)}> Confirm </button>
+                <button className='pay-button' onClick={()=>renewCarStatus(rentaldetails[0].carId)}> Confirm </button>
                 </div>
               </div>
             </div>
