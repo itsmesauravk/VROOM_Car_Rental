@@ -10,6 +10,7 @@ export const Dashboard = (props) => {
   const [distributors, setDistributors] = useState([]);
   const [rentalClients, setRentalClients] = useState([]);
   const [change, setChange] = useState(false);
+  const [specificDistCars, setSpecificDistCars] = useState([])
 
 
 
@@ -60,10 +61,24 @@ export const Dashboard = (props) => {
   }
 
 
+  //for showing total rental clients accourding to spec distributors
+  const showSpecDistCars = async(req, res)=>{
+    try {
+      const response = await fetch("http://localhost:4000/show-specific-dist-cars")
+      const data = await response.json();
+      console.log(data)
+      // setSpecificDistCars(data)
+      
+    } catch (error) {
+      console.log("error : ", error)
+    }
+  }
+
   useEffect(() => {
     showUsers();
     showDistributors();
     showTotalRentalClients();
+    showSpecDistCars()
 
   },[]);
 
