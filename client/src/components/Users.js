@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 
 
 
-
+//admin user 
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -33,18 +33,21 @@ export const Users = () => {
 
     //for handling edit and delete 
     const editDeleteHandler = async (id, action) => {
+      console.log(id, action);
       try {
         const response = await fetch(`http://localhost:4000/edit-delete-handler/${id}`, {
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json",
+          "Content-Type": "application/json",
           },
-          body: JSON.stringify({ methode: action }),
+          body: JSON.stringify({ method: action }),
         });
         const data = await response.json();
         console.log(data);
-        window.location.reload();
-        // showDistributors();
+        if (data.success) {
+          alert("User Deleted Successfully");
+          window.location.reload();
+        }
       } catch (error) {
         console.log("Distributors error", error);
       }

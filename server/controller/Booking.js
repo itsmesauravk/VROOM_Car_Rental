@@ -158,11 +158,12 @@ const acceptRejectRequest = async (req, res) => {
     }
 }
 
+// rejecting at the final step by the user
 const rejectConfirmRequest = async (req, res) => {
     try {
         const requestId = req.params.id;
         const { action, carId } = req.body;
-        if (!requestId || !action) {
+        if (!requestId || !carId) {
             return res.status(400).json({ success: false, message: 'Request ID or status not provided' });
         }
 
@@ -222,7 +223,8 @@ const showRentalCarsOfDistributor = async(req, res)=>{
 //for re avilabling the rental cars
 const reAvilableCars = async(req, res)=>{
     try {
-        const {carId} = req.body;
+        const carId = req.params.id;
+        
         const car = await Request.findOneAndDelete({carId:carId})
         if(!car){
             return res.status(404).json({ success: false, message: 'Car not found' });

@@ -3,14 +3,12 @@ const Request = require('../schema/Requests'); // Importing schema for requests
 const User = require('../schema/User'); // Importing schema for users
 const Distributor = require('../schema/Distributor'); // Importing schema for distributors
 
-// Handling the edit and delete request
+// Handling the edit and delete for user from admin panel
 const editDelete = async (req, res) => {
     try {
-        // Extracting id from request parameters
         const { id } = req.params;
-        // Extracting method from request body
         const { method } = req.body;
-
+        
         // Checking if id or method is missing
         if (!id || !method) {
             return res.status(400).json({
@@ -23,7 +21,7 @@ const editDelete = async (req, res) => {
             // Attempt to delete user with provided id
             const isUser = await User.findByIdAndDelete(id);
             // Deleting requests associated with sender user
-            const deleteRequestSender = await Request.deleteMany({ senderUser: id });
+            await Request.deleteMany({ senderUser: id });
 
             // If user is not found, attempt to delete distributor
             if (!isUser) {

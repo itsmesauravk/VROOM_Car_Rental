@@ -32,12 +32,16 @@ const RentalClients = () => {
     }
   };
 
+  //for reseting the car status of rental clients
+
   const handleRentals= async(carId)=>{
     console.log(carId)
     try {
-      const response = await fetch("http://localhost:4000/reavilable-rental-cars",{
-        method: "POST",
-        body: JSON.stringify(carId),
+      const response = await fetch(`http://localhost:4000/update-rental-car-status/${carId}`,{
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
 
       const data = await response.json()

@@ -36,7 +36,7 @@ const Distributers = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ action: action }),
+          body: JSON.stringify({ method: action }),
         }
       );
       const data = await response.json();

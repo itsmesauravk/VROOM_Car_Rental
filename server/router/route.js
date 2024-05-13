@@ -83,7 +83,7 @@ router.route('/add-rental-client').post(addNewClientMiddleware,addNewClient)
 router.route('/get-cars-details/:id').get(getCarsDetails)
 router.route('/get-dist-cars').get(showDistributorRentalCars)
    //for re avialabling the cars
-router.route('/reavilable-rental-cars').post(reAvilableCars)
+router.route('/update-rental-car-status/:id').patch(reAvilableCars)
 
         //request actions
 router.route('/accept-reject-request/:id').patch(acceptRejectRequest)
