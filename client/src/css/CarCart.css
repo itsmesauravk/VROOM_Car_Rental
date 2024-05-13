@@ -181,6 +181,19 @@
     border: none;
     transition: all .5s;
 }
+.pay-button3{
+    padding: 1rem 2.8rem;
+    background-color: rgb(99, 70, 202);
+    color: aliceblue;
+    position: relative;
+    right: -80%;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 2rem;
+    border: none;
+    transition: all .5s;
+}
 .pay-button2:hover{
         transform: scale(1.05);
             transition: all .5s;

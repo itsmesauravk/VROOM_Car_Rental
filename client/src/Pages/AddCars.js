@@ -108,7 +108,7 @@ const AddCars = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor='ownerPhone'>Owner Phone:</label>
-                  <input type='text' id='ownerPhone' name='ownerPhone' value={formData.ownerPhone} onChange={handleChange} required className='input--' />
+                  <input type='number' id='ownerPhone' name='ownerPhone' value={formData.ownerPhone} onChange={handleChange} required className='input--' />
                 </div>
               </div>
               <h2>Vehicle details:</h2>
@@ -146,7 +146,7 @@ const AddCars = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor='driverPhone'>Driver Phone:</label>
-                  <input type='text' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required className='input--'/>
+                  <input type='number' id='driverPhone' name='driverPhone' value={formData.driverPhone} onChange={handleChange} required className='input--'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor='documentPhoto'>Driver's license:</label>
