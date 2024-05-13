@@ -136,7 +136,7 @@ const acceptRejectRequest = async (req, res) => {
                                 status: 'Accepted',
                                 carId: carId
                             });
-             const updateCarStatus =  await Cars.findByIdAndUpdate(carId, { status: 'Booked' })
+             const updateCarStatus =  await Cars.findByIdAndUpdate(carId, { status: 'Pending' })
 
             if(!reqAccept) {
                 return res.status(404).json({ success: false, message: 'Request not found' });
@@ -158,6 +158,47 @@ const acceptRejectRequest = async (req, res) => {
     }
 }
 
+const rejectConfirmRequest = async (req, res) => {
+    try {
+        const requestId = req.params.id;
+        const { action, carId } = req.body;
+        if (!requestId || !action) {
+            return res.status(400).json({ success: false, message: 'Request ID or status not provided' });
+        }
+
+    
+        if(action === 'reject') {
+            await Request.findByIdAndUpdate(requestId, { status: 'Rejected' });
+            await Cars.findByIdAndUpdate(carId, { status: 'Available' });
+            return res.status(200).json({ success: true, message: 'Request rejected successfully' });
+        }
+    }
+    catch (error) {
+        console.error('Error accepting/rejecting request:', error);
+        res.status(500).json({ success: false, message: 'Failed to accept/reject request' });
+    }
+}
+
+//last conformation of the request by the user
+const confirmRequestUser = async (req, res) => {
+    try {
+        const carId = req.params.id;
+        // console.log(carId)
+        if (!carId) {
+            return res.status(400).json({ success: false, message: 'Request ID or status not provided' });
+        }
+        const confirm = await Cars.findByIdAndUpdate(carId, { status: 'Booked' });
+        if(!confirm) {
+            return res.status(404).json({ success: false, message: 'Car not found' });
+        }
+        return res.status(200).json({ success: true, message: 'Request confirmed successfully' });
+
+    } catch (error) {
+        console.error('Error accepting/rejecting request:', error);
+        res.status(500).json({ success: false, message: 'Failed to accept/reject request' });
+        
+    }
+}
 
 //for showing the total rental cars as per distributors
 const showRentalCarsOfDistributor = async(req, res)=>{
@@ -211,5 +252,7 @@ module.exports = {
         deleteRentRequest,
         acceptRejectRequest,
         showRentalCarsOfDistributor,
-        reAvilableCars
+        reAvilableCars,
+        confirmRequestUser,
+        rejectConfirmRequest
     }

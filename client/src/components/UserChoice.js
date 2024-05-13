@@ -193,8 +193,8 @@ const showDistributorsLocations = async()=>{
     }
 
     // Check if the user has already made two bookings before their request is approved
-    if(rentedVehicles.length >1){
-      setApp("You can only book twice before your request is approved.")
+    if(rentedVehicles.length >=1){
+      setApp("You can only book once before your request is approved.")
       setTimeout(() => {
         setApp("");
       }, 4000);

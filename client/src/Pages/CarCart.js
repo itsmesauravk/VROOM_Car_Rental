@@ -39,23 +39,57 @@ const CarCart = () => {
     }
   };
 
+  console.log(rentaldetails)
+
 
   //for renewing the car status
-  const renewCarStatus = async(carId)=>{
+  const handleConfirm = async(carId)=>{
+    console.log(carId._id) 
     try {
-      const response = await fetch("http://localhost:4000/reavilable-rental-cars",{
-        method: "POST",
-        body: JSON.stringify(carId),
-      })
+      const response = await fetch(`http://localhost:4000/confirm-request-user/${carId._id}`,{
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const result = await response.json();
+      if (result.success === true) {
+        alert("Car confirmed")
+        window.location.reload()
+      }
 
-      const data = await response.json()
-      console.log(data)
+    } catch (error) {
+      console.log(error)
+
       
+    } 
+  }
+
+  //rejecting the car request 
+  const handleReject = async(requestId,carId)=>{
+    
+    try {
+      const response = await fetch(`http://localhost:4000/reject-confirm-request/${requestId._id}`,{
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          carId:carId._id,
+          action : "reject"
+        })
+      });
+
+      if (response.status === 200) {
+        alert("Car rejected")
+        window.location.reload()
+      }
     } catch (error) {
       console.log(error)
       
     }
   }
+
 
   
 
@@ -147,8 +181,8 @@ const CarCart = () => {
                 <hr className='lineline'></hr>
                 <p className='thank'>Additional charges may apply !!!</p>
                 <div style={{display:"flex",justifyContent:"space-between"}}>
-                <button className='pay-button2'> Cancel </button>
-                <button className='pay-button' onClick={()=>renewCarStatus(rentaldetails[0].carId)}> Confirm </button>
+                <button className='pay-button2' onClick={()=> handleReject(rentaldetails[0],rentaldetails[0].carId)}> Cancel </button>
+                <button className='pay-button' onClick={()=>handleConfirm(rentaldetails[0].carId)}> Confirm </button>
                 </div>
               </div>
             </div>

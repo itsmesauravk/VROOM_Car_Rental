@@ -32,8 +32,21 @@ const RentalClients = () => {
     }
   };
 
-  const handleRentals=(data)=>{
-    console.log(data)
+  const handleRentals= async(carId)=>{
+    console.log(carId)
+    try {
+      const response = await fetch("http://localhost:4000/reavilable-rental-cars",{
+        method: "POST",
+        body: JSON.stringify(carId),
+      })
+
+      const data = await response.json()
+      console.log(data)
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
   }
   // useEffect hook to fetch car data when component mounts
   useEffect(() => {

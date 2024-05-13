@@ -35,7 +35,9 @@ const {
     deleteRentRequest,
     acceptRejectRequest,
     showRentalCarsOfDistributor,
-    reAvilableCars
+    reAvilableCars,
+    confirmRequestUser,
+    rejectConfirmRequest
 } = require('../controller/Booking')
 
 // Importing from RentalClient
@@ -62,6 +64,9 @@ router.route('/reset-password').post(newPassword)
 //user routes
 router.route('/user-info').get(userInfo)
 
+    //confirming the request
+    router.route('/confirm-request-user/:id').patch(confirmRequestUser)
+
 //updating user profile
 router.route('/update-user-info').patch(userProfileMiddleware,updateUserProfile)
 
@@ -82,6 +87,8 @@ router.route('/reavilable-rental-cars').post(reAvilableCars)
 
         //request actions
 router.route('/accept-reject-request/:id').patch(acceptRejectRequest)
+router.route('/reject-confirm-request/:id').patch(rejectConfirmRequest)
+
 
 
 //admin routes
