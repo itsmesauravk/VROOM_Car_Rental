@@ -23,7 +23,6 @@ const RentalClients = () => {
       if (data.success) {
         // If successful response, update car data and loading state
         setCars(data.cars);
-        console.log(data.cars)
         setLoading(false);
       }
     } catch (error) {
@@ -33,6 +32,9 @@ const RentalClients = () => {
     }
   };
 
+  const handleRentals=(data)=>{
+    console.log(data)
+  }
   // useEffect hook to fetch car data when component mounts
   useEffect(() => {
     fetchCars();
@@ -60,7 +62,10 @@ const RentalClients = () => {
             // Map through car data and render client details
             cars.map((item, index) => (
               <div key={index} className='client-item'>
-                <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>{item.status}</p>
+                <div style={{display:"flex"}}>
+                  <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>{item.status}</p>
+                  <p className="car-status-price2" onClick={()=>handleRentals(item._id)}>Reset</p>
+                </div>
                 <div className="client-info">
                   {/* Display car image */}
                   <img src={`http://localhost:4000/${item.carPhoto}`} alt='Car' className='car-image'  style={{width:"400px"}}/>
@@ -87,7 +92,7 @@ const RentalClients = () => {
                     </div>
                   </div>
                 </div>
-                <p className="car-status-price">Rs {item.price}/-</p>
+                  <p className="car-status-price">Rs {item.price}/-</p>
               </div>
             ))
           ) : (

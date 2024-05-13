@@ -13,6 +13,8 @@ const CarCart = () => {
 
   const { userId } = useParams();
 
+  
+
   const showRequest = async () => {
     try {
       const response = await fetch(`http://localhost:4000/show-user-request-status/${userId}`, {
@@ -36,6 +38,10 @@ const CarCart = () => {
       console.log(error);
     }
   };
+
+  const handleDetails=(data)=>{
+    console.log(data)
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -79,7 +85,7 @@ const CarCart = () => {
           <section className='payment-details'>
             <div className="driver-details">
               <div className="driver-image">
-                <img src="https://images.unsplash.com/photo-1593035013811-2db9b3c36980?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRyaXZlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Driver" className="round-image" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt="Driver" className="round-image" />
               </div>
               <div className="detail">
                 <h2>Driver Details</h2>
@@ -124,7 +130,10 @@ const CarCart = () => {
                 </div>
                 <hr className='lineline'></hr>
                 <p className='thank'>Additional charges may apply !!!</p>
-                <button className='pay-button'> Pay Now </button>
+                <div style={{display:"flex",justifyContent:"space-between"}}>
+                <button className='pay-button2'> Cancel </button>
+                <button className='pay-button' onClick={()=>handleDetails(rentaldetails[0].carId)}> Confirm </button>
+                </div>
               </div>
             </div>
           </section>

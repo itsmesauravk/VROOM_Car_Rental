@@ -80,7 +80,7 @@ const SideNav = () => {
               })}
             </ul>
           </div>
-          <button onClick={logoutHandler} className="logout">
+          <button onClick={logoutHandler} className="logout1">
             <IoMdExit className="nav-icon"/>
               Logout
           </button>
