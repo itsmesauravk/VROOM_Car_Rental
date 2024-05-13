@@ -159,6 +159,45 @@ const acceptRejectRequest = async (req, res) => {
 }
 
 
+//for showing the total rental cars as per distributors
+const showRentalCarsOfDistributor = async(req, res)=>{
+    try {
+        const distributors = await Distributor.find({});
+        if(distributors.length === 0){
+            return res.status(404).json({ success: false, message: 'No distributors found' });
+        }
+        const distributorsLocations = distributors.map(distributor => distributor.distributionLocation);
+        const cars = await Cars.find({ distributorId: { $in: distributorsLocations } });
+        if(cars.length === 0){
+            return res.status(404).json({ success: false, message: 'No cars found' });
+        }
+        res.status(200).json({ success: true, data: cars });
+    } catch (error) {
+        console.error('Error getting cars:', error);
+        res.status(500).json({ success: false, message: 'Failed to get cars' });      
+    }
+}
+
+// //for re avilabling the rental cars
+// const reAvilableCars = async(req, res)=>{
+//     try {
+//         const {carId} = req.body;
+//         const car = await Request.findOneAndDelete({carId:carId})
+//         if(!car){
+//             return res.status(404).json({ success: false, message: 'Car not found' });
+//         }
+//         const updateCarStatus =  await Cars.findByIdAndUpdate(carId, { status: 'Available' })
+//         if(!updateCarStatus) {
+//             return res.status(404).json({ success: false, message: 'Car not found' });
+//         }
+//         res.status(200).json({ success: true, message: 'Car is now available' });
+//     } catch (error) {
+//         console.error('Error making car available:', error);
+//         res.status(500).json({ success: false, message: 'Failed to make car available' });     
+//     }
+// }
+
+
 
 
 
