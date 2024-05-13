@@ -10,6 +10,7 @@ const CarCart = () => {
   const [serviceCharge,setServiceCharge]=useState(5000);
   const [bookingDays, setBookingDays] = useState(0);
   const [total,setTotal]=useState(0);
+  const [isBooked,setIsBooked]=useState(false)
 
   const { userId } = useParams();
 
@@ -39,7 +40,6 @@ const CarCart = () => {
     }
   };
 
-  console.log(rentaldetails)
 
 
   //for renewing the car status
@@ -56,6 +56,8 @@ const CarCart = () => {
       if (result.success === true) {
         alert("Car confirmed")
         window.location.reload()
+        setIsBooked(true)
+        localStorage.setItem("isBooked","true")
       }
 
     } catch (error) {
@@ -91,7 +93,12 @@ const CarCart = () => {
   }
 
 
-  
+  useEffect(()=>{
+    const bookedStatus=localStorage.getItem("isBooked")
+    if(bookedStatus==="true"){
+      setIsBooked(true)
+    }
+  })
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -180,10 +187,14 @@ const CarCart = () => {
                 </div>
                 <hr className='lineline'></hr>
                 <p className='thank'>Additional charges may apply !!!</p>
-                <div style={{display:"flex",justifyContent:"space-between"}}>
+                {isBooked && <div>
+                    <button className='pay-button3'> Booked </button>
+                  </div>}
+                  {!isBooked && <div style={{display:"flex",justifyContent:"space-between"}}>
                 <button className='pay-button2' onClick={()=> handleReject(rentaldetails[0],rentaldetails[0].carId)}> Cancel </button>
                 <button className='pay-button' onClick={()=>handleConfirm(rentaldetails[0].carId)}> Confirm </button>
-                </div>
+                </div>}
+                
               </div>
             </div>
           </section>
