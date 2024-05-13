@@ -207,5 +207,6 @@ module.exports = {
         showUserRequestStatus,
         deleteRentRequest,
         acceptRejectRequest,
-        showRentalCarsOfDistributor
+        showRentalCarsOfDistributor,
+        reAvilableCars
     }

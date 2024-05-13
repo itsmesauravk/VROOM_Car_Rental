@@ -34,7 +34,8 @@ const {
     showUserRequestStatus,
     deleteRentRequest,
     acceptRejectRequest,
-    showRentalCarsOfDistributor
+    showRentalCarsOfDistributor,
+    reAvilableCars
 } = require('../controller/Booking')
 
 // Importing from RentalClient
@@ -76,6 +77,8 @@ router.route('/show-distributors-locations').get(showDistributorsLocations)
 router.route('/add-rental-client').post(addNewClientMiddleware,addNewClient)
 router.route('/get-cars-details/:id').get(getCarsDetails)
 router.route('/get-dist-cars').get(showDistributorRentalCars)
+   //for re avialabling the cars
+router.route('/reavilable-rental-cars').post(reAvilableCars)
 
         //request actions
 router.route('/accept-reject-request/:id').patch(acceptRejectRequest)
@@ -90,7 +93,7 @@ router.route('/show-users').get(showUsers)
 router.route('/show-total-rental-clients').get(showRentalClients)
 router.route('/show-distributors').get(showDistributors)
 // router.route('/show-all-cars').get(getAllCars)
-router.route('/show-specific-dist-cars').get(showDistributorRentalCars)
+router.route('/show-specific-dist-cars').get(showRentalCarsOfDistributor)
 
 
 // Handling the user request
