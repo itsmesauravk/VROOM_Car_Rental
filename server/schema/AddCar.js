@@ -48,7 +48,8 @@ const AddCarSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        default:"Available"
+        default:"Available",
+        enum:["Available","Pending","Booked"]
     }
 },
 { timestamps: true }
