@@ -33,7 +33,8 @@ const {
     showRequest,
     showUserRequestStatus,
     deleteRentRequest,
-    acceptRejectRequest
+    acceptRejectRequest,
+    showRentalCarsOfDistributor
 } = require('../controller/Booking')
 
 // Importing from RentalClient
@@ -89,6 +90,7 @@ router.route('/show-users').get(showUsers)
 router.route('/show-total-rental-clients').get(showRentalClients)
 router.route('/show-distributors').get(showDistributors)
 // router.route('/show-all-cars').get(getAllCars)
+router.route('/show-specific-dist-cars').get(showDistributorRentalCars)
 
 
 // Handling the user request
