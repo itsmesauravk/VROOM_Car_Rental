@@ -34,7 +34,7 @@ const {
     showUserRequestStatus,
     deleteRentRequest,
     acceptRejectRequest,
-    showRentalCarsOfDistributor,
+    
     reAvilableCars,
     confirmRequestUser,
     rejectConfirmRequest
@@ -100,7 +100,7 @@ router.route('/show-users').get(showUsers)
 router.route('/show-total-rental-clients').get(showRentalClients)
 router.route('/show-distributors').get(showDistributors)
 // router.route('/show-all-cars').get(getAllCars)
-router.route('/show-specific-dist-cars').get(showRentalCarsOfDistributor)
+
 
 
 // Handling the user request

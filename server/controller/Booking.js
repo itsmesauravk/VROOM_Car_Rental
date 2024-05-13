@@ -201,30 +201,18 @@ const confirmRequestUser = async (req, res) => {
     }
 }
 
-//for showing the total rental cars as per distributors
-const showRentalCarsOfDistributor = async(req, res)=>{
-    try {
-        const distributors = await Distributor.find({});
-        if(distributors.length === 0){
-            return res.status(404).json({ success: false, message: 'No distributors found' });
-        }
-        const distributorsLocations = distributors.map(distributor => distributor.distributionLocation);
-        const cars = await Cars.find({ distributorId: { $in: distributorsLocations } });
-        if(cars.length === 0){
-            return res.status(404).json({ success: false, message: 'No cars found' });
-        }
-        res.status(200).json({ success: true, data: cars });
-    } catch (error) {
-        console.error('Error getting cars:', error);
-        res.status(500).json({ success: false, message: 'Failed to get cars' });      
-    }
-}
+
 
 //for re avilabling the rental cars
 const reAvilableCars = async(req, res)=>{
     try {
         const carId = req.params.id;
         
+        const checkCarStatus = await Cars.findById(carId)
+        if(checkCarStatus.status === 'Available'){
+            return res.status(400).json({ success: false, message: 'Car is already available' });
+        }
+
         const car = await Request.findOneAndDelete({carId:carId})
         if(!car){
             return res.status(404).json({ success: false, message: 'Car not found' });
@@ -253,7 +241,6 @@ module.exports = {
         showUserRequestStatus,
         deleteRentRequest,
         acceptRejectRequest,
-        showRentalCarsOfDistributor,
         reAvilableCars,
         confirmRequestUser,
         rejectConfirmRequest
