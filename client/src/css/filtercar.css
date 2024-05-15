@@ -1,6 +1,9 @@
+*{
+    scroll-behavior: smooth;
+}
 .two-dropdowns {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
     margin-left: 1.5rem;
     margin-top: .5rem;
@@ -10,6 +13,8 @@
     margin-top: 1.4rem;
     margin-left: 6rem;
     margin-right: 3rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .calendar p {
@@ -85,7 +90,7 @@
 }
 
 .dropdown-menu {
-    position: relative;
+    position: absolute;
     left: 14rem;
     padding: .1rem 0rem;
     width: 50%;
@@ -93,6 +98,7 @@
     border-radius: 20px;
     z-index: 1;
     opacity: 0;
+
     visibility: hidden;
     transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
 }
@@ -207,3 +213,242 @@
     opacity: 1;
     background-color: rgb(221, 131, 131);
 }
+
+
+@media screen and (max-width:1300px) {
+    .filter-car {
+        margin:0.5rem 0rem 0rem 1rem;
+        display: flex;
+        margin-top: -4rem;
+        z-index: 10000;
+        position: absolute;
+        width: 98%;
+        height: 5rem;
+    }
+    .rent-button{
+       
+        position: absolute;
+        top: 30rem;
+        left: 35rem;
+        cursor: pointer;
+        font-family: sedan;
+        transition: 1s all;
+    }
+    
+}
+
+
+
+
+@media screen and (max-width:1285px) {
+    .calendar{
+        margin-left: 2rem;
+        margin-right: 2.5rem;
+        margin-top: 2rem;
+    }
+    .filter-car{
+        height: 6.5rem;
+    }
+
+    .selection{
+     flex-direction: column;
+    }
+    .dropdown-menu {
+        left: 6rem;
+        width: 60%;
+
+    }
+    .main-calendar{
+        margin-top: 1.7rem;
+    }
+    .mappinline2 {
+       
+        margin-left: .3rem;
+        margin-top: 2rem;
+        background-color: var(--primary-color);
+        padding: .4rem;
+        border-radius: 4px;
+    }
+    
+}
+@media screen and (max-width:1055px) {
+    .rent-button{
+        position: absolute;
+        top: 35rem;
+        left: 26rem;
+        cursor: pointer;
+        font-family: sedan;
+        transition: 1s all;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .calendar{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .days{
+        font-size: 10px;
+    }
+    .main-calendar{
+        margin-top: 5rem;
+    }
+    .two-dropdowns{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .rent-button{
+        position: absolute;
+        top: 39rem;
+        left: 26rem;
+        cursor: pointer;
+        font-family: sedan;
+        transition: 1s all;
+    }
+    .filter-car{
+        height: 14rem;
+    }
+    .dropdown-menu {
+        left: 7rem;
+        width: 30%;
+
+    }
+    
+  }
+  
+
+
+  @media screen and (max-width: 900px) {
+    
+    .rent-button{
+        top: 39rem;
+        left: 23rem;
+    }
+    .vehicle{
+        left: 15rem;
+    }
+
+  }
+
+  
+
+
+  @media screen and (max-width:1090px) {
+   
+        .rent-button{
+            top: 40rem;
+            left: 27rem;
+           
+        }
+    
+      
+  }
+  
+
+  @media screen and (max-width:990px) {
+   
+    .rent-button{
+        top: 40rem;
+        left: 24rem;
+       
+    }
+
+  
+}
+
+@media screen and (max-width:775px) {
+   
+    .rent-button{
+        top: 40rem;
+        left: 20rem;
+       
+    }
+
+  
+}
+
+@media screen and (max-width:655px) {
+   
+    .rent-button{
+        top: 40rem;
+        left: 18rem;
+       
+    }
+
+  
+}
+  
+  
+  
+@media screen and (max-width: 580px) {
+    
+    .rent-button{
+        position: absolute;
+        top: 45rem;
+        left: 15rem;
+        cursor: pointer;
+        font-family: sedan;
+        transition: 1s all;
+    }
+    .filter-car{
+        height: 20rem;
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        left: 12rem;
+        width: 40%;
+
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .rent-button{
+        position: absolute;
+        top: 45rem;
+        left: 15rem;
+        cursor: pointer;
+        font-family: sedan;
+        transition: 1s all;
+    }
+    .filter-car{
+        height: 20rem;
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        left: 12rem;
+        width: 40%;
+
+    }
+  }
+  @media screen and (max-width: 580px) {
+    
+    .rent-button{
+        
+        top: 40rem;
+        left: 13rem;
+    }
+   
+  }
+
+  @media screen and (max-width: 465px) {
+    
+    .rent-button{
+        
+        top: 40rem;
+        left: 11rem;
+       
+    }
+   
+  }
+
+
+
+  
+  
+  
+
+
+
