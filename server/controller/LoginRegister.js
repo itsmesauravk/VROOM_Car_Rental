@@ -370,11 +370,17 @@ const registerDistributor = async (req, res) => {
   }
 }
 
+
+// const token = req.headers.authorization.split(' ')[1];
+// const userPhoto = req.file.path;
+
+
+
 // Function to update user profile
 const updateUserProfile = async (req, res) => {
   try {
     // Extract token from request headers
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization.split(' ')[1];  //added split to get token
     // Decode the token to get user ID
     const tokenDecoded = await jwt.verify(token, process.env.JWT_SECRET);
     // Find user by ID in the database
@@ -386,7 +392,8 @@ const updateUserProfile = async (req, res) => {
     // Extract updated user information from request body
     const { fullname, email, phone, address, newPassword } = req.body;
     // Extract user photo path from request file
-    const userPhoto = req.file.path;
+
+    const userPhoto = req.file.path; //updated path for adding photo
     // Hash the new password for security
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(newPassword, salt);

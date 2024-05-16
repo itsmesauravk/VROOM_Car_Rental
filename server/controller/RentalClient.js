@@ -82,9 +82,29 @@ const getAllCars = async (req, res) => {
   }
 };
 
+
+
+//deleting rental clients
+const deleteRentalClient = async (req, res) => {
+  try {
+    const rentalCarId = req.params.id;
+    console.log(rentalCarId)
+    await Request.deleteMany({carId:rentalCarId});
+    const deleteCar = await Cars.findByIdAndDelete({_id:rentalCarId});
+    if(!deleteCar){
+      return res.status(404).json({ success: false, message: 'Car not found' });
+    }
+    res.status(200).json({ success: true, message: 'Client deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+}
+
+
 module.exports = {
     addNewClient,
     addNewClientMiddleware,
     getCarsDetails ,
-    getAllCars
+    getAllCars,
+    deleteRentalClient
 };
