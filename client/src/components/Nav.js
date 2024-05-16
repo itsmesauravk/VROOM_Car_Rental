@@ -1,55 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu } from "../Datas"; // Importing Menu from Datas
 import "../css/nav.css";
 import { HiBars3 } from "react-icons/hi2";
 import { ImCross } from "react-icons/im";
 
 const Nav = () => {
-
   const [openClose, setOpenClose] = useState(true);
-
-  // Get the current location using useLocation hook from react-router-dom
   const location = useLocation();
-
   const navigate = useNavigate();
-
-  const [isLogin , setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    if(localStorage.getItem("token")){
+    if (localStorage.getItem("token")) {
       setIsLogin(true);
     }
   }, []);
 
-
-  // Get the token from localStorage
   const token = localStorage.getItem("token");
-
-  // State to store user info
   const [userInfo, setUserInfo] = useState({});
 
-  // Function to handle user logout
   const handleLogout = () => {
-    // Remove token from localStorage
-
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     setIsLogin(false);
     setUserInfo({});
-    // Navigate to home page or another appropriate page instead of reloading the window
     navigate('/');
-
-    localStorage.removeItem("token");
-    // Reload the window to clear user session
     window.location.reload();
-    // Alternative method to navigate to home page (if useNavigate hook is imported)
-    // navigate('/');
   };
 
-  // Function to fetch user data
   const userData = async () => {
     try {
-      // Fetch user info from the backend API
       const response = await fetch("http://localhost:4000/user-info", {
         method: "GET",
         headers: {
@@ -57,9 +37,7 @@ const Nav = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      // Parse response data
       const data = await response.json();
-      // If request is successful, update userInfo state with user data
       if (data.success === true) {
         setUserInfo(data.user);
       }
@@ -68,85 +46,84 @@ const Nav = () => {
     }
   };
 
-  // Fetch user data when component mounts
   useEffect(() => {
     if (token) {
       userData();
     }
   }, [token]);
 
-  
+  const openSideBar = () => {
+    setOpenClose(!openClose);
+  };
 
-  const openSideBar = ()=>{
-    setOpenClose(!openClose)
-  }
-
-  const showSideBar = ()=>{
-    return(
-      <>
-      <div className="navigationLinks" style={{display:openClose ? "none": "block"}}>
-      <button className="closeSideBar" onClick={openSideBar} style={{display: openClose ? "none" : "block"}}  >
+  const showSideBar = () => {
+    return (
+      <div className="navigationLinks" style={{ display: openClose ? "none" : "block" }}>
+        <button className="closeSideBar" onClick={openSideBar} style={{ display: openClose ? "none" : "block" }}>
           <ImCross />
         </button>
-      <ul className="menuNav">
-            <div className="navUserDetail">
-              <img
-                style={{ width: "50px", height: "50px" }}
-                src={`http://localhost:4000/${userInfo.photo}`}
-                alt="user profile"
-                className="navImage"
-              />
-              {userInfo && (
-                <h4 style={{ marginRight: "2rem" }} className="nav--user">
-                  {userInfo.fullname}
-                </h4>
-              )}
-            </div>
-
-            {Menu.map((item, index) => (
-              <li
-                key={index}
-                className={location.pathname === item.url ? "active" : ""}
-              >
-                <Link to={item.url} className={item.cName}>
-                  {item.icon}
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>navigationLinks
-
-      <Link to={`/Requests/${userInfo._id}`}>
-            <h1 className="navButton">Request</h1>
-          </Link>
-          <Link to={`/CarCart/${userInfo._id}`}>
-            <h1 className="navButton">Car-Cart</h1>
-          </Link>
-          <Link to={`/Settings/${userInfo._id}`}>
-            <h1 className="navButton">Settings</h1>
-          </Link>
-
-      </div>
-      </>
-    )
-  }
-
-
-  
-  return (
-    <div className='nav'>
-      <nav className="navbaritem">
-        <div className='logo-side'>
-          <h2 className='navlogo'>Vroom</h2>
-        </div>
-        {/* Navigation menu */}
-        <ul className='navmenu'>
-          {/* Display user's full name */}
-          <div className="nav-user-detail">
-            <img style={{width:"50px", height:"50px"}} src={`http://localhost:4000/${userInfo.photo}`} alt="user profile" className='nav-image'/>
-            {userInfo && <h4 style={{marginRight:"2rem"}} className='nav--user'>{userInfo.fullname}</h4>}
+        <ul className="menuNav">
+          <div className="navUserDetail">
+            <img
+              style={{ width: "50px", height: "50px" }}
+              src={`http://localhost:4000/${userInfo.photo}`}
+              alt="user profile"
+              className="navImage"
+            />
+            {userInfo && (
+              <h4 style={{ marginRight: "2rem" }} className="nav--user">
+                {userInfo.fullname}
+              </h4>
+            )}
           </div>
-          {/* Map through Menu items to generate navigation links */}
+          {Menu.map((item, index) => (
+            <li
+              key={index}
+              className={location.pathname === item.url ? "active" : ""}
+            >
+              <Link to={item.url} className={item.cName}>
+                {item.icon}
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link to={`/Requests/${userInfo._id}`}>
+          <h1 className="navButton">Request</h1>
+        </Link>
+        <Link to={`/CarCart/${userInfo._id}`}>
+          <h1 className="navButton">Car-Cart</h1>
+        </Link>
+        <Link to={`/Settings/${userInfo._id}`}>
+          <h1 className="navButton">Settings</h1>
+        </Link>
+      </div>
+    );
+  };
+
+  return (
+    <div className="nav">
+      <button className="showSideBar" onClick={openSideBar}>
+        <HiBars3 />
+      </button>
+      <nav className="navbaritem">
+        <div className="logo-side">
+          <h2 className="navlogo">Vroom</h2>
+        </div>
+        <ul className="navmenu">
+          <div className="nav-user-detail">
+            <img
+              style={{ width: "50px", height: "50px" }}
+              src={`http://localhost:4000/${userInfo.photo}`}
+              alt="user profile"
+              className="nav-image"
+            />
+            {userInfo && (
+              <h4 style={{ marginRight: "2rem" }} className="nav--user">
+                {userInfo.fullname}
+              </h4>
+            )}
+          </div>
           {Menu.map((item, index) => (
             <li key={index} className={location.pathname === item.url ? "active" : ""}>
               <Link to={item.url} className={item.cName}>
@@ -156,100 +133,29 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-        
-        {/* Link to user's requests page */}
         <Link to={`/Requests/${userInfo._id}`}>
-          <h1 className='nav--button'>Request</h1>
+          <h1 className="nav--button">Request</h1>
         </Link>
         <Link to={`/CarCart/${userInfo._id}`}>
-          <h1 className='nav--button'>Car-Cart</h1>
+          <h1 className="nav--button">Car-Cart</h1>
         </Link>
         {isLogin && (
           <Link to={`/Settings/${userInfo._id}`}>
-            <h1 className='nav--button'>Settings</h1>
-          </Link>
-        )}
-
-        {/* Conditional rendering based on user authentication */}
-        {isLogin ? (
-          <>
-            {/* Display logout button if user is logged in */}
-=======
-    <>
-    
-      <div className="nav">
-      <button className="showSideBar" onClick={openSideBar} >
-          <HiBars3 />
-      </button>
-        <nav className="navbaritem">
-          <div className="logo-side">
-            <h2 className="navlogo">Vroom</h2>
-          </div>
-          {/* Navigation menu */}
-          <ul className="navmenu">
-            {/* Map through Menu items to generate navigation links */}
-
-            {/* Display user's full name */}
-            <div className="nav-user-detail">
-              <img
-                style={{ width: "50px", height: "50px" }}
-                src={`http://localhost:4000/${userInfo.photo}`}
-                alt="user profile"
-                className="nav-image"
-              />
-              {userInfo && (
-                <h4 style={{ marginRight: "2rem" }} className="nav--user">
-                  {userInfo.fullname}
-                </h4>
-              )}
-            </div>
-
-            {Menu.map((item, index) => (
-              <li
-                key={index}
-                className={location.pathname === item.url ? "active" : ""}
-              >
-                <Link to={item.url} className={item.cName}>
-                  {item.icon}
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Link to user's requests page */}
-          <Link to={`/Requests/${userInfo._id}`}>
-            <h1 className="nav--button">Request</h1>
-          </Link>
-          <Link to={`/CarCart/${userInfo._id}`}>
-            <h1 className="nav--button">Car-Cart</h1>
-          </Link>
-          <Link to={`/Settings/${userInfo._id}`}>
             <h1 className="nav--button">Settings</h1>
           </Link>
-
-          {/* Conditional rendering based on user authentication */}
-          {token ? (
-            <>
-              {/* Display logout button if user is logged in */}
-              <div>
-                <button className="nav--button" onClick={handleLogout}>
-                  Logout
-                </button>
-              </div>
-            </>
-          ) : (
-            // Display login button if user is not logged in
-            <div>
-              <Link to={"/login"} className="nav-login">
-                <button className="nav--button">Login</button>
-              </Link>
-            </div>
-          )}
-        </nav>
-        {showSideBar()}
-      </div>
-    </>
+        )}
+        {isLogin ? (
+          <button className="nav--button" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <Link to={"/login"} className="nav-login">
+            <button className="nav--button">Login</button>
+          </Link>
+        )}
+      </nav>
+      {showSideBar()}
+    </div>
   );
 };
 
