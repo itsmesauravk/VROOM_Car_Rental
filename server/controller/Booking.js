@@ -186,13 +186,13 @@ const confirmRequestUser = async (req, res) => {
         const carId = req.params.id;
         // console.log(carId)
         if (!carId) {
-            return res.status(400).json({ success: false, message: 'Request ID or status not provided' });
+            return res.status(400).json({ success: false, message  : 'Request ID or status not provided' });
         }
         const confirm = await Cars.findByIdAndUpdate(carId, { status: 'Booked' });
         if(!confirm) {
             return res.status(404).json({ success: false, message: 'Car not found' });
         }
-        return res.status(200).json({ success: true, message: 'Request confirmed successfully' });
+        return res.status(200).json({ success: true, message: 'Request confirmed successfully' , confirm});
 
     } catch (error) {
         console.error('Error accepting/rejecting request:', error);

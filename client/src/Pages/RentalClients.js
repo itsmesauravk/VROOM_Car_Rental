@@ -79,10 +79,22 @@ const RentalClients = () => {
             // Map through car data and render client details
             cars.map((item, index) => (
               <div key={index} className='client-item'>
+                {item.status==="Available"? (<>
                 <div style={{display:"flex"}}>
+                <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>Available</p>
+                <p className="car-status-price3">Delete</p>
+                </div>
+                </>
+                ):(
+                  <>
+                   <div style={{display:"flex"}}>
+                   <p className="car-status-price3">Delete</p>
                   <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>{item.status}</p>
                   <p className="car-status-price2" onClick={()=>handleRentals(item._id)}>Reset</p>
                 </div>
+                  </>
+                )}
+               
                 <div className="client-info">
                   {/* Display car image */}
                   <img src={`http://localhost:4000/${item.carPhoto}`} alt='Car' className='car-image'  style={{width:"400px"}}/>

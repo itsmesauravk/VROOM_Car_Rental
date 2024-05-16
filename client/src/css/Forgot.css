@@ -1,14 +1,30 @@
-.forgot{
+/* .passPage{
+    background-image: url("https://cdn.pixabay.com/photo/2016/02/13/13/11/oldtimer-1197800_1280.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+} */
+
+.forgotImage{
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+.forgot{    
     border: 1px solid black;
     padding: 20px 30px;
     width: 25%;
     position: absolute;
     left: 38%;
-    top: 5%;
+    top: 20%;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background-color: white;
 }
 .forgot input{
     padding: 5px 10px;
