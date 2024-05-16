@@ -57,7 +57,6 @@ const CarCart = () => {
         alert("Car confirmed")
         window.location.reload()
         setIsBooked(true)
-        localStorage.setItem("isBooked","true")
       }
 
     } catch (error) {
@@ -93,12 +92,6 @@ const CarCart = () => {
   }
 
 
-  useEffect(()=>{
-    const bookedStatus=localStorage.getItem("isBooked")
-    if(bookedStatus==="true"){
-      setIsBooked(true)
-    }
-  })
 
   useEffect(() => {
     const token = localStorage.getItem('token');
