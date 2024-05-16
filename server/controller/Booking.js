@@ -169,8 +169,8 @@ const rejectConfirmRequest = async (req, res) => {
 
     
         if(action === 'reject') {
-            await Request.findByIdAndUpdate(requestId, { status: 'Rejected' });
-            await Cars.findByIdAndUpdate(carId, { status: 'Available' });
+            await Request.findByIdAndUpdate(requestId, { status: 'Rejected' }); 
+            await Cars.findByIdAndUpdate(carId, { status: 'Available' });       
             return res.status(200).json({ success: true, message: 'Request rejected successfully' });
         }
     }
@@ -207,16 +207,17 @@ const confirmRequestUser = async (req, res) => {
 const reAvilableCars = async(req, res)=>{
     try {
         const carId = req.params.id;
-        
+        console.log(carId)
         const checkCarStatus = await Cars.findById(carId)
+        console.log(checkCarStatus)
         if(checkCarStatus.status === 'Available'){
             return res.status(400).json({ success: false, message: 'Car is already available' });
         }
 
-        const car = await Request.findOneAndDelete({carId:carId})
-        if(!car){
-            return res.status(404).json({ success: false, message: 'Car not found' });
-        }
+        await Request.findOneAndDelete({carId:carId})
+        // if(!car){
+        //     return res.status(404).json({ success: false, message: 'Car not found' });
+        // }
         const updateCarStatus =  await Cars.findByIdAndUpdate(carId, { status: 'Available' })
         if(!updateCarStatus) {
             return res.status(404).json({ success: false, message: 'Car not found' });
@@ -227,6 +228,8 @@ const reAvilableCars = async(req, res)=>{
         res.status(500).json({ success: false, message: 'Failed to make car available' });     
     }
 }
+
+
 
 
 

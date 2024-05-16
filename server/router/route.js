@@ -45,7 +45,8 @@ const {
     addNewClient,
     addNewClientMiddleware,
     getCarsDetails,
-    getAllCars
+    getAllCars,
+    deleteRentalClient,
 } = require('../controller/RentalClient')
 
 
@@ -85,6 +86,9 @@ router.route('/get-dist-cars').get(showDistributorRentalCars)
    //for re avialabling the cars
 router.route('/update-rental-car-status/:id').patch(reAvilableCars)
 
+    //deleting rental clients
+router.route('/delete-rental-client/:id').delete(deleteRentalClient)
+
         //request actions
 router.route('/accept-reject-request/:id').patch(acceptRejectRequest)
 router.route('/reject-confirm-request/:id').patch(rejectConfirmRequest)
@@ -111,6 +115,65 @@ router.route('/delete-rent-request/:id').delete(deleteRentRequest)
 
 //edit delete handler
 router.route('/edit-delete-handler/:id').delete(editDelete)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
