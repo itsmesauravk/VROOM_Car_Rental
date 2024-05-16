@@ -157,7 +157,7 @@ const CarCart = () => {
               <div className='total-cost'>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <p>Booked for: [{rentaldetails[0].bookingDetails.startDate}] - [{rentaldetails[0].bookingDetails.endDate}]</p>
-                  <p className='price'>{bookingDays} days</p>
+                  <p className='price'>{bookingDays} dayscd</p>
                 </div>
                 <hr className='lineline'></hr>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
