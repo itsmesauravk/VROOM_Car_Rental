@@ -3,3 +3,30 @@
     object-fit: cover;
     width: 100vw;
 }
+
+@media screen and (max-width:475px) {
+    .video{
+        width: 171vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+}
+
+
+@media screen and (max-width:660px) {
+    .video{
+        width: 105vw;
+        height: 50vh;
+        object-fit: cover;
+    }
+}
+
+
+@media screen and (max-width:570px) {
+    .video{
+        width: 106vw;
+        height: 50vh;
+        object-fit: cover;
+    }
+}
+
