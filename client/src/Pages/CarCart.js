@@ -27,6 +27,7 @@ const CarCart = () => {
       const result = await response.json();
       if (result.success === true && result.data && result.data.length > 0 && result.data[0].carId) {
         setRentaldetails(result.data);
+        console.log(result.data)
         setPriceperDay(parseInt(result.data[0].carId.price));
 
         const startDate = new Date(result.data[0].bookingDetails.startDate);
@@ -55,9 +56,9 @@ const CarCart = () => {
       const result = await response.json();
       if (result.success === true) {
         alert("Car confirmed")
-        window.location.reload()
-        setIsBooked(true)
-        localStorage.setItem("isBooked","true")
+        if(result.confirm.status==="Booked"){
+          setIsBooked(true)
+        }
       }
 
     } catch (error) {
@@ -92,13 +93,6 @@ const CarCart = () => {
     }
   }
 
-
-  useEffect(()=>{
-    const bookedStatus=localStorage.getItem("isBooked")
-    if(bookedStatus==="true"){
-      setIsBooked(true)
-    }
-  })
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -162,8 +156,8 @@ const CarCart = () => {
               <h6>Payment details</h6>
               <div className='total-cost'>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                  <p>Booked for:</p>
-                  <p className='price'>{bookingDays}</p>
+                  <p>Booked for: [{rentaldetails[0].bookingDetails.startDate}] - [{rentaldetails[0].bookingDetails.endDate}]</p>
+                  <p className='price'>{bookingDays} days</p>
                 </div>
                 <hr className='lineline'></hr>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
@@ -173,7 +167,7 @@ const CarCart = () => {
                 <hr className='lineline'></hr>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <p>Driver charge:</p>
-                  <p className='price'>{bookingDays} x {driverCharge}</p>
+                  <p className='price'>{bookingDays} x {driverCharge} per day</p>
                 </div>
                 <hr className='lineline'></hr>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>

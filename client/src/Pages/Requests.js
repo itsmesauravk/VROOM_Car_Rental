@@ -46,6 +46,7 @@ const Requests = () => {
       if (data.success) {
         // Filter out the deleted request from userRequestStatus
         setUserRequestStatus(prevRequests => prevRequests.filter(request => request._id !== requestId));
+        localStorage.removeItem("alreadyBooked")
         setCancelmsg("Your reservation has been cancelled.");
         setTimeout(() => {
           setCancelmsg("");
