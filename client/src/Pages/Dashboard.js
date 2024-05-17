@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../css/Dashboard.css"
 import SideNav from '../components/SideNav'
-import DistributerCard from '../components/DistributerCard';
+
 
 
 //Admin dashboard
@@ -9,7 +9,6 @@ export const Dashboard = (props) => {
   const [users, setUsers] = useState([]);
   const [distributors, setDistributors] = useState([]);
   const [rentalClients, setRentalClients] = useState([]);
-  const [change, setChange] = useState(false);
   const [specificDistCars, setSpecificDistCars] = useState([])
 
 
@@ -89,7 +88,7 @@ export const Dashboard = (props) => {
 
   return (
     <>
-    {change ? <DistributerCard changes={change}  /> : <div className='dashboardPage'>
+    <div className='dashboardPage'>
       <SideNav />
       <div className='dashboard'>
         <h1>Dashboard</h1>
@@ -108,7 +107,7 @@ export const Dashboard = (props) => {
             <h1 className='total_cars'>Total Rental Client</h1>
             <p className='show_cars'>{rentalClients.length}</p>
             <div>
-              <button className='showMore' onClick={()=>setChange(!change)}>Show More</button>
+              <button className='showMore'>Show More</button>
             </div>
 
           </div>
@@ -121,8 +120,6 @@ export const Dashboard = (props) => {
       </div>
       
     </div>
-    }
-    
     </>
   )
 }
