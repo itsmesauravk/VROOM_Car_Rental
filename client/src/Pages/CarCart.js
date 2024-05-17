@@ -56,15 +56,7 @@ const CarCart = () => {
       const result = await response.json();
       if (result.success === true) {
         alert("Car confirmed")
-<<<<<<< HEAD
-        window.location.reload()
-        setIsBooked(true)
-=======
-        if(result.confirm.status==="Booked"){
-          setIsBooked(true)
-        }
->>>>>>> 7a9bb06cc3ae11f01e4a35e7879c9f679921ca0d
-      }
+       }
 
     } catch (error) {
       console.log(error)
@@ -97,13 +89,7 @@ const CarCart = () => {
       
     }
   }
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 7a9bb06cc3ae11f01e4a35e7879c9f679921ca0d
-  useEffect(() => {
+ useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       showRequest();

@@ -154,7 +154,7 @@ const Nav = () => {
           </Link>
         )}
       </nav>
-      {showSideBar()}
+      {/* {showSideBar()} */}
     </div>
   );
 };
