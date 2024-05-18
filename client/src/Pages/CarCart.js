@@ -10,7 +10,6 @@ const CarCart = () => {
   const [serviceCharge,setServiceCharge]=useState(5000);
   const [bookingDays, setBookingDays] = useState(0);
   const [total,setTotal]=useState(0);
-  const [isBooked,setIsBooked]=useState(false)
 
   const { userId } = useParams();
 
@@ -130,8 +129,19 @@ const CarCart = () => {
         {rentaldetails.length > 0 && rentaldetails[0].carId && (
           <section className='payment-details'>
             <div className="driver-details">
-              <div className="driver-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt="Driver" className="round-image" />
+              <div className="detail">
+                <h2>Distributor: {rentaldetails[0].receiverDistributor.distributionLocation}</h2>
+                <hr className='lineline'></hr>
+                {rentaldetails.length > 0 && rentaldetails[0].carId && (
+                  <>
+                    <p>Name :<span>{rentaldetails[0].receiverDistributor.fullname}</span></p>
+                    <hr className='lineline'></hr>
+                    <p>Email :<span>{rentaldetails[0].receiverDistributor.email}</span></p>
+                    <hr className='lineline'></hr>
+                    <p>Phone :<span>{rentaldetails[0].receiverDistributor.phone}</span></p>
+                  </>
+                )}
+                <hr className='lineline'></hr>
               </div>
               <div className="detail">
                 <h2>Driver Details</h2>
@@ -146,6 +156,7 @@ const CarCart = () => {
                 <hr className='lineline'></hr>
                 <p className='thank'>Experienced Driver !!!</p>
               </div>
+              
             </div>
             <div className='payment-section'>
               <h6>Payment details</h6>
@@ -176,14 +187,13 @@ const CarCart = () => {
                 </div>
                 <hr className='lineline'></hr>
                 <p className='thank'>Additional charges may apply !!!</p>
-                {isBooked && <div>
+                {rentaldetails[0].status === "Accepted" ? (<div>
                     <button className='pay-button3'> Booked </button>
-                  </div>}
-                  {!isBooked && <div style={{display:"flex",justifyContent:"space-between"}}>
+                  </div>) :
+                  (<div style={{display:"flex",justifyContent:"space-between"}}>
                 <button className='pay-button2' onClick={()=> handleReject(rentaldetails[0],rentaldetails[0].carId)}> Cancel </button>
                 <button className='pay-button' onClick={()=>handleConfirm(rentaldetails[0].carId)}> Confirm </button>
-                </div>}
-                
+                </div>)}                
               </div>
             </div>
           </section>
