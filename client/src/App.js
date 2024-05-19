@@ -19,7 +19,7 @@ import DistProfile from "./Pages/DistProfile";
 import AddCars from "./Pages/AddCars";
 import Settings from "./Pages/Settings"
 import CarCart from "./Pages/CarCart";
-
+import About from "./Pages/About"
 
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
         <Route  path="/user_requests/:id" element={<UserRequest/>}  />
         <Route path="/add_car/:id" element={<AddCars/>} />
         <Route  path="/addDistributers" element={<DistributerForm />}  />
+        <Route  path="/about" element={<About />}  />
 
 
         <Route path="/add-admin-dashboard" element={<AddAdmin/>} />

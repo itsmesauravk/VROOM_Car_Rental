@@ -97,6 +97,9 @@ const Nav = () => {
         <Link to={`/Settings/${userInfo._id}`}>
           <h1 className="navButton">Settings</h1>
         </Link>
+        <Link to="/about">
+          <h1 className="navButton">About</h1>
+        </Link>
       </div>
     );
   };
@@ -138,6 +141,9 @@ const Nav = () => {
         </Link>
         <Link to={`/CarCart/${userInfo._id}`}>
           <h1 className="nav--button">Car-Cart</h1>
+        </Link>
+         <Link to="/about">
+          <h1 className="nav--button">About</h1>
         </Link>
         {isLogin && (
           <Link to={`/Settings/${userInfo._id}`}>

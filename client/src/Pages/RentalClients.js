@@ -106,16 +106,24 @@ const RentalClients = () => {
               <div key={index} className='client-item'>
                 {item.status==="Available"? (<>
                 <div style={{display:"flex"}}>
+                <p className="car-status-price3" onClick={()=>handleDelete(item._id)} >Delete</p>
                 <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>Available</p>
-                <p className="car-status-price3" onClick={()=>handleDelete(item._id)}>Delete</p>
                 </div>
                 </>
                 ):(
                   <>
                    <div style={{display:"flex"}}>
-                   <p className="car-status-price3">Delete</p>
+                    {item.status==="Booked"?(<>
+                      <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>{item.status}</p>
+                  <p className="car-status-price2" onClick={()=>handleRentals(item._id)}>Reset</p>
+                    </>):(
+                      <>
+                          <p className="car-status-price3">Delete</p>
                   <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>{item.status}</p>
                   <p className="car-status-price2" onClick={()=>handleRentals(item._id)}>Reset</p>
+                        </>
+                    )}
+                   
                 </div>
                   </>
                 )}

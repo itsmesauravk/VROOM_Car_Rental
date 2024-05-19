@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100vw;
     left: 18%;
+    width: 70vw;
 }
 .rentalclients{
     margin-left: 3rem;
@@ -38,7 +38,7 @@
 .clientdiv{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
 }
 .client-info{
     display: flex;
@@ -125,7 +125,7 @@
         border-radius: 3px;
         padding: 1.2rem 2.4rem;
         background-color: rgb(190, 79, 170);
-        right: -90%;
+        right: -69%;
         position: relative;
         top: 10%;
 }
@@ -171,6 +171,7 @@
     align-items: center;
     justify-content: center;
     right: -68%;
+    margin-bottom: .2rem;
     position: relative;
     border-radius: 5px;
     padding: 1.2rem 2rem;

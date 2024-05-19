@@ -164,13 +164,6 @@ const FilterCar = () => {
       }, 4000);
       return;
     }
-    if (localStorage.getItem("alreadyBooked") === "true") {
-      setApp('You can only book once before your request is approved.');
-      setTimeout(() => {
-        setApp("");
-      }, 4000);
-      return;
-    }
     if (rentedVehicles.length >= 1) {
       setApp("You can only book once before your request is approved.");
       setTimeout(() => {
@@ -187,7 +180,6 @@ const FilterCar = () => {
       });
     }
     sendBookingRequest();
-    localStorage.setItem("alreadyBooked", "true");
     setApp(true);
     setTimeout(() => {
       setApp("");
