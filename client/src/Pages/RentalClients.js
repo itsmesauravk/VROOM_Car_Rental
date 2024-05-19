@@ -45,6 +45,10 @@ const RentalClients = () => {
       })
 
       const data = await response.json()
+      if(data.success){
+        alert("Reset Successfully")
+        fetchCars()
+      }
       console.log(data)
       
     } catch (error) {
@@ -52,6 +56,27 @@ const RentalClients = () => {
       
     }
   }
+
+  const handleDelete= async(carId)=>{
+    console.log(carId)
+    try {
+      const response = await fetch(`http://localhost:4000/delete-rental-client/${carId}`,{
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if(response.status === 200){
+        alert("Deleted Successfully")
+        fetchCars()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
   // useEffect hook to fetch car data when component mounts
   useEffect(() => {
     fetchCars();
@@ -82,7 +107,7 @@ const RentalClients = () => {
                 {item.status==="Available"? (<>
                 <div style={{display:"flex"}}>
                 <p className={item.status==="Booked"?"car-status-rental":"car-status-rental available"}>Available</p>
-                <p className="car-status-price3">Delete</p>
+                <p className="car-status-price3" onClick={()=>handleDelete(item._id)}>Delete</p>
                 </div>
                 </>
                 ):(

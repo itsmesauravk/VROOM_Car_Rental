@@ -89,8 +89,11 @@ const deleteRentalClient = async (req, res) => {
   try {
     const rentalCarId = req.params.id;
     console.log(rentalCarId)
-    await Request.deleteMany({carId:rentalCarId});
+
+   
+
     const deleteCar = await Cars.findByIdAndDelete({_id:rentalCarId});
+    console.log("delete",deleteCar)
     if(!deleteCar){
       return res.status(404).json({ success: false, message: 'Car not found' });
     }
