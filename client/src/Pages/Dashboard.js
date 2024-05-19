@@ -106,10 +106,6 @@ export const Dashboard = (props) => {
           <div className='TotalCars' >
             <h1 className='total_cars'>Total Rental Client</h1>
             <p className='show_cars'>{rentalClients.length}</p>
-            <div>
-              <button className='showMore'>Show More</button>
-            </div>
-
           </div>
           <div className='TotalUsers'>
             <h1 className='total_user'>Total ---</h1>
