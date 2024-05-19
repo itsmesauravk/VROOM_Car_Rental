@@ -55,6 +55,7 @@ const CarCart = () => {
       const result = await response.json();
       if (result.success === true) {
         alert("Car confirmed")
+        window.location.reload()  
        }
 
     } catch (error) {
@@ -187,13 +188,15 @@ const CarCart = () => {
                 </div>
                 <hr className='lineline'></hr>
                 <p className='thank'>Additional charges may apply !!!</p>
-                {rentaldetails[0].status === "Accepted" ? (<div>
-                    <button className='pay-button3'> Booked </button>
-                  </div>) :
-                  (<div style={{display:"flex",justifyContent:"space-between"}}>
+                {rentaldetails[0].carId.status === "Pending" ? (<div style={{display:"flex",justifyContent:"space-between"}}>
                 <button className='pay-button2' onClick={()=> handleReject(rentaldetails[0],rentaldetails[0].carId)}> Cancel </button>
                 <button className='pay-button' onClick={()=>handleConfirm(rentaldetails[0].carId)}> Confirm </button>
-                </div>)}                
+                </div>) :
+                  (
+              <div>
+                    <button className='pay-button3'> Booked </button>
+                  </div>
+              )}                
               </div>
             </div>
           </section>
