@@ -17,6 +17,10 @@ function Signup() {
     const submitData = async (e) => {
       e.preventDefault();
 
+      if(userNumber<0){
+        alert("Phone number cannot be negative")
+        return
+      }
   
       const formData = {
         fullname: userName,
